@@ -97,6 +97,12 @@ void WINDOW::SetBackgroundColour(float r, float g, float b)
 	glClearColor(r, g, b, 1.0f);
 }
 
+//This function flips our frame buffers
+void WINDOW::UpdateScreen()
+{
+	SDL_GL_SwapBuffers();
+}
+
 //This function attempts to initialise SDL Video
 void WINDOW::InitSDL()
 {

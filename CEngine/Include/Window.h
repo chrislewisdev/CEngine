@@ -37,6 +37,8 @@ namespace CEngine
 		void Close();
 		//This function sets our background colour using RGB values
 		void SetBackgroundColour(float r, float g, float b);
+		//This function flips our frame buffers
+		void UpdateScreen();
 
 	private:
 		//Declare private functions

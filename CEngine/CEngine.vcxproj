@@ -65,10 +65,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Include\Graphics.h" />
+    <ClInclude Include="Include\Window.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Graphics.cpp" />
+    <ClCompile Include="Source\Window.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="EngineFeatures.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,13 +1,13 @@
 /**************************************************
 *CEngine
-*Graphics.h by Chris Lewis
-*Declaration for Graphics class
+*Window.h by Chris Lewis
+*Declaration for Window class
 *Handles window creation and OpenGL setup
 **************************************************/
 
 //Include guard
-#ifndef CENGINE_GRAPHICS_H
-#define CENGINE_GRAPHICS_H
+#ifndef CENGINE_WINDOW_H
+#define CENGINE_WINDOW_H
 
 //Include any necessary headers
 #include <stdexcept>

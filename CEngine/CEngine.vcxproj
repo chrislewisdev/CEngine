@@ -65,6 +65,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Include\Point2D.h" />
     <ClInclude Include="Include\Window.h" />
   </ItemGroup>
   <ItemGroup>

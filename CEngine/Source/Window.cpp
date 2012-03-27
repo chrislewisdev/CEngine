@@ -1,7 +1,7 @@
 /**************************************************
 *CEngine
-*Graphics.cpp by Chris Lewis
-*Implements Graphics class
+*Window.cpp by Chris Lewis
+*Implements Window class
 **************************************************/
 
 //Include necessary headers

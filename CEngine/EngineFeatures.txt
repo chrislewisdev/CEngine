@@ -13,9 +13,61 @@
 	- State class
 		- Base class for states to inherit off to define their own State functionality
 		- Consists of functions like Enter, Update, Exit
+	- Game State class
+		- Both a State Machine and a State
+		- State specifically designed for interacting with storage classes e.g. level objects, maps etc.
 	- Consider: how does a class contained in a State (e.g. a Menu Button in the Menu State) communicate a state change up the chain?
 - Input
 	- Input class
 		- Tracks input automatically through each loop
 		- Interface like GetKey('a') and any other relevant input
-- Object
+- Utility classes
+	- Point2D struct/class (basic position data with suitable constructors and Size2D alias)
+	- Box2D struct/class (position/size data combined)
+	- Vector class
+	- Ray class
+		- Used closely with vectors
+- GameObject class
+	- Used as base class for all objects used in-game
+	- Has virtuals like Update(), Draw() functions
+	- Is ready to integrate with Lua scripts, providing members as appropriate
+	- Consider: Inherits off of Box2D class to get its position/size nature?
+	- Consider: How do child classes interface with Lua to provide their own members?
+	- Consider: Do GameObjects have their own StateMachine?
+- Object storage
+	- Level class (Consider better name)
+		- Storage class for all game objects
+		- Intermediary class for map loading, holding map data as appropriate
+		- Also storage for things relating directly to maps / that need access to object data
+			- E.g. BSP-Tree class
+			- Map data for pathfinding
+- Collision Systems
+	- Facilities for Raycasting and colliding with all types of objects (primarily squares)
+	- BSP-Tree class
+		- Performs faster searches with various conditions, e.g. one-only collisions or find-all collisions
+		- Supports large square collisions (circle collisions??), raycasting
+- Game Resources
+	- Resource Handler class
+		- Stores all resources used in the game
+		- Game Objects query for required resources e.g. textures, sounds, etc.
+		- Note: use std::map for storage? (key-value pairing for quick searches)
+	- Resource class
+		- Used as base class for all resources in the game
+		- Has a virtual Load() function (or just constructor??) that will perform loading specific to the type of resource, given a filename
+		- E.g. a Texture child class would load the requested texture, and so on for Sound or Scripts etc
+- Lua scripting
+	- GameObject class provides ready interface to its own members
+	- Should be possible to have script objects (probably a resource??) that can be triggered as desired in-game
+	- Must provide suitable access to game settings and in-game objects as desired (like in my Lua test)
+	- Consider: 'Scene' scripting, e.g. making in-game objects carry out a cinematic scene with timed/sequential events etc.
+- Graphics
+	- Consider: Sprite support
+		- Sprites essentially textures, but must be possible to map sections of a sprite sheet to an object
+		- Sprite animations should also be supported
+			- Consider: method for specifying frames, playing sprite animations etc?
+- Pathfinding
+	- Provide a pathfinder system that returns a path to Game Objects on request
+	- Consider: Waypoints system? Obviously objects must support sets of waypoints to follow for using paths
+	- Consider: Specifying custom rules for navigation over map terrains, e.g. a top-view terrain traversal vs. side-view where jumping
+		must be taken into account
+		- This may fit best with the potential map data stored in the Level storage class

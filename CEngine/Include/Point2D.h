@@ -13,11 +13,14 @@
 namespace CEngine
 {
 	//Declare all functions inlined since this is a pretty basic struct
+	/// \brief Structure for containing basic on-screen co-ordinate data.
+	///
+	/// Provides simple, public x/y storage along with corresponding Constructors and operator definitions.
 	struct POINT2D
 	{
-		//Default constructor
+		//! Default Constructor. Initialises both x/y to 0.
 		POINT2D() : x(0), y(0){}
-		//Constructor to initialise both values
+		//! Constructor to initialise x/y to the corresponding parameters.
 		POINT2D(float X, float Y) : x(X), y(Y){}
 
 		//Declare co-ordinate properties
@@ -31,6 +34,8 @@ namespace CEngine
 	};
 
 	//Declare a size alias for points
+	/// \class CEngine::SIZE2D
+	///	\brief Alias for POINT2D to be used for size values (e.g implying width/height instead of position).
 	typedef POINT2D SIZE2D;
 }
 

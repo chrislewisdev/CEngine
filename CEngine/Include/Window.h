@@ -15,11 +15,17 @@
 //Declare our class in the CEngine namespace
 namespace CEngine
 {
+	/// \brief Class for creating and managing an OpenGL Window.
+	///
+	/// The Window class is responsible for creating and destroying and OpenGL window with SDL.
+	/// It is also responsible for initialising SDL (at the start of a program) and can be used to update the screen background colour.
 	class WINDOW
 	{
 	public:
 		//Declare exception classes
-		//Exception for initialisation errors e.g. MakeWindow and InitSDL
+		/// \brief Exception class for Window Initialisation exceptions
+		///
+		/// This exception class inherits off std::exception and provides the according "what" constructor for error summaries.
 		class InitException : public std::exception
 		{ 
 		public:
@@ -27,17 +33,27 @@ namespace CEngine
 		};
 
 		//Constructor and Destructor
+		//! Default Constructor. Initialises internal variables
 		WINDOW();
+		//! Destructor. Closes the window if it's still open.
 		~WINDOW();
 
 		//Declare public functions
-		//This function creates a window using SDL with the specified title, width and height
+		/// \brief Creates the OpenGL window.
+		///
+		/// \param title A const char* string for your title window caption.
+		/// \param width The width in pixels.
+		/// \param height The height in pixels.
 		void Open(const char *title, int width, int height);
-		//This function will close our created window
+		//! Closes this OpenGL window.
 		void Close();
-		//This function sets our background colour using RGB values
+		/// \brief Sets the background colour using RGB values.
+		///
+		/// \param r The red value, between 0 and 1.
+		/// \param g The green value, between 0 and 1.
+		/// \param b The blue value, between 0 and 1.
 		void SetBackgroundColour(float r, float g, float b);
-		//This function flips our frame buffers
+		//! Flips our two frame buffers to update the screen to the newly drawn frame.
 		void UpdateScreen();
 
 	private:

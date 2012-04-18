@@ -67,6 +67,11 @@ namespace CEngine
 		//Width/height storage
 		int width, height;
 	};
+
+	/// \example Examples/ExampleWindow.cpp
+	/// An example of how to use the basic Window class on its own.
+	/// Note that although Windows can be used just like this it is generally not necessary as they are created automatically
+	/// as part of the ProgramControl class.
 }
 
 #endif

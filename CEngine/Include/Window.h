@@ -6,8 +6,8 @@
 **************************************************/
 
 //Include guard
-#ifndef CENGINE_WINDOW_H
-#define CENGINE_WINDOW_H
+#ifndef CENGINE_Window_H
+#define CENGINE_Window_H
 
 //Include any necessary headers
 #include <stdexcept>
@@ -19,7 +19,7 @@ namespace CEngine
 	///
 	/// The Window class is responsible for creating and destroying and OpenGL window with SDL.
 	/// It is also responsible for initialising SDL (at the start of a program) and can be used to update the screen background colour.
-	class WINDOW
+	class Window
 	{
 	public:
 		//Declare exception classes
@@ -34,9 +34,9 @@ namespace CEngine
 
 		//Constructor and Destructor
 		//! Default Constructor. Initialises internal variables
-		WINDOW();
+		Window();
 		//! Destructor. Closes the window if it's still open.
-		~WINDOW();
+		~Window();
 
 		//Declare public functions
 		/// \brief Creates the OpenGL window.

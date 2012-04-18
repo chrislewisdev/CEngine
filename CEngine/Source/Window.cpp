@@ -16,21 +16,21 @@
 using namespace CEngine;
 
 //Define our Constructor
-WINDOW::WINDOW()
+Window::Window()
 	: width(0), height(0), initialised(false), isOpen(false)
 {
 
 }
 
 //Define our Destructor
-WINDOW::~WINDOW()
+Window::~Window()
 {
 	//Close our window in case it it's still open
 	Close();
 }
 
 //This function creates a new SDL window with the specified title, width and height
-void WINDOW::Open(const char *title, int width, int height)
+void Window::Open(const char *title, int width, int height)
 {
 	//If our window is already open, exit
 	if (isOpen) return;
@@ -83,7 +83,7 @@ void WINDOW::Open(const char *title, int width, int height)
 }
 
 //This function will close our owned window
-void WINDOW::Close()
+void Window::Close()
 {
 	if (!isOpen) return;
 	SDL_Quit();
@@ -92,19 +92,19 @@ void WINDOW::Close()
 }
 
 //This function sets our background colour using RGB values
-void WINDOW::SetBackgroundColour(float r, float g, float b)
+void Window::SetBackgroundColour(float r, float g, float b)
 {
 	glClearColor(r, g, b, 1.0f);
 }
 
 //This function flips our frame buffers
-void WINDOW::UpdateScreen()
+void Window::UpdateScreen()
 {
 	SDL_GL_SwapBuffers();
 }
 
 //This function attempts to initialise SDL Video
-void WINDOW::InitSDL()
+void Window::InitSDL()
 {
 	if (SDL_Init(SDL_INIT_VIDEO) == -1)
 	{

@@ -65,10 +65,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Include\Box2D.h" />
     <ClInclude Include="Include\Point2D.h" />
     <ClInclude Include="Include\Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Box2D.cpp" />
     <ClCompile Include="Source\Examples\ExampleWindow.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>

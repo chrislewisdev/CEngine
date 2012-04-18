@@ -24,6 +24,9 @@
     <ClInclude Include="Include\Point2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Include\Box2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Window.cpp">
@@ -31,6 +34,9 @@
     </ClCompile>
     <ClCompile Include="Source\Examples\ExampleWindow.cpp">
       <Filter>Source Files\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Box2D.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

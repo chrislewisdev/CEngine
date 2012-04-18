@@ -6,8 +6,8 @@
 **********************************************/
 
 //Include guard
-#ifndef CENGINE_POINT2D_H
-#define CENGINE_POINT2D_H
+#ifndef CENGINE_Point2D_H
+#define CENGINE_Point2D_H
 
 //Declare struct in the CEngine namespace
 namespace CEngine
@@ -16,27 +16,35 @@ namespace CEngine
 	/// \brief Structure for containing basic on-screen co-ordinate data.
 	///
 	/// Provides simple, public x/y storage along with corresponding Constructors and operator definitions.
-	struct POINT2D
+	struct Point2D
 	{
 		//! Default Constructor. Initialises both x/y to 0.
-		POINT2D() : x(0), y(0){}
+		Point2D() : x(0), y(0){}
 		//! Constructor to initialise x/y to the corresponding parameters.
-		POINT2D(float X, float Y) : x(X), y(Y){}
+		Point2D(float X, float Y) : x(X), y(Y){}
+
+		//Declare public functions
+		/// \brief Returns a Point2D object containing only the X value of this
+		/// \return A Point2D object with values (x, 0)
+		Point2D XComponent() const {return Point2D(x, 0);}
+		/// \brief Returns a Point2D object containing only the Y value of this
+		/// \return A Point2D object with values (0, y)
+		Point2D YComponent() const {return Point2D(0, y);}
 
 		//Declare co-ordinate properties
 		float x, y;
 
 		//Declare operators
-		friend POINT2D operator +(POINT2D& lhs, POINT2D& rhs)
-			{return POINT2D(lhs.x + rhs.x, lhs.y + rhs.y);}
-		friend POINT2D operator -(POINT2D& lhs, POINT2D& rhs)
-			{return POINT2D(lhs.x - rhs.x, lhs.y - rhs.y);}
+		friend Point2D operator +(const Point2D& lhs, const Point2D& rhs)
+			{return Point2D(lhs.x + rhs.x, lhs.y + rhs.y);}
+		friend Point2D operator -(const Point2D& lhs, const Point2D& rhs)
+			{return Point2D(lhs.x - rhs.x, lhs.y - rhs.y);}
 	};
 
 	//Declare a size alias for points
-	/// \class CEngine::SIZE2D
-	///	\brief Alias for POINT2D to be used for size values (e.g implying width/height instead of position).
-	typedef POINT2D SIZE2D;
+	/// \class CEngine::Size2D
+	///	\brief Alias for Point2D to be used for size values (e.g implying width/height instead of position).
+	typedef Point2D Size2D;
 }
 
 #endif

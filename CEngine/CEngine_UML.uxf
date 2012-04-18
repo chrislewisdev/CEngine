@@ -28,12 +28,12 @@
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>488</x>
+      <x>576</x>
       <y>48</y>
       <w>232</w>
       <h>152</h>
     </coordinates>
-    <panel_attributes>_WINDOW: Class_
+    <panel_attributes>_Window: Class_
 --
 -initialised:bool
 -isOpen:bool
@@ -50,32 +50,34 @@
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>200</x>
-      <y>320</y>
+      <x>280</x>
+      <y>272</y>
       <w>200</w>
       <h>152</h>
     </coordinates>
-    <panel_attributes>_POINT2D: Struct_
+    <panel_attributes>_Point2D: Struct_
 --
 +x:float
 +y:float
 --
-+POINT2D()
-+POINT2D(float x, float y)
++Point2D()
++Point2D(float x, float y)
 --
-+operator +(POINT2D&amp;, POINT2D&amp;)
-+operator -(POINT2D&amp;, POINT2D&amp;)</panel_attributes>
++XComponent():Point2D
++YComponent():Point2D
++operator +(Point2D&amp;, Point2D&amp;)
++operator -(Point2D&amp;, Point2D&amp;)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>200</x>
+      <x>288</x>
       <y>504</y>
       <w>240</w>
       <h>152</h>
     </coordinates>
-    <panel_attributes>_BOX2D: Struct_
+    <panel_attributes>_Box2D: Struct_
 --
 +pos:POINT2D
 +size:POINT2D
@@ -92,23 +94,23 @@
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>128</x>
-      <y>352</y>
+      <x>216</x>
+      <y>304</y>
       <w>88</w>
-      <h>192</h>
+      <h>240</h>
     </coordinates>
     <panel_attributes>lt=&lt;-&gt;&gt;&gt;&gt;</panel_attributes>
-    <additional_attributes>72;24;24;24;24;176;72;176</additional_attributes>
+    <additional_attributes>64;24;24;24;24;224;72;224</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>200</x>
+      <x>288</x>
       <y>672</y>
       <w>224</w>
       <h>200</h>
     </coordinates>
-    <panel_attributes>_VECTOR2D: Class_
+    <panel_attributes>_Vector2D: Class_
 --
 -i:float
 -j:float
@@ -131,12 +133,12 @@
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>464</x>
+      <x>552</x>
       <y>672</y>
       <w>240</w>
       <h>168</h>
     </coordinates>
-    <panel_attributes>_RAY2D: Class_
+    <panel_attributes>_Ray2D: Class_
 --
 -o:VECTOR2D
 -d:VECTOR2D
@@ -151,7 +153,7 @@ UNFINISHED
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>400</x>
+      <x>488</x>
       <y>672</y>
       <w>80</w>
       <h>40</h>
@@ -162,12 +164,12 @@ UNFINISHED
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>784</x>
+      <x>872</x>
       <y>8</y>
       <w>224</w>
       <h>152</h>
     </coordinates>
-    <panel_attributes>_STATEMACHINE: Class_
+    <panel_attributes>_StateMachine: Class_
 --
 -States:vector&lt;STATE*&gt;
 -CurrentState:STATE*
@@ -183,14 +185,16 @@ UNFINISHED
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>1080</x>
+      <x>1168</x>
       <y>8</y>
       <w>168</w>
       <h>152</h>
     </coordinates>
-    <panel_attributes>/_STATE: Class_/
+    <panel_attributes>/_State: Class_/
 --
-+STATE()
+-Owner:STATEMACHINE*
+--
++STATE(STATEMACHINE*)
 --
 +Enter() = 0
 +Update(float deltaTime) = 0
@@ -200,7 +204,7 @@ UNFINISHED
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>984</x>
+      <x>1072</x>
       <y>8</y>
       <w>112</w>
       <h>40</h>
@@ -211,12 +215,12 @@ UNFINISHED
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>480</x>
+      <x>568</x>
       <y>264</y>
       <w>256</w>
       <h>208</h>
     </coordinates>
-    <panel_attributes>_INPUT: Class_
+    <panel_attributes>_Input: Class_
 --
 -keys:bool[]
 -mousePosition:POINT2D
@@ -238,23 +242,23 @@ UNFINISHED
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>376</x>
+      <x>456</x>
       <y>280</y>
-      <w>120</w>
-      <h>112</h>
+      <w>128</w>
+      <h>64</h>
     </coordinates>
     <panel_attributes>lt=&lt;-&gt;&gt;&gt;&gt;</panel_attributes>
-    <additional_attributes>24;96;104;24</additional_attributes>
+    <additional_attributes>24;48;112;24</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>784</x>
+      <x>872</x>
       <y>264</y>
       <w>232</w>
       <h>120</h>
     </coordinates>
-    <panel_attributes>_PROGRAMCONTROL: Class_
+    <panel_attributes>_ProgramControl: Class_
 --
 +ProgramInput:static const INPUT*
 -Input:static INPUT
@@ -270,7 +274,7 @@ PROGRAMSTATE()
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>856</x>
+      <x>944</x>
       <y>136</y>
       <w>40</w>
       <h>144</h>
@@ -281,7 +285,7 @@ PROGRAMSTATE()
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>488</x>
+      <x>576</x>
       <y>0</y>
       <w>80</w>
       <h>24</h>
@@ -292,7 +296,7 @@ PROGRAMSTATE()
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>488</x>
+      <x>576</x>
       <y>0</y>
       <w>40</w>
       <h>64</h>
@@ -303,7 +307,7 @@ PROGRAMSTATE()
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>712</x>
+      <x>800</x>
       <y>280</y>
       <w>88</w>
       <h>40</h>
@@ -314,12 +318,12 @@ PROGRAMSTATE()
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>1064</x>
+      <x>1152</x>
       <y>264</y>
       <w>264</w>
       <h>128</h>
     </coordinates>
-    <panel_attributes>_GAMECONTROL: Class_
+    <panel_attributes>_GameControl: Class_
 --
 -Objects:const vector&lt;GAMEOBJECT *&gt;&amp;
 --
@@ -333,7 +337,7 @@ PROGRAMSTATE()
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>912</x>
+      <x>1000</x>
       <y>136</y>
       <w>192</w>
       <h>144</h>
@@ -344,7 +348,7 @@ PROGRAMSTATE()
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>1080</x>
+      <x>1168</x>
       <y>136</y>
       <w>40</w>
       <h>144</h>
@@ -355,12 +359,12 @@ PROGRAMSTATE()
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>952</x>
+      <x>1040</x>
       <y>488</y>
       <w>256</w>
       <h>128</h>
     </coordinates>
-    <panel_attributes>_STORAGE: Class_
+    <panel_attributes>_Storage: Class_
 --
 -AddList:vector&lt;GAMEOBJECT *&gt;
 -Objects:list&lt;GAMEOBJECT *&gt;
@@ -372,14 +376,14 @@ PROGRAMSTATE()
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>1288</x>
+      <x>1376</x>
       <y>128</y>
       <w>192</w>
       <h>64</h>
     </coordinates>
-    <panel_attributes>/_GAMESTATE: Class_/
+    <panel_attributes>/_GameState: Class_/
 --
--Owner:GAMECONTROL*
+-GameOwner:GAMECONTROL*
 --
 +GAMESTATE(GAMECONTROL*)</panel_attributes>
     <additional_attributes/>
@@ -387,7 +391,7 @@ PROGRAMSTATE()
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>1224</x>
+      <x>1312</x>
       <y>48</y>
       <w>112</w>
       <h>96</h>
@@ -398,7 +402,7 @@ PROGRAMSTATE()
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>1040</x>
+      <x>1128</x>
       <y>368</y>
       <w>176</w>
       <h>136</h>
@@ -409,7 +413,7 @@ PROGRAMSTATE()
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>992</x>
+      <x>1080</x>
       <y>288</y>
       <w>64</w>
       <h>216</h>
@@ -420,7 +424,7 @@ PROGRAMSTATE()
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>672</x>
+      <x>760</x>
       <y>176</y>
       <w>160</w>
       <h>104</h>

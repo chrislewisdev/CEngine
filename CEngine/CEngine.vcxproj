@@ -67,6 +67,8 @@
   <ItemGroup>
     <ClInclude Include="Include\Box2D.h" />
     <ClInclude Include="Include\Point2D.h" />
+    <ClInclude Include="Include\State.h" />
+    <ClInclude Include="Include\StateMachine.h" />
     <ClInclude Include="Include\Window.h" />
   </ItemGroup>
   <ItemGroup>
@@ -78,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="EngineFeatures.txt" />
+    <None Include="Notes.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

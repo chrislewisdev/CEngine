@@ -27,6 +27,12 @@
     <ClInclude Include="Include\Box2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Include\StateMachine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\State.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Window.cpp">
@@ -41,5 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="EngineFeatures.txt" />
+    <None Include="Notes.txt" />
   </ItemGroup>
 </Project>

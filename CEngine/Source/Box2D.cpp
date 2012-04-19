@@ -6,6 +6,7 @@
 
 //Include necessary headers
 #include "Box2D.h"
+#include "Math.h"
 
 using namespace CEngine;
 
@@ -44,6 +45,13 @@ bool Box2D::BoxCollision(Point2D target, Size2D targetSize)
 //This function checks for collision against another Box
 bool Box2D::BoxCollision(const Box2D& target)
 {
-	return (	BoxCollision(target.pos) || BoxCollision(target.pos + target.size.XComponent()) ||
-				BoxCollision(target.pos + target.size.YComponent()) || BoxCollision(target.pos + target.size));
+	//Declare storage for our intersection range
+	Size2D intersection;
+
+	//Calculate the intersection widths between us and our target
+	intersection.x = Math::Min(pos.x + size.x, target.pos.x + target.size.x) - Math::Max(pos.x, target.pos.x);
+	intersection.y = Math::Min(pos.y + size.y, target.pos.y + target.size.y) - Math::Max(pos.y, target.pos.y);
+
+	//If both values are positive, we have a valid area which means we're intersecting
+	return (intersection.x > 0 && intersection.y > 0);
 }

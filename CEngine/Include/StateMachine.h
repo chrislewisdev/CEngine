@@ -29,13 +29,16 @@ namespace CEngine
 		//! Default Constructor- no initialisations necessary
 		StateMachine();
 
+		//Declare a typdef for our State Pointer type
+		typedef boost::shared_ptr<State> StatePointer;
+
 		//Declare public functions
 		/// \brief Adds a new state to our StateMachine
 		///
 		/// \param id The integer ID to use for the State (must be unique)
 		/// \param NewState Pointer to a state instance to use as the new state. This must be created with keyword new.
 		/// \return void
-		void AddState(int id, boost::shared_ptr<State> NewState);
+		void AddState(int id, StatePointer NewState);
 		/// \brief Changes the current state to that with the specified ID
 		///
 		/// \param id ID value of the state to change to
@@ -51,9 +54,12 @@ namespace CEngine
 		void Update(float deltaTime);
 
 	private:
+		//Declare a typedef for our choice of State storage
+		typedef std::map<int, StatePointer > StateCollection;
+
 		//Declare private properties
 		//State map storage
-		std::map<int, boost::shared_ptr<State> > States;
+		StateCollection States;
 		//Current-State pointer and ID value
 		State *CurrentState;
 		int CurrentStateID;

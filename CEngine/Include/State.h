@@ -7,12 +7,12 @@
 #ifndef CENGINE_STATE_H
 #define CENGINE_STATE_H
 
-//Forward-declare StateMachine
-class StateMachine;
-
 //Declare inside CEngine namespace
 namespace CEngine
 {
+	//Forward-declare StateMachine
+	class StateMachine;
+
 	/// \brief Abstract class used as a base to create implementation State classes.
 	///
 	/// The State class is an abstract class to use as a base for any class you wish to use in a StateMachine. These classes

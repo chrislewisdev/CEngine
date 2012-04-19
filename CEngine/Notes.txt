@@ -1,3 +1,3 @@
 - All co-ordinates will refer to the top-left of an object, not the center
 
-- TODO: FIX UP THE BOX2D CLASS!!!! THE CURRENT BOX-BOX COLLISION CODE IS WRONG
+- TODO: READ UP ON STD::MAP, FOR PROPER USE IN STATEMACHINE

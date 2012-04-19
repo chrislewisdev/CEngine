@@ -1,3 +1,4 @@
 - All co-ordinates will refer to the top-left of an object, not the center
 
 - TODO: READ UP ON STD::MAP, FOR PROPER USE IN STATEMACHINE
+- TODO: ADD MORE EXAMPLES, TEST ALL EXISTING CODE

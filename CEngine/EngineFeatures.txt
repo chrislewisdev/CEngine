@@ -5,7 +5,7 @@
 	- Ray class
 		- Used closely with vectors
 - Graphics Context Creation
-	- Window class (Implemented)
+	- Window class
 		- Creation of an SDL Window
 		- Setup of basic OpenGL settings
 		- Screen updates

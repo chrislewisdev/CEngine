@@ -172,17 +172,19 @@ UNFINISHED
       <w>224</w>
       <h>152</h>
     </coordinates>
-    <panel_attributes>_StateMachine: Class_
+    <panel_attributes>bg=gray
+_StateMachine: Class_
 --
--States:vector&lt;STATE*&gt;
+-States:StateCollection&lt;STATE*&gt;
 -CurrentState:STATE*
+-CurrentStateID:int
 --
 +STATEMACHINE()
 --
-+AddState(STATE* newState, int id)
++AddState(int id, StatePointer State)
 +ChangeState(int id)
 +Update(float deltaTime)
-+CurrentState():int</panel_attributes>
++GetCurrentState():int</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -193,7 +195,8 @@ UNFINISHED
       <w>168</w>
       <h>152</h>
     </coordinates>
-    <panel_attributes>/_State: Class_/
+    <panel_attributes>bg=gray
+/_State: Class_/
 --
 -Owner:STATEMACHINE*
 --
@@ -326,7 +329,8 @@ PROGRAMSTATE()
       <w>264</w>
       <h>128</h>
     </coordinates>
-    <panel_attributes>_GameControl: Class_
+    <panel_attributes>bg=gray
+_GameControl: Class_
 --
 -Objects:const vector&lt;GAMEOBJECT *&gt;&amp;
 --
@@ -384,7 +388,8 @@ PROGRAMSTATE()
       <w>192</w>
       <h>64</h>
     </coordinates>
-    <panel_attributes>/_GameState: Class_/
+    <panel_attributes>bg=gray
+/_GameState: Class_/
 --
 -GameOwner:GAMECONTROL*
 --

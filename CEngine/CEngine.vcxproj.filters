@@ -33,6 +33,18 @@
     <ClInclude Include="Include\State.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Include\Doxy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\GameState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\GameControl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\CEMath.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Window.cpp">
@@ -42,6 +54,12 @@
       <Filter>Source Files\Examples</Filter>
     </ClCompile>
     <ClCompile Include="Source\Box2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\StateMachine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameControl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

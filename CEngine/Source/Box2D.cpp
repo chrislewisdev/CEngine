@@ -6,7 +6,7 @@
 
 //Include necessary headers
 #include "Box2D.h"
-#include "Math.h"
+#include "CEMath.h"
 
 using namespace CEngine;
 

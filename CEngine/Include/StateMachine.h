@@ -46,7 +46,7 @@ namespace CEngine
 		void ChangeState(int id);
 		/// \brief Returns the current state ID
 		/// \return An int representing the current state
-		int CurrentState() const;
+		int GetCurrentState() const;
 		/// \brief Updates our Current State
 		///
 		/// \param deltaTime The time to have passed since the last update

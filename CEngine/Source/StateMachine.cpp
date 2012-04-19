@@ -35,7 +35,7 @@ void StateMachine::ChangeState(int id)
 }
 
 //This function returns our Current State ID
-int StateMachine::CurrentState() const
+int StateMachine::GetCurrentState() const
 {
 	return CurrentStateID;
 }

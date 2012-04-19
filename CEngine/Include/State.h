@@ -24,7 +24,9 @@ namespace CEngine
 	{
 	public:
 		//! Required constructor to specify the StateMachine owning this State
-		State(StateMachine *Owner);
+		State(StateMachine *_Owner) : Owner(_Owner) {};
+		//! Virtual destructor to ensure valid destructor calls in children
+		virtual ~State() {};
 
 		//Declare pure virtual State functions
 		//! Pure virtual method to be called when the State is transitioned into- perform any setup here

@@ -31,19 +31,19 @@ Box2D::Box2D(float x, float y, float xSize, float ySize)
 }
 
 //This function checks for a point collision inside our box
-bool Box2D::BoxCollision(Point2D target)
+bool Box2D::BoxCollision(Point2D target) const
 {
 	return (target.x > pos.x && target.x < pos.x + size.x && target.y > pos.y && target.y < pos.y + size.y);
 }
 
 //This function checks for a collision against a point/size
-bool Box2D::BoxCollision(Point2D target, Size2D targetSize)
+bool Box2D::BoxCollision(Point2D target, Size2D targetSize) const
 {
 	return BoxCollision(Box2D(target, targetSize));
 }
 
 //This function checks for collision against another Box
-bool Box2D::BoxCollision(const Box2D& target)
+bool Box2D::BoxCollision(const Box2D& target) const
 {
 	//Declare storage for our intersection range
 	Size2D intersection;

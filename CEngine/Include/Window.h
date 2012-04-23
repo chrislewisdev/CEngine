@@ -31,6 +31,14 @@ namespace CEngine
 		public:
 			InitException(const char* what) : std::exception(what){};
 		};
+		/// \brief Exception class for invalid usage exceptions, e.g. trying to Update the screen when the window isn't open.
+		///
+		/// As with InitException,this inherits off std::exception and provides a "what" constructor
+		class UsageException : public std::exception
+		{
+		public:
+			UsageException(const char* what) : std::exception(what){};
+		};
 
 		//Constructor and Destructor
 		//! Default Constructor. Initialises internal variables

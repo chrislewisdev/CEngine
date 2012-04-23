@@ -19,7 +19,7 @@ using namespace CEngine;
 Window::Window()
 	: width(0), height(0), initialised(false), isOpen(false)
 {
-
+	
 }
 
 //Define our Destructor
@@ -94,18 +94,25 @@ void Window::Close()
 //This function sets our background colour using RGB values
 void Window::SetBackgroundColour(float r, float g, float b)
 {
+	if (!isOpen) throw UsageException("Window must be Open before you set the background colour.");
 	glClearColor(r, g, b, 1.0f);
 }
 
 //This function flips our frame buffers
 void Window::UpdateScreen()
 {
+	if (!isOpen) throw UsageException("Window must be Open before you Update the screen.");
 	SDL_GL_SwapBuffers();
 }
 
 //This function attempts to initialise SDL Video
 void Window::InitSDL()
 {
+	//Check if SDL has already been initialised- this should mean another Window is already open
+	if (SDL_WasInit(SDL_INIT_VIDEO) != 0)
+	{
+		throw InitException("SDL is already initialised. This most likely means another Window is already open. You cannot create separate windows at this time.");
+	}
 	if (SDL_Init(SDL_INIT_VIDEO) == -1)
 	{
 		throw InitException("SDL Initialisation failed.");

@@ -4,6 +4,7 @@
 #include <gl/GL.h>
 
 using namespace CEngine;
+using namespace std;
 
 int main()
 {
@@ -12,8 +13,19 @@ int main()
 	//Create another for additional testing
 	Window SecondWindow;
 
+	//Trying to update a Window before it's created is invalid (same applies to SetBackgroundColour)
+	try
+	{
+		MainWindow.UpdateScreen();
+	}
+	catch (std::exception e)
+	{
+		cout << e.what() << endl;
+	}
+
 	//Create the Window
 	MainWindow.Open("My Test Window", 400, 300);
+
 	//Note how the following call to open a second window throws an exception (check the console window to see)
 	//Currently you can NOT have two separate windows running from the same program. This is due to how SDL handles its video systems.
 	try
@@ -22,7 +34,7 @@ int main()
 	}
 	catch (std::exception e)
 	{
-		std::cout << e.what() << std::endl;
+		cout << e.what() << endl;
 	}
 
 	//Set green background
@@ -35,8 +47,8 @@ int main()
 	//Give us 500ms to marvel at our creation
 	Sleep(500);
 
-	std::cout << "Press any key to exit.";
-	std::cin.get();
+	cout << "Press any key to exit.";
+	cin.get();
 
 	//The Window destructor will automatically close itself if still open, but of course still a good idea to close explicitly
 	MainWindow.Close();

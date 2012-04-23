@@ -29,7 +29,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>360</x>
-      <y>48</y>
+      <y>160</y>
       <w>232</w>
       <h>152</h>
     </coordinates>
@@ -52,7 +52,7 @@ _Window: Class_
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>64</x>
-      <y>272</y>
+      <y>384</y>
       <w>200</w>
       <h>152</h>
     </coordinates>
@@ -75,7 +75,7 @@ _Point2D: Struct_
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>72</x>
-      <y>504</y>
+      <y>616</y>
       <w>240</w>
       <h>152</h>
     </coordinates>
@@ -98,7 +98,7 @@ _Box2D: Struct_
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>0</x>
-      <y>304</y>
+      <y>416</y>
       <w>88</w>
       <h>240</h>
     </coordinates>
@@ -109,7 +109,7 @@ _Box2D: Struct_
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>72</x>
-      <y>672</y>
+      <y>784</y>
       <w>224</w>
       <h>200</h>
     </coordinates>
@@ -137,7 +137,7 @@ _Box2D: Struct_
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>336</x>
-      <y>672</y>
+      <y>784</y>
       <w>240</w>
       <h>168</h>
     </coordinates>
@@ -157,7 +157,7 @@ UNFINISHED
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>272</x>
-      <y>672</y>
+      <y>784</y>
       <w>80</w>
       <h>40</h>
     </coordinates>
@@ -168,7 +168,7 @@ UNFINISHED
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>656</x>
-      <y>8</y>
+      <y>120</y>
       <w>224</w>
       <h>152</h>
     </coordinates>
@@ -191,7 +191,7 @@ _StateMachine: Class_
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>952</x>
-      <y>8</y>
+      <y>120</y>
       <w>168</w>
       <h>152</h>
     </coordinates>
@@ -211,7 +211,7 @@ _StateMachine: Class_
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>856</x>
-      <y>8</y>
+      <y>120</y>
       <w>112</w>
       <h>40</h>
     </coordinates>
@@ -222,7 +222,7 @@ _StateMachine: Class_
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>352</x>
-      <y>264</y>
+      <y>376</y>
       <w>256</w>
       <h>208</h>
     </coordinates>
@@ -249,7 +249,7 @@ _StateMachine: Class_
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>240</x>
-      <y>280</y>
+      <y>392</y>
       <w>128</w>
       <h>64</h>
     </coordinates>
@@ -260,7 +260,7 @@ _StateMachine: Class_
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>656</x>
-      <y>264</y>
+      <y>376</y>
       <w>232</w>
       <h>120</h>
     </coordinates>
@@ -281,7 +281,7 @@ PROGRAMSTATE()
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>728</x>
-      <y>136</y>
+      <y>248</y>
       <w>40</w>
       <h>144</h>
     </coordinates>
@@ -292,7 +292,7 @@ PROGRAMSTATE()
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>360</x>
-      <y>0</y>
+      <y>112</y>
       <w>80</w>
       <h>24</h>
     </coordinates>
@@ -303,7 +303,7 @@ PROGRAMSTATE()
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>360</x>
-      <y>0</y>
+      <y>112</y>
       <w>40</w>
       <h>64</h>
     </coordinates>
@@ -314,7 +314,7 @@ PROGRAMSTATE()
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>584</x>
-      <y>280</y>
+      <y>392</y>
       <w>88</w>
       <h>40</h>
     </coordinates>
@@ -325,7 +325,7 @@ PROGRAMSTATE()
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>936</x>
-      <y>264</y>
+      <y>376</y>
       <w>264</w>
       <h>128</h>
     </coordinates>
@@ -345,7 +345,7 @@ _GameControl: Class_
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>784</x>
-      <y>136</y>
+      <y>248</y>
       <w>192</w>
       <h>144</h>
     </coordinates>
@@ -356,7 +356,7 @@ _GameControl: Class_
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>952</x>
-      <y>136</y>
+      <y>248</y>
       <w>40</w>
       <h>144</h>
     </coordinates>
@@ -367,7 +367,7 @@ _GameControl: Class_
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>824</x>
-      <y>488</y>
+      <y>600</y>
       <w>256</w>
       <h>128</h>
     </coordinates>
@@ -384,7 +384,7 @@ _GameControl: Class_
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1160</x>
-      <y>128</y>
+      <y>240</y>
       <w>192</w>
       <h>64</h>
     </coordinates>
@@ -400,7 +400,7 @@ _GameControl: Class_
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1096</x>
-      <y>48</y>
+      <y>160</y>
       <w>112</w>
       <h>96</h>
     </coordinates>
@@ -411,7 +411,7 @@ _GameControl: Class_
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>912</x>
-      <y>368</y>
+      <y>480</y>
       <w>176</w>
       <h>136</h>
     </coordinates>
@@ -422,7 +422,7 @@ _GameControl: Class_
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>864</x>
-      <y>288</y>
+      <y>400</y>
       <w>64</w>
       <h>216</h>
     </coordinates>
@@ -433,11 +433,33 @@ _GameControl: Class_
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>544</x>
-      <y>176</y>
+      <y>288</y>
       <w>160</w>
       <h>104</h>
     </coordinates>
     <panel_attributes>lt=&lt;-&gt;&gt;&gt;&gt;</panel_attributes>
     <additional_attributes>24;24;24;40;144;40;144;88</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>448</x>
+      <y>112</y>
+      <w>88</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>UsageException</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>440</x>
+      <y>112</y>
+      <w>40</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>24;24;24;48</additional_attributes>
   </element>
 </diagram>

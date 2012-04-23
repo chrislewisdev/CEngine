@@ -19,6 +19,9 @@ namespace CEngine
 	///
 	/// The Window class is responsible for creating and destroying and OpenGL window with SDL.
 	/// It is also responsible for initialising SDL (at the start of a program) and can be used to update the screen background colour.
+	/// Note that trying to open more than one window at a time is invalid. This stems from the way SDL handles its video system, such that
+	/// we can't have two different instances going at once. Because of this, trying to do so will throw an exception.
+	/// Trying to update the screen in any way before opening it will also throw an exception.
 	class Window
 	{
 	public:
@@ -47,7 +50,7 @@ namespace CEngine
 		~Window();
 
 		//Declare public functions
-		/// \brief Creates the OpenGL window.
+		/// \brief Creates the OpenGL window. May throw an InitException containing the relevant error message.
 		///
 		/// \param title A const char* string for your title window caption.
 		/// \param width The width in pixels.
@@ -55,13 +58,13 @@ namespace CEngine
 		void Open(const char *title, int width, int height);
 		//! Closes this OpenGL window.
 		void Close();
-		/// \brief Sets the background colour using RGB values.
+		/// \brief Sets the background colour using RGB values. Will throw a UsageException if window isn't open.
 		///
 		/// \param r The red value, between 0 and 1.
 		/// \param g The green value, between 0 and 1.
 		/// \param b The blue value, between 0 and 1.
 		void SetBackgroundColour(float r, float g, float b);
-		//! Flips our two frame buffers to update the screen to the newly drawn frame.
+		//! Flips our two frame buffers to update the screen to the newly drawn frame. Will throw a UsageException if window isn't open.
 		void UpdateScreen();
 
 	private:

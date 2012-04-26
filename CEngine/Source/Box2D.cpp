@@ -25,7 +25,7 @@ Box2D::Box2D(Point2D p, Size2D s)
 
 //Constructor to take individual position/size values
 Box2D::Box2D(float x, float y, float xSize, float ySize)
-	: pos(x, y), size(x, y)
+	: pos(x, y), size(xSize, ySize)
 {
 
 }
@@ -33,7 +33,7 @@ Box2D::Box2D(float x, float y, float xSize, float ySize)
 //This function checks for a point collision inside our box
 bool Box2D::BoxCollision(Point2D target) const
 {
-	return (target.x > pos.x && target.x < pos.x + size.x && target.y > pos.y && target.y < pos.y + size.y);
+	return (target.x >= pos.x && target.x <= pos.x + size.x && target.y >= pos.y && target.y <= pos.y + size.y);
 }
 
 //This function checks for a collision against a point/size

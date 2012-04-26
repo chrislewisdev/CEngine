@@ -6,8 +6,8 @@
 **********************************************/
 
 //Include guard
-#ifndef CENGINE_Point2D_H
-#define CENGINE_Point2D_H
+#ifndef CENGINE_POINT2D_H
+#define CENGINE_POINT2D_H
 
 //Declare struct in the CEngine namespace
 namespace CEngine

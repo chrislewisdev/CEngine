@@ -11,6 +11,7 @@
 #include "State.h"
 #include <map>
 #include <boost/shared_ptr.hpp>
+#include <stdexcept>
 
 //Declare inside the CEngine namespace
 namespace CEngine
@@ -32,20 +33,32 @@ namespace CEngine
 		//Declare a typdef for our State Pointer type
 		typedef boost::shared_ptr<State> StatePointer;
 
+		//Declare exception classes
+		/// \brief Exception class for Null State errors in the StateMachine, e.g. calling Update without setting the current state
+		///
+		/// Used to report an invalid (NULL) state pointer. Inherits off of std::exception and provides a 'what' constructor.
+		/// While this is used to report invalid state pointers the StateMachine won't be able to pick up on all of this, particularly
+		/// if you provide a garbage pointer to it!
+		class NullStateException : public std::exception
+		{
+		public:
+			NullStateException(const char *what) : std::exception(what) {};
+		};
+
 		//Declare public functions
 		/// \brief Adds a new state to our StateMachine
 		///
-		/// \param id The integer ID to use for the State (must be unique)
+		/// \param id The integer ID to use for the State (must be positive and unique)
 		/// \param NewState Pointer to a state instance to use as the new state. This must be created with keyword new.
 		/// \return void
-		void AddState(int id, StatePointer NewState);
+		void AddState(unsigned int id, StatePointer NewState);
 		/// \brief Changes the current state to that with the specified ID
 		///
 		/// \param id ID value of the state to change to
 		/// \return void
-		void ChangeState(int id);
+		void ChangeState(unsigned int id);
 		/// \brief Returns the current state ID
-		/// \return An int representing the current state
+		/// \return An int representing the current state. -1 means no valid current state.
 		int GetCurrentState() const;
 		/// \brief Updates our Current State
 		///

@@ -17,21 +17,23 @@ StateMachine::StateMachine()
 }
 
 //This function inserts a new state into our storage with the specified ID
-void StateMachine::AddState(int id, StatePointer State)
+void StateMachine::AddState(unsigned int id, StatePointer State)
 {
+	if (!State)
+		throw NullStateException("StateMachine::AddState was passed a null pointer.");
+
 	States.insert(std::pair<int, StatePointer>(id, State));
 }
 
 //This function sets our State to that with the specified ID
-void StateMachine::ChangeState(int id)
+void StateMachine::ChangeState(unsigned int id)
 {
-	//Retrieve new State
-	State *NewState = States.at(id).get();
-
 	//Transition to the new state
-	CurrentState->Exit();
-	CurrentState = NewState;
+	if (CurrentState) CurrentState->Exit();
+	CurrentState = States.find(id)->second.get();
 	CurrentState->Enter();
+
+	CurrentStateID = id;
 }
 
 //This function returns our Current State ID
@@ -43,5 +45,8 @@ int StateMachine::GetCurrentState() const
 //This function updates our current state
 void StateMachine::Update(float deltaTime)
 {
-	CurrentState->Update(deltaTime);
+	if (CurrentState)
+		CurrentState->Update(deltaTime);
+	else
+		throw NullStateException("StateMachine::Update was called without a valid State set.");
 }

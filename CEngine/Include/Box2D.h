@@ -5,8 +5,8 @@
 *Stores point/size data and processes square collisions
 **********************************************************/
 
-#ifndef CENGINE_Box2D_H
-#define CENGINE_Box2D_H
+#ifndef CENGINE_BOX2D_H
+#define CENGINE_BOX2D_H
 
 //Include necessary headers
 #include "Point2D.h"

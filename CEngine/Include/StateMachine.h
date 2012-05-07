@@ -16,6 +16,10 @@
 //Declare inside the CEngine namespace
 namespace CEngine
 {
+	/// \class CEngine::StatePointer
+	/// \brief Typedef as boost::shared_ptr<State>. Used for pointer management in StateMachine and used to construct State pointers to AddState().
+	typedef boost::shared_ptr<State> StatePointer;
+
 	/// \brief Controls storage, handling and operation of States in an object
 	///
 	/// The StateMachine class handles all States designated to it. New States must be added by passing a new'd State instance
@@ -29,9 +33,6 @@ namespace CEngine
 	public:
 		//! Default Constructor- no initialisations necessary
 		StateMachine();
-
-		//Declare a typdef for our State Pointer type
-		typedef boost::shared_ptr<State> StatePointer;
 
 		//Declare exception classes
 		/// \brief Exception class for Null State errors in the StateMachine, e.g. calling Update without setting the current state
@@ -52,7 +53,7 @@ namespace CEngine
 		/// \param NewState Pointer to a state instance to use as the new state. This must be created with keyword new.
 		/// \return void
 		void AddState(unsigned int id, StatePointer NewState);
-		/// \brief Changes the current state to that with the specified ID
+		/// \brief Changes the current state to that with the specified ID. Throws a NullStateException if the ID matches no States
 		///
 		/// \param id ID value of the state to change to
 		/// \return void

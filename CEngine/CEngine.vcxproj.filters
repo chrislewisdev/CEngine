@@ -62,6 +62,9 @@
     <ClCompile Include="Source\GameControl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Examples\ExampleStateMachine.cpp">
+      <Filter>Source Files\Examples</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="EngineFeatures.txt" />

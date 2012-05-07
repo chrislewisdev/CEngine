@@ -28,6 +28,9 @@ void StateMachine::AddState(unsigned int id, StatePointer State)
 //This function sets our State to that with the specified ID
 void StateMachine::ChangeState(unsigned int id)
 {
+	//Check the desired State exists before we do anything
+	if (States.find(id) == States.end()) throw NullStateException("No State corresponds to the supplied ID.");
+
 	//Transition to the new state
 	if (CurrentState) CurrentState->Exit();
 	CurrentState = States.find(id)->second.get();

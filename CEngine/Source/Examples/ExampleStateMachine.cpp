@@ -48,6 +48,9 @@ int main()
 	Game.ChangeState(MenuState);
 	Game.Update(5);
 
+	//GetCurrentState returns the integer ID for the current state
+	cout << "Current State: " << Game.GetCurrentState() << endl;
+
 	Game.ChangeState(WhateverState);
 	Game.Update(5);
 

@@ -78,6 +78,10 @@ namespace CEngine
 		State *CurrentState;
 		int CurrentStateID;
 	};
+
+	/// \example Examples/ExampleStateMachine.cpp
+	/// Shows the main usage of the StateMachine class with an example State class and output
+	/// demonstrating the behaviour of the StateMachine functions.
 }
 
 #endif

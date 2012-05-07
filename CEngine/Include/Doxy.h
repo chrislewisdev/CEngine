@@ -7,7 +7,7 @@
 /// \mainpage CEngine Documentation
 ///
 /// \section Intro Introduction
-/// This is the introduction.
+/// CEngine is a 2D game engine using SDL with OpenGL.
 
 /// \namespace CEngine
 /// \brief General namespace for all CEngine classes/definitions/etc.

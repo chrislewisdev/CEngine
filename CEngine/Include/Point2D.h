@@ -45,6 +45,9 @@ namespace CEngine
 	/// \class CEngine::Size2D
 	///	\brief Alias for Point2D to be used for size values (e.g implying width/height instead of position).
 	typedef Point2D Size2D;
+
+	/// \example Examples/ExamplePoint2D.cpp
+	/// Demonstrates the general usage of Point2D objects with addition/subtraction and shows the *Component functions visually.
 }
 
 #endif

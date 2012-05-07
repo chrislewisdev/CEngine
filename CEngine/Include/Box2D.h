@@ -51,6 +51,9 @@ namespace CEngine
 		//! Size (x,y) struct
 		Size2D size;
 	};
+
+	/// \example Examples/ExampleBox2D.cpp
+	/// Demonstrates usage of the Box2D class visually with collision and positioning.
 }
 
 #endif

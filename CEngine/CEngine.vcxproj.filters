@@ -45,6 +45,9 @@
     <ClInclude Include="Include\CEMath.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Include\Input.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Window.cpp">
@@ -70,6 +73,9 @@
     </ClCompile>
     <ClCompile Include="Source\Examples\ExampleBox2D.cpp">
       <Filter>Source Files\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Input.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

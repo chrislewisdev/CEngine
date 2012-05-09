@@ -70,6 +70,7 @@
     <ClInclude Include="Include\GameControl.h" />
     <ClInclude Include="Include\GameState.h" />
     <ClInclude Include="Include\CEMath.h" />
+    <ClInclude Include="Include\Input.h" />
     <ClInclude Include="Include\Point2D.h" />
     <ClInclude Include="Include\State.h" />
     <ClInclude Include="Include\StateMachine.h" />
@@ -90,6 +91,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Source\GameControl.cpp" />
+    <ClCompile Include="Source\Input.cpp" />
     <ClCompile Include="Source\StateMachine.cpp" />
     <ClCompile Include="Source\Window.cpp" />
   </ItemGroup>

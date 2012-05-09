@@ -48,6 +48,9 @@
     <ClInclude Include="Include\Input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Include\ProgramControl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Window.cpp">

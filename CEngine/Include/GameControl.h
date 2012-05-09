@@ -15,7 +15,7 @@
 namespace CEngine
 {
 	//Forward-declare Storage class
-	class Storage;
+	class GameData;
 
 	/// \brief Implementation of both State and StateMachine for controlling game logic.
 	///
@@ -26,7 +26,7 @@ namespace CEngine
 	{
 	public:
 		//! Main constructor to take a pointer to our Storage object
-		GameControl(StateMachine *_Owner, Storage *_ObjectStorage);
+		GameControl(StateMachine *_Owner, GameData *_ObjectStorage);
 
 		//Declare public functions
 		//! Concretion of State::Enter()- does nothing
@@ -37,7 +37,7 @@ namespace CEngine
 	private:
 		//Declare private properties
 		//Pointer to our Storage instance
-		Storage *ObjectStorage;
+		GameData *ObjectStorage;
 	};
 }
 

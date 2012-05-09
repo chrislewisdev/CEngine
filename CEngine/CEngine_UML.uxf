@@ -212,8 +212,8 @@ _StateMachine: Class_
     <coordinates>
       <x>856</x>
       <y>8</y>
-      <w>112</w>
-      <h>40</h>
+      <w>104</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>96;24;24;24</additional_attributes>
@@ -226,7 +226,8 @@ _StateMachine: Class_
       <w>256</w>
       <h>208</h>
     </coordinates>
-    <panel_attributes>_Input: Class_
+    <panel_attributes>bg=gray
+_Input: Class_
 --
 -keys:bool[]
 -mousePosition:POINT2D
@@ -262,19 +263,21 @@ _StateMachine: Class_
       <x>656</x>
       <y>264</y>
       <w>232</w>
-      <h>120</h>
+      <h>144</h>
     </coordinates>
     <panel_attributes>_ProgramControl: Class_
 --
 +ProgramInput:static const INPUT*
 -Input:static INPUT
--Storage:STORAGE
+-Storage:GameData
 -Window:WINDOW
 --
 PROGRAMSTATE()
 --
-+AddGameControl(int id):GAMECONTROL*
-+Update(float deltaTime)</panel_attributes>
++AddGameControl(int id):GAMECONTROL&amp;
++GetStorage():Storage&amp;
++Update(float deltaTime)
++TimeSinceLastUpdate():float</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -304,8 +307,8 @@ PROGRAMSTATE()
     <coordinates>
       <x>360</x>
       <y>0</y>
-      <w>40</w>
-      <h>64</h>
+      <w>32</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>24;24;24;48</additional_attributes>
@@ -334,7 +337,7 @@ _GameControl: Class_
 --
 -Objects:const vector&lt;GAMEOBJECT *&gt;&amp;
 --
-+GAMECONTROL(STORAGE* level)
++GAMECONTROL(GameData* level)
 --
 +Enter()
 +Update(float deltaTime)
@@ -371,7 +374,7 @@ _GameControl: Class_
       <w>256</w>
       <h>128</h>
     </coordinates>
-    <panel_attributes>_Storage: Class_
+    <panel_attributes>_GameData: Class_
 --
 -AddList:vector&lt;GAMEOBJECT *&gt;
 -Objects:list&lt;GAMEOBJECT *&gt;
@@ -456,8 +459,8 @@ _GameControl: Class_
     <coordinates>
       <x>440</x>
       <y>0</y>
-      <w>40</w>
-      <h>64</h>
+      <w>32</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>24;24;24;48</additional_attributes>

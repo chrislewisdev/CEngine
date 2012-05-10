@@ -45,6 +45,14 @@ namespace CEngine
 		public:
 			NullStateException(const char *what) : std::exception(what) {};
 		};
+		/// \brief Exception class for Duplicate State IDs.
+		///
+		/// Thrown in AddState if a State with the specified ID already exists.
+		class DuplicateStateIDException : public std::exception
+		{
+		public:
+			DuplicateStateIDException(const char *what) : std::exception(what) {};
+		};
 
 		//Declare public functions
 		/// \brief Adds a new state to our StateMachine
@@ -61,11 +69,12 @@ namespace CEngine
 		/// \brief Returns the current state ID
 		/// \return An int representing the current state. -1 means no valid current state.
 		int GetCurrentState() const;
-		/// \brief Updates our Current State
+		/// \brief Updates our Current State. Is made virtual so that child classes can extend the Update behaviour
+		/// (but they must still call StateMachine::Update to actually update the current state)
 		///
 		/// \param deltaTime The time to have passed since the last update
 		/// \return void
-		void Update(float deltaTime);
+		virtual void Update(float deltaTime);
 
 	private:
 		//Declare a typedef for our choice of State storage

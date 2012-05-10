@@ -39,9 +39,6 @@
     <ClInclude Include="Include\GameState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Include\GameControl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Include\CEMath.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -65,9 +62,6 @@
     <ClCompile Include="Source\StateMachine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\GameControl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Examples\ExampleStateMachine.cpp">
       <Filter>Source Files\Examples</Filter>
     </ClCompile>
@@ -78,6 +72,9 @@
       <Filter>Source Files\Examples</Filter>
     </ClCompile>
     <ClCompile Include="Source\Input.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ProgramControl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

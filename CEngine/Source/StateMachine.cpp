@@ -22,6 +22,9 @@ void StateMachine::AddState(unsigned int id, StatePointer State)
 	if (!State)
 		throw NullStateException("StateMachine::AddState was passed a null pointer.");
 
+	if (States.find(id) != States.end())
+		throw DuplicateStateIDException("Attempted to add a State with an existing ID number.");
+
 	States.insert(std::pair<int, StatePointer>(id, State));
 }
 

@@ -16,7 +16,7 @@ Input::Input()
 }
 
 //This function checks for input event types and processes them accordingly
-void Input::ProcessEvent(SDL_Event e)
+bool Input::ProcessEvent(SDL_Event e)
 {
 	if (e.type == SDL_KEYDOWN || e.type == SDL_KEYUP) 
 		ProcessKeys(e.key);
@@ -24,6 +24,10 @@ void Input::ProcessEvent(SDL_Event e)
 		ProcessMouseMove(e.motion);
 	else if (e.type == SDL_MOUSEBUTTONDOWN || e.type == SDL_MOUSEBUTTONUP)
 		ProcessMouseDown(e.button);
+	else
+		return false;
+
+	return true;
 }
 
 //This function returns the status of a specific key

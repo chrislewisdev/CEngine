@@ -5,7 +5,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>360</x>
-      <y>256</y>
+      <y>128</y>
       <w>232</w>
       <h>152</h>
     </coordinates>
@@ -28,7 +28,7 @@ _Window: Class_
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>64</x>
-      <y>480</y>
+      <y>352</y>
       <w>200</w>
       <h>152</h>
     </coordinates>
@@ -51,7 +51,7 @@ _Point2D: Struct_
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>72</x>
-      <y>712</y>
+      <y>584</y>
       <w>240</w>
       <h>152</h>
     </coordinates>
@@ -74,7 +74,7 @@ _Box2D: Struct_
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>0</x>
-      <y>512</y>
+      <y>384</y>
       <w>88</w>
       <h>240</h>
     </coordinates>
@@ -85,7 +85,7 @@ _Box2D: Struct_
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>72</x>
-      <y>880</y>
+      <y>752</y>
       <w>224</w>
       <h>200</h>
     </coordinates>
@@ -113,7 +113,7 @@ _Box2D: Struct_
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>336</x>
-      <y>880</y>
+      <y>752</y>
       <w>240</w>
       <h>168</h>
     </coordinates>
@@ -133,7 +133,7 @@ UNFINISHED
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>272</x>
-      <y>880</y>
+      <y>752</y>
       <w>80</w>
       <h>40</h>
     </coordinates>
@@ -144,7 +144,7 @@ UNFINISHED
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>656</x>
-      <y>216</y>
+      <y>88</y>
       <w>224</w>
       <h>152</h>
     </coordinates>
@@ -167,7 +167,7 @@ _StateMachine: Class_
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>952</x>
-      <y>216</y>
+      <y>88</y>
       <w>168</w>
       <h>152</h>
     </coordinates>
@@ -187,7 +187,7 @@ _StateMachine: Class_
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>856</x>
-      <y>216</y>
+      <y>88</y>
       <w>112</w>
       <h>40</h>
     </coordinates>
@@ -198,7 +198,7 @@ _StateMachine: Class_
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>352</x>
-      <y>472</y>
+      <y>344</y>
       <w>256</w>
       <h>208</h>
     </coordinates>
@@ -226,7 +226,7 @@ _Input: Class_
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>240</x>
-      <y>488</y>
+      <y>360</y>
       <w>128</w>
       <h>64</h>
     </coordinates>
@@ -237,7 +237,7 @@ _Input: Class_
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>656</x>
-      <y>472</y>
+      <y>344</y>
       <w>232</w>
       <h>144</h>
     </coordinates>
@@ -260,7 +260,7 @@ PROGRAMSTATE()
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>728</x>
-      <y>344</y>
+      <y>216</y>
       <w>40</w>
       <h>144</h>
     </coordinates>
@@ -271,7 +271,7 @@ PROGRAMSTATE()
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>360</x>
-      <y>208</y>
+      <y>80</y>
       <w>80</w>
       <h>24</h>
     </coordinates>
@@ -282,7 +282,7 @@ PROGRAMSTATE()
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>360</x>
-      <y>208</y>
+      <y>80</y>
       <w>40</w>
       <h>64</h>
     </coordinates>
@@ -293,7 +293,7 @@ PROGRAMSTATE()
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>584</x>
-      <y>488</y>
+      <y>360</y>
       <w>88</w>
       <h>40</h>
     </coordinates>
@@ -304,7 +304,7 @@ PROGRAMSTATE()
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>824</x>
-      <y>696</y>
+      <y>568</y>
       <w>256</w>
       <h>128</h>
     </coordinates>
@@ -321,7 +321,7 @@ PROGRAMSTATE()
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>952</x>
-      <y>472</y>
+      <y>344</y>
       <w>192</w>
       <h>64</h>
     </coordinates>
@@ -337,7 +337,7 @@ PROGRAMSTATE()
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>864</x>
-      <y>496</y>
+      <y>368</y>
       <w>64</w>
       <h>216</h>
     </coordinates>
@@ -348,7 +348,7 @@ PROGRAMSTATE()
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>544</x>
-      <y>384</y>
+      <y>256</y>
       <w>160</w>
       <h>104</h>
     </coordinates>
@@ -359,7 +359,7 @@ PROGRAMSTATE()
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>448</x>
-      <y>208</y>
+      <y>80</y>
       <w>88</w>
       <h>24</h>
     </coordinates>
@@ -370,7 +370,7 @@ PROGRAMSTATE()
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>440</x>
-      <y>208</y>
+      <y>80</y>
       <w>40</w>
       <h>64</h>
     </coordinates>
@@ -381,7 +381,7 @@ PROGRAMSTATE()
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1000</x>
-      <y>344</y>
+      <y>216</y>
       <w>40</w>
       <h>144</h>
     </coordinates>
@@ -392,7 +392,7 @@ PROGRAMSTATE()
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>984</x>
-      <y>512</y>
+      <y>384</y>
       <w>40</w>
       <h>200</h>
     </coordinates>
@@ -403,7 +403,7 @@ PROGRAMSTATE()
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>656</x>
-      <y>128</y>
+      <y>0</y>
       <w>104</w>
       <h>24</h>
     </coordinates>
@@ -414,7 +414,7 @@ PROGRAMSTATE()
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>640</x>
-      <y>128</y>
+      <y>0</y>
       <w>40</w>
       <h>104</h>
     </coordinates>
@@ -425,7 +425,7 @@ PROGRAMSTATE()
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>688</x>
-      <y>160</y>
+      <y>32</y>
       <w>152</w>
       <h>24</h>
     </coordinates>
@@ -436,7 +436,7 @@ PROGRAMSTATE()
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>680</x>
-      <y>160</y>
+      <y>32</y>
       <w>40</w>
       <h>72</h>
     </coordinates>

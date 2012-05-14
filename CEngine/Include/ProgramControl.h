@@ -7,9 +7,11 @@
 #ifndef CENGINE_PROGRAMCONTROL_H
 #define CENGINE_PROGRAMCONTROL_H
 
+#include <Windows.h>
 #include "Window.h"
 #include "Input.h"
 #include "StateMachine.h"
+#include "GameData.h"
 
 namespace CEngine
 {
@@ -50,6 +52,10 @@ namespace CEngine
 		///
 		/// \return A non-const pointer to our Window.
 		Window *GetWindow();
+		//// \brief Checks whether or not our application is trying to exit.
+		///
+		/// \return True if the program is trying to exit and should be terminated. False if not.
+		bool IsExiting() const;
 
 		//Declare public properties
 		//! Global access to our program's input- can only access const members like GetKey() and so on
@@ -63,6 +69,10 @@ namespace CEngine
 		Window MainWindow;
 		//Instance of our complete game data storage
 		GameData Storage;
+		//Ticks counter- set in Update() and used by TimeSinceLastUpdate()
+		DWORD ticks;
+		//Exit flag- set to true when we want to exit the game
+		bool exit;
 	};
 }
 

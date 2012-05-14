@@ -29,8 +29,8 @@ namespace CEngine
 		/// \brief Processes an SDL event, checking for messages relevant to input
 		///
 		/// \param e The SDL Event structure to check.
-		/// \return void
-		void ProcessEvent(SDL_Event e);
+		/// \return true if the event was handled, false if the event was not an input-related event
+		bool ProcessEvent(SDL_Event e);
 		/// \brief Retrieves the current status of the key denoted by char value c.
 		///
 		/// \param c The char value to check for. May also be an SDL-defined keysym value.

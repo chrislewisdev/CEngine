@@ -48,6 +48,7 @@ bool Input::GetMouseDown(int id) const
 	if (id == SDL_BUTTON_LEFT) return leftMouseDown;
 	else if (id == SDL_BUTTON_MIDDLE) return midMouseDown;
 	else if (id == SDL_BUTTON_RIGHT) return rightMouseDown;
+	else return false;
 }
 
 //This function processes keyboard input

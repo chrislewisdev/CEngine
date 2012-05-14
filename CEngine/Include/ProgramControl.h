@@ -59,7 +59,7 @@ namespace CEngine
 
 		//Declare public properties
 		//! Global access to our program's input- can only access const members like GetKey() and so on
-		static const Input const *ProgramInput;
+		static const Input* const ProgramInput;
 
 	private:
 		//Declare private properties

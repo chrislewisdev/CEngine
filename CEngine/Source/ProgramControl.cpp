@@ -10,7 +10,7 @@ using namespace CEngine;
 
 //Define our static ProgramControl variables
 Input ProgramControl::InputControl;
-const Input const *ProgramControl::ProgramInput = &ProgramControl::InputControl;
+const Input* const ProgramControl::ProgramInput = &ProgramControl::InputControl;
 
 //Constructor creates a new window on creation- nothing else needs to be initialised
 ProgramControl::ProgramControl(const char *title, int width, int height)

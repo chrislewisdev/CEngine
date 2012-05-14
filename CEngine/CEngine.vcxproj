@@ -67,6 +67,7 @@
   <ItemGroup>
     <ClInclude Include="Include\Box2D.h" />
     <ClInclude Include="Include\Doxy.h" />
+    <ClInclude Include="Include\GameData.h" />
     <ClInclude Include="Include\GameState.h" />
     <ClInclude Include="Include\CEMath.h" />
     <ClInclude Include="Include\Input.h" />

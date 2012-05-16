@@ -22,8 +22,6 @@ ProgramControl::ProgramControl(const char *title, int width, int height)
 //This function updates our overall program states
 void ProgramControl::Update(float deltaTime)
 {
-#pragma message("TODO: ProgramControl::Update")
-
 	//Process Window Messages
 	SDL_Event windowEvent;
 	//Loop as long as we have messages
@@ -42,10 +40,12 @@ void ProgramControl::Update(float deltaTime)
 	}
 
 	//Do a Batch Add on our Game Data
+	Storage.PerformBatchAdd();
 
 	StateMachine::Update(deltaTime);
 
 	//Do a Batch Remove on our Game Data
+	Storage.PerformBatchRemove();
 
 	//Update our ticks counter
 	ticks = GetTickCount();

@@ -29,6 +29,7 @@ namespace CEngine
 	/// in the game, data on the current level and so on. It will also house when appropriate other information designed to work on the
 	/// game-state, such as BSP-trees for collision. It is designed to be interfaced with by Game States (and others) to work on the current
 	/// game state.
+	/// It provides Begin() and End() functions to use for iterating through GameObjects without needing access to the collections themselves.
 	class GameData
 	{
 	public:
@@ -47,6 +48,21 @@ namespace CEngine
 		/// \brief Performs a batch add of objects into the game state, putting all requested new objects into our actual object collection.
 		/// \return void
 		void PerformBatchAdd();
+		/// \brief Requests that an object referenced by the specified iterator be removed from the game state. Note that will not actually
+		/// be removed until a Batch Remove is performed (at the end of a new program Update)
+		///
+		/// \param target The GameObject Collection iterator referencing the object to be removed.
+		/// \return void
+		void RemoveObject(GameObjectCollection::iterator target);
+		/// \brief Performs a batch remove of all objects currently waiting to be removed from the game state
+		/// \return void
+		void PerformBatchRemove();
+		/// \brief Returns the starting iterator for our collection of GameObjects.
+		/// \return An iterator referencing the start of our GameObjects collection.
+		GameObjectCollection::iterator Begin();
+		/// \brief Returns the end iterator for our collection of GameObjects.
+		/// \return An iterator signifying the last element in our collection.
+		GameObjectCollection::iterator End();
 
 	private:
 		//Declare private properties
@@ -54,6 +70,8 @@ namespace CEngine
 		std::vector<GameObjectPointer> AddList;
 		//Collection of all game objects currently in our game state
 		GameObjectCollection Objects;
+		//Collection of iterators referencing objects to be removed in our next batch remove
+		std::vector<GameObjectCollection::iterator> RemoveList;
 	};
 }
 

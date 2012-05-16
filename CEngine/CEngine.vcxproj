@@ -91,6 +91,7 @@
     <ClCompile Include="Source\Examples\ExampleWindow.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="Source\GameData.cpp" />
     <ClCompile Include="Source\Input.cpp" />
     <ClCompile Include="Source\ProgramControl.cpp" />
     <ClCompile Include="Source\StateMachine.cpp" />

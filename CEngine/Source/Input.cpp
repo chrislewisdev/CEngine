@@ -33,7 +33,7 @@ bool Input::ProcessEvent(SDL_Event e)
 //This function returns the status of a specific key
 bool Input::GetKey(char c) const
 {
-	return keys[c];
+	return keys[tolower(c)];
 }
 
 //This function returns our mouse position

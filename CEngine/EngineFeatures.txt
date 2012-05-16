@@ -28,9 +28,8 @@
 	- Used as base class for all objects used in-game
 	- Has virtuals like Update(), Draw() functions
 	- Is ready to integrate with Lua scripts, providing members as appropriate
-	- Consider: Inherits off of Box2D class to get its position/size nature?
 	- Consider: How do child classes interface with Lua to provide their own members?
-	- Consider: Do GameObjects have their own StateMachine?
+	- Consider: Do GameObjects have their own StateMachine? (they may)
 - Object storage
 	- Level class (Consider better name)
 		- Storage class for all game objects

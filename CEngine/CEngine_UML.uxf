@@ -248,7 +248,7 @@ _Input: Class_
 -Storage:GameData
 -Window:Window
 --
-PROGRAMSTATE()
+ProgramControl(char char*, int, int)
 --
 +GetStorage():Storage*
 +GetWindow():Window*
@@ -308,13 +308,14 @@ PROGRAMSTATE()
       <w>256</w>
       <h>144</h>
     </coordinates>
-    <panel_attributes>_GameData: Class_
+    <panel_attributes>bg=gray
+_GameData: Class_
 --
--AddList:vector&lt;GAMEOBJECT *&gt;
--Objects:list&lt;GAMEOBJECT *&gt;
+-AddList:vector&lt;GameObject *&gt;
+-Objects:list&lt;GameObject *&gt;
 -RemoveList:vector&lt;list::iterator&gt;
 --
-+AddObject(GAMEOBJECT *)
++AddObject(GameObject *)
 +RemoveObject(list::iterator)
 +PerformBatchAdd()
 +PerformBatchRemove()
@@ -447,5 +448,24 @@ PROGRAMSTATE()
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>24;24;24;56</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>744</x>
+      <y>776</y>
+      <w>256</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>_GameObject:Class_
+--
+-BoundingBox:Box2D
+--
+GameObject()
+GameObject(lua_State*, string)
+--
+/+Update/
+/+Draw/</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>

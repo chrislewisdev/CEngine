@@ -54,8 +54,6 @@ void ProgramControl::Update(float deltaTime)
 //This function returns the time passed since our last update
 float ProgramControl::TimeSinceLastUpdate() const
 {
-#pragma message("TODO: ProgramControl::TimeSinceLastUpdate- Check accuracy")
-
 	return (GetTickCount() - ticks) / 1000.0f;
 }
 

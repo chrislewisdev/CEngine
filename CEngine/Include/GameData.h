@@ -10,12 +10,10 @@
 #include <list>
 #include <vector>
 #include <boost/shared_ptr.hpp>
+#include "GameObject.h"
 
 namespace CEngine
 {
-	//Forward-declare the GameObject class
-	class GameObject;
-
 	/// \class CEngine::GameObjectPointer
 	/// \brief Alias for boost::shared_ptr<GameObject>, used by GameData class for GameObject pointers
 	typedef boost::shared_ptr<GameObject> GameObjectPointer;
@@ -63,6 +61,9 @@ namespace CEngine
 		/// \brief Returns the end iterator for our collection of GameObjects.
 		/// \return An iterator signifying the last element in our collection.
 		GameObjectCollection::iterator End();
+		/// \brief Returns the no. of GameObjects currently in our collection
+		/// \return An integer representing our collection size.
+		int NumObjects();
 
 	private:
 		//Declare private properties

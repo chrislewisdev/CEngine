@@ -452,8 +452,8 @@ _GameData: Class_
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>744</x>
-      <y>776</y>
+      <x>696</x>
+      <y>744</y>
       <w>256</w>
       <h>136</h>
     </coordinates>

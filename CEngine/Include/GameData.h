@@ -75,7 +75,6 @@ namespace CEngine
 		GameObjectCollection Objects;
 		//Collection of iterators referencing objects to be removed in our next batch remove
 		std::vector<GameObjectCollection::iterator> RemoveList;
-		//std::set<GameObjectCollection::iterator> RemoveList;
 	};
 }
 

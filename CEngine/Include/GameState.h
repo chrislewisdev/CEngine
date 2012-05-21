@@ -29,7 +29,7 @@ namespace CEngine
 		//Declare protected members
 		//! Pointer to our GameData storage
 		GameData *GameStorage;
-	}
+	};
 }
 
 #endif

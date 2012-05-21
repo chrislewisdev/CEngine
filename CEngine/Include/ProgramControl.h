@@ -25,13 +25,16 @@ namespace CEngine
 	class ProgramControl : public StateMachine
 	{
 	public:
-		/// \brief Single Constructor for the class. Takes the parameters required for Window::Open as it automatically opens a graphics window
+		/// \brief Main Constructor for the class. Takes the parameters required for Window::Open as it automatically opens a graphics window
 		/// upon creation.
 		///
 		/// \param title Title for your graphics window.
 		/// \param width The width for your graphics window.
 		/// \param height The height for your graphics window.
 		ProgramControl(const char *title, int width, int height);
+		/// \brief Default Constructor. This one does not open a graphics window- ideal if you want to run a game simulation without graphics
+		/// (e.g. tests).
+		ProgramControl();
 
 		//Declare public functions
 		/// \brief Updates our program State. In addition to updating whatever the current state is, performs other program tasks like updating

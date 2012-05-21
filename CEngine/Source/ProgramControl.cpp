@@ -19,6 +19,13 @@ ProgramControl::ProgramControl(const char *title, int width, int height)
 	MainWindow.Open(title, width, height);
 }
 
+//Constructor that doesn't open a window
+ProgramControl::ProgramControl()
+	: exit(false), ticks(GetTickCount())
+{
+
+}
+
 //This function updates our overall program states
 void ProgramControl::Update(float deltaTime)
 {

@@ -241,13 +241,15 @@ _Input: Class_
       <w>232</w>
       <h>144</h>
     </coordinates>
-    <panel_attributes>_ProgramControl: Class_
+    <panel_attributes>bg=gray
+_ProgramControl: Class_
 --
 +ProgramInput:static const Input*
 -Input:static Input
 -Storage:GameData
 -Window:Window
 --
+ProgramControl()
 ProgramControl(char char*, int, int)
 --
 +GetStorage():Storage*

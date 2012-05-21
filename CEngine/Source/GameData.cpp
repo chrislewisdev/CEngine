@@ -42,6 +42,11 @@ void GameData::PerformBatchAdd()
 //This function adds a new GameObject reference waiting to be removed
 void GameData::RemoveObject(GameObjectCollection::iterator target)
 {
+	//Run through our current list to make sure this target hasn't already been added
+	for (vector<GameObjectCollection::iterator>::iterator cdtr = RemoveList.begin(); cdtr != RemoveList.end(); cdtr++)
+	{
+		if (*cdtr == target) return;
+	}
 	RemoveList.push_back(target);
 }
 

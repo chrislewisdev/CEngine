@@ -9,6 +9,7 @@
 
 #include <list>
 #include <vector>
+#include <set>
 #include <boost/shared_ptr.hpp>
 #include "GameObject.h"
 
@@ -47,7 +48,8 @@ namespace CEngine
 		/// \return void
 		void PerformBatchAdd();
 		/// \brief Requests that an object referenced by the specified iterator be removed from the game state. Note that will not actually
-		/// be removed until a Batch Remove is performed (at the end of a new program Update)
+		/// be removed until a Batch Remove is performed (at the end of a new program Update). Also checks to see that the target
+		/// iterator has not already been requested to remove.
 		///
 		/// \param target The GameObject Collection iterator referencing the object to be removed.
 		/// \return void
@@ -73,6 +75,7 @@ namespace CEngine
 		GameObjectCollection Objects;
 		//Collection of iterators referencing objects to be removed in our next batch remove
 		std::vector<GameObjectCollection::iterator> RemoveList;
+		//std::set<GameObjectCollection::iterator> RemoveList;
 	};
 }
 

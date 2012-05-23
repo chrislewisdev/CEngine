@@ -74,6 +74,10 @@ namespace CEngine
 		//Mouse button states
 		bool leftMouseDown, midMouseDown, rightMouseDown;
 	};
+
+
+	/// \example Examples/ExampleInput.cpp
+	/// Demonstrates usage of the Input class via the ProgramControl class. Covers all basic types of input (keyboard, mouse).
 }
 
 #endif

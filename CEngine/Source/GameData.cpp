@@ -50,6 +50,15 @@ void GameData::RemoveObject(GameObjectCollection::iterator target)
 	RemoveList.push_back(target);
 }
 
+//This function requests that a range of objects be removed from the game state
+void GameData::RemoveObject(GameObjectCollection::iterator begin, GameObjectCollection::iterator end)
+{
+	for (GameObjectCollection::iterator cdtr = begin; cdtr != end; cdtr++)
+	{
+		RemoveObject(cdtr);
+	}
+}
+
 //This function removes all currently waiting objects from the game
 void GameData::PerformBatchRemove()
 {

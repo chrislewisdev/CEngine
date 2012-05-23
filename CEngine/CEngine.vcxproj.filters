@@ -92,6 +92,9 @@
     <ClCompile Include="Source\Examples\ExampleInput.cpp">
       <Filter>Source Files\Examples</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Examples\ExampleGameData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="EngineFeatures.txt" />

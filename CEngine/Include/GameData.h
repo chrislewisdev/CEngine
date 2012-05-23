@@ -54,6 +54,12 @@ namespace CEngine
 		/// \param target The GameObject Collection iterator referencing the object to be removed.
 		/// \return void
 		void RemoveObject(GameObjectCollection::iterator target);
+		/// \brief Requests that a range of iterators be removed from the game state (largely the same as the first RemoveObject).
+		///
+		/// \param begin Iterator indicating the start of a range of objects to remove.
+		/// \param end End iterator which specifies where to stop removing (will NOT remove the end iterator itself)
+		/// \return void
+		void RemoveObject(GameObjectCollection::iterator begin, GameObjectCollection::iterator end);
 		/// \brief Performs a batch remove of all objects currently waiting to be removed from the game state
 		/// \return void
 		void PerformBatchRemove();

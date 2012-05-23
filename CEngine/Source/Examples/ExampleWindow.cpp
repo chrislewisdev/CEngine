@@ -18,7 +18,7 @@ int main()
 	{
 		MainWindow.UpdateScreen();
 	}
-	catch (std::exception e)
+	catch (std::exception& e)
 	{
 		cout << e.what() << endl;
 	}
@@ -32,7 +32,7 @@ int main()
 	{
 		SecondWindow.Open("My Second Window", 500, 400);
 	}
-	catch (std::exception e)
+	catch (std::exception& e)
 	{
 		cout << e.what() << endl;
 	}

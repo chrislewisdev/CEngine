@@ -26,6 +26,7 @@ int main()
 	// but without a graphics window to receive the 'keyboard focus' from Windows we can't actually process input at all.
 	ProgramControl Control("Example Input", 400, 300);
 
+	//ProgramControl must have a current State set in order to run- even if it does nothing, you have to give it something to 'do'
 	Control.AddState(1, StatePointer(new EmptyState(&Control)));
 	Control.ChangeState(1);
 
@@ -48,6 +49,8 @@ int main()
 		{
 			if (Control.ProgramInput->GetKey(c))
 			{
+				//Translating the SDLK values to a string representing what it is is too much effort for an example!!
+				//Besides I think the example makes its point regardless of the actual console output
 				cout << "Directional Key Pressed: " << c << endl;
 			}
 		}
@@ -59,9 +62,18 @@ int main()
 				cout << "Number Key Pressed: " << c << endl;
 			}
 		}
+		//Check for mouse input buttons
+		for (int mb = SDL_BUTTON_LEFT; mb <= SDL_BUTTON_RIGHT; mb++)
+		{
+			if (Control.ProgramInput->GetMouseDown(mb))
+			{
+				Point2D position = Control.ProgramInput->GetMousePosition();
+				cout << "Mouse button pressed: " << mb << " at position " << position.x << " " << position.y << endl;
+			}
+		}
 
-		//Slow our application down by 10ms so the console text is a bit easier to read
-		Sleep(10);
+		//Slow our application down by 30ms so the console text is a bit easier to read
+		Sleep(30);
 	}
 
 	return 0;

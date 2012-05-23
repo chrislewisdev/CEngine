@@ -31,8 +31,9 @@ bool Input::ProcessEvent(SDL_Event e)
 }
 
 //This function returns the status of a specific key
-bool Input::GetKey(char c) const
+bool Input::GetKey(int c) const
 {
+	if (c < 0 || c >= SDLK_LAST) throw KeyIndexException("Invalid Key Index- Out of Bounds");
 	return keys[tolower(c)];
 }
 

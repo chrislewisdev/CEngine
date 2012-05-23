@@ -239,7 +239,7 @@ _Input: Class_
       <x>656</x>
       <y>344</y>
       <w>232</w>
-      <h>144</h>
+      <h>160</h>
     </coordinates>
     <panel_attributes>bg=gray
 _ProgramControl: Class_

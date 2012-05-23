@@ -65,7 +65,7 @@ namespace CEngine
 		GameObjectCollection::iterator End();
 		/// \brief Returns the no. of GameObjects currently in our collection
 		/// \return An integer representing our collection size.
-		int NumObjects();
+		int ObjectCount();
 
 	private:
 		//Declare private properties

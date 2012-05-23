@@ -73,7 +73,7 @@ GameObjectCollection::iterator GameData::End()
 }
 
 //This function returns the size of our collection
-int GameData::NumObjects()
+int GameData::ObjectCount()
 {
 	return Objects.size();
 }

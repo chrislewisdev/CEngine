@@ -9,6 +9,7 @@
 
 //Include any headers we need
 #include <SDL.h>
+#include <stdexcept>
 #include "Point2D.h"
 
 namespace CEngine
@@ -25,6 +26,16 @@ namespace CEngine
 		//! Default Constructor
 		Input();
 
+		//Declare exception classes
+		/// \brief Exception class to indicate that an invalid key index was passed to GetKey.
+		///
+		/// Thrown only by GetKey when an invalid index (<0 or >322) is passed as an argument.
+		class KeyIndexException : public std::exception
+		{
+		public:
+			KeyIndexException(const char *what) : std::exception(what) {}
+		};
+
 		//Declare public functions
 		/// \brief Processes an SDL event, checking for messages relevant to input
 		///
@@ -35,7 +46,7 @@ namespace CEngine
 		///
 		/// \param c The char value to check for. May also be an SDL-defined keysym value.
 		/// \return The true/false state of the key.
-		bool GetKey(char c) const;
+		bool GetKey(int c) const;
 		/// \brief Retrieves the mouse position in screen co-ordinates.
 		///
 		/// \return A Point2D denoting its position, relative to the top left of the window.

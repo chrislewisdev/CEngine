@@ -93,7 +93,7 @@
       <Filter>Source Files\Examples</Filter>
     </ClCompile>
     <ClCompile Include="Source\Examples\ExampleGameData.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Examples</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -82,6 +82,9 @@ namespace CEngine
 		//Collection of iterators referencing objects to be removed in our next batch remove
 		std::vector<GameObjectCollection::iterator> RemoveList;
 	};
+
+	/// \example Examples/ExampleGameData.cpp
+	/// Demonstrates use of the various methods and important concepts of the GameData class.
 }
 
 #endif

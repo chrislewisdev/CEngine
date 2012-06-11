@@ -1,5 +1,4 @@
 - Utility classes
-	- Point2D struct/class (basic position data with suitable constructors and Size2D alias)
 	- Box2D struct/class (position/size data combined)
 	- Vector class
 	- Ray class

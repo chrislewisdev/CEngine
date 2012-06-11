@@ -67,7 +67,7 @@ int main()
 		{
 			if (Control.ProgramInput->GetMouseDown(mb))
 			{
-				Point2D position = Control.ProgramInput->GetMousePosition();
+				Vector2D position = Control.ProgramInput->GetMousePosition();
 				cout << "Mouse button pressed: " << mb << " at position " << position.x << " " << position.y << endl;
 			}
 		}

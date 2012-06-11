@@ -21,9 +21,6 @@
     <ClInclude Include="Include\Window.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Include\Point2D.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Include\Box2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -54,6 +51,9 @@
     <ClInclude Include="Include\GameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Include\Vector2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Window.cpp">
@@ -69,9 +69,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Examples\ExampleStateMachine.cpp">
-      <Filter>Source Files\Examples</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Examples\ExamplePoint2D.cpp">
       <Filter>Source Files\Examples</Filter>
     </ClCompile>
     <ClCompile Include="Source\Examples\ExampleBox2D.cpp">
@@ -94,6 +91,9 @@
     </ClCompile>
     <ClCompile Include="Source\Examples\ExampleGameData.cpp">
       <Filter>Source Files\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vector2D.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

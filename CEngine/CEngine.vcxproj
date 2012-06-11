@@ -72,10 +72,10 @@
     <ClInclude Include="Include\GameState.h" />
     <ClInclude Include="Include\CEMath.h" />
     <ClInclude Include="Include\Input.h" />
-    <ClInclude Include="Include\Point2D.h" />
     <ClInclude Include="Include\ProgramControl.h" />
     <ClInclude Include="Include\State.h" />
     <ClInclude Include="Include\StateMachine.h" />
+    <ClInclude Include="Include\Vector2D.h" />
     <ClInclude Include="Include\Window.h" />
   </ItemGroup>
   <ItemGroup>
@@ -89,9 +89,6 @@
     <ClCompile Include="Source\Examples\ExampleInput.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="Source\Examples\ExamplePoint2D.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="Source\Examples\ExampleStateMachine.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
@@ -103,6 +100,7 @@
     <ClCompile Include="Source\Input.cpp" />
     <ClCompile Include="Source\ProgramControl.cpp" />
     <ClCompile Include="Source\StateMachine.cpp" />
+    <ClCompile Include="Source\Vector2D.cpp" />
     <ClCompile Include="Source\Window.cpp" />
   </ItemGroup>
   <ItemGroup>

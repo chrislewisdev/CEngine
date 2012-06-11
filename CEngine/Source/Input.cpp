@@ -38,7 +38,7 @@ bool Input::GetKey(int c) const
 }
 
 //This function returns our mouse position
-Point2D Input::GetMousePosition() const
+Vector2D Input::GetMousePosition() const
 {
 	return mousePosition;
 }

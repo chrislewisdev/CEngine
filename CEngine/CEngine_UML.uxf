@@ -4,7 +4,7 @@
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>360</x>
+      <x>640</x>
       <y>128</y>
       <w>232</w>
       <h>152</h>
@@ -27,76 +27,41 @@ _Window: Class_
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>64</x>
-      <y>352</y>
-      <w>200</w>
-      <h>152</h>
-    </coordinates>
-    <panel_attributes>bg=gray
-_Point2D: Struct_
---
-+x:float
-+y:float
---
-+Point2D()
-+Point2D(float x, float y)
---
-+XComponent():Point2D
-+YComponent():Point2D
-+operator +(Point2D&amp;, Point2D&amp;)
-+operator -(Point2D&amp;, Point2D&amp;)</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <type>com.umlet.element.Class</type>
-    <coordinates>
-      <x>72</x>
+      <x>312</x>
       <y>584</y>
-      <w>240</w>
+      <w>288</w>
       <h>152</h>
     </coordinates>
     <panel_attributes>bg=gray
 _Box2D: Struct_
 --
-+pos:POINT2D
-+size:POINT2D
++pos:Vector2D
++size:Vector2D
 --
 +BOX2D()
-+BOX2D(POINT2D p, SIZE2D s)
++BOX2D(Vector2D p, Vector2D s)
 +BOX2D(float x, float y, float xs, float ys)
 --
-+BoxCollision(POINT2D target)
-+BoxCollision(POINT2D target, SIZE2D s)
++BoxCollision(Vector2D target)
++BoxCollision(Vector2D target, Vector2D targetSize)
 +BoxCollision(BOX2D target)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>0</x>
-      <y>384</y>
-      <w>88</w>
-      <h>240</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-&gt;&gt;&gt;&gt;</panel_attributes>
-    <additional_attributes>64;24;24;24;24;224;72;224</additional_attributes>
-  </element>
-  <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>72</x>
-      <y>752</y>
+      <x>328</x>
+      <y>328</y>
       <w>224</w>
       <h>200</h>
     </coordinates>
-    <panel_attributes>_Vector2D: Class_
+    <panel_attributes>bg=gray
+_Vector2D: Class_
 --
--i:float
--j:float
--length:float
++x:float
++y:float
 --
 +VECTOR2D()
-+VECTOR2D(POINT2D p)
 +VECTOR2D(float i, float j)
 --
 +Length():float
@@ -112,8 +77,8 @@ _Box2D: Struct_
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>336</x>
-      <y>752</y>
+      <x>0</x>
+      <y>352</y>
       <w>240</w>
       <h>168</h>
     </coordinates>
@@ -132,18 +97,18 @@ UNFINISHED
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>272</x>
-      <y>752</y>
-      <w>80</w>
+      <x>216</x>
+      <y>360</y>
+      <w>128</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-&gt;&gt;&gt;&gt;</panel_attributes>
-    <additional_attributes>24;24;64;24</additional_attributes>
+    <additional_attributes>112;24;24;24</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>656</x>
+      <x>936</x>
       <y>88</y>
       <w>224</w>
       <h>152</h>
@@ -166,7 +131,7 @@ _StateMachine: Class_
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>952</x>
+      <x>1232</x>
       <y>88</y>
       <w>168</w>
       <h>152</h>
@@ -186,7 +151,7 @@ _StateMachine: Class_
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>856</x>
+      <x>1136</x>
       <y>88</y>
       <w>112</w>
       <h>40</h>
@@ -197,7 +162,7 @@ _StateMachine: Class_
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>352</x>
+      <x>632</x>
       <y>344</y>
       <w>256</w>
       <h>208</h>
@@ -206,7 +171,7 @@ _StateMachine: Class_
 _Input: Class_
 --
 -keys:bool[]
--mousePosition:POINT2D
+-mousePosition:Vector2D
 -leftMouseDown:bool
 -midMouseDown:bool
 -rightMouseDown:bool
@@ -223,20 +188,9 @@ _Input: Class_
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>240</x>
-      <y>360</y>
-      <w>128</w>
-      <h>64</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-&gt;&gt;&gt;&gt;</panel_attributes>
-    <additional_attributes>24;48;112;24</additional_attributes>
-  </element>
-  <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>656</x>
+      <x>936</x>
       <y>344</y>
       <w>232</w>
       <h>160</h>
@@ -261,7 +215,7 @@ ProgramControl(char char*, int, int)
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>728</x>
+      <x>1008</x>
       <y>216</y>
       <w>40</w>
       <h>144</h>
@@ -272,7 +226,7 @@ ProgramControl(char char*, int, int)
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>360</x>
+      <x>640</x>
       <y>80</y>
       <w>80</w>
       <h>24</h>
@@ -283,7 +237,7 @@ ProgramControl(char char*, int, int)
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>360</x>
+      <x>640</x>
       <y>80</y>
       <w>40</w>
       <h>64</h>
@@ -294,7 +248,7 @@ ProgramControl(char char*, int, int)
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>584</x>
+      <x>864</x>
       <y>360</y>
       <w>88</w>
       <h>40</h>
@@ -305,7 +259,7 @@ ProgramControl(char char*, int, int)
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>824</x>
+      <x>1104</x>
       <y>568</y>
       <w>256</w>
       <h>144</h>
@@ -328,7 +282,7 @@ _GameData: Class_
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>952</x>
+      <x>1232</x>
       <y>344</y>
       <w>192</w>
       <h>64</h>
@@ -344,7 +298,7 @@ _GameData: Class_
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>864</x>
+      <x>1144</x>
       <y>368</y>
       <w>64</w>
       <h>216</h>
@@ -355,7 +309,7 @@ _GameData: Class_
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>544</x>
+      <x>824</x>
       <y>256</y>
       <w>160</w>
       <h>104</h>
@@ -366,7 +320,7 @@ _GameData: Class_
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>448</x>
+      <x>728</x>
       <y>80</y>
       <w>88</w>
       <h>24</h>
@@ -377,7 +331,7 @@ _GameData: Class_
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>440</x>
+      <x>720</x>
       <y>80</y>
       <w>40</w>
       <h>64</h>
@@ -388,7 +342,7 @@ _GameData: Class_
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>1000</x>
+      <x>1280</x>
       <y>216</y>
       <w>40</w>
       <h>144</h>
@@ -399,7 +353,7 @@ _GameData: Class_
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>984</x>
+      <x>1264</x>
       <y>384</y>
       <w>40</w>
       <h>200</h>
@@ -410,7 +364,7 @@ _GameData: Class_
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>656</x>
+      <x>936</x>
       <y>0</y>
       <w>104</w>
       <h>24</h>
@@ -421,7 +375,7 @@ _GameData: Class_
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>640</x>
+      <x>920</x>
       <y>0</y>
       <w>40</w>
       <h>104</h>
@@ -432,7 +386,7 @@ _GameData: Class_
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>688</x>
+      <x>968</x>
       <y>32</y>
       <w>152</w>
       <h>24</h>
@@ -443,7 +397,7 @@ _GameData: Class_
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>680</x>
+      <x>960</x>
       <y>32</y>
       <w>40</w>
       <h>72</h>
@@ -454,8 +408,8 @@ _GameData: Class_
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>696</x>
-      <y>744</y>
+      <x>720</x>
+      <y>632</y>
       <w>256</w>
       <h>136</h>
     </coordinates>
@@ -469,5 +423,27 @@ GameObject(lua_State*, string)
 /+Update/
 /+Draw/</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>528</x>
+      <y>360</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-&gt;&gt;&gt;&gt;</panel_attributes>
+    <additional_attributes>24;24;104;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>264</x>
+      <y>376</y>
+      <w>80</w>
+      <h>256</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-&gt;&gt;&gt;&gt;</panel_attributes>
+    <additional_attributes>64;24;24;24;24;240;48;240</additional_attributes>
   </element>
 </diagram>

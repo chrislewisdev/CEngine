@@ -10,7 +10,7 @@
 //Include any headers we need
 #include <SDL.h>
 #include <stdexcept>
-#include "Point2D.h"
+#include "Vector2D.h"
 
 namespace CEngine
 {
@@ -49,8 +49,8 @@ namespace CEngine
 		bool GetKey(int c) const;
 		/// \brief Retrieves the mouse position in screen co-ordinates.
 		///
-		/// \return A Point2D denoting its position, relative to the top left of the window.
-		Point2D GetMousePosition() const;
+		/// \return A Vector2D denoting its position, relative to the top left of the window.
+		Vector2D GetMousePosition() const;
 		/// \brief Retrieves the button state of a specific mouse button.
 		///
 		/// \param id The ID of the mouse button to check. Should be SDL_BUTTON_LEFT/MIDDLE/RIGHT
@@ -70,7 +70,7 @@ namespace CEngine
 		//Storage for key statuses- can hold all possible SDLKey values
 		bool keys[SDLK_LAST];
 		//Current position of the mouse
-		Point2D mousePosition;
+		Vector2D mousePosition;
 		//Mouse button states
 		bool leftMouseDown, midMouseDown, rightMouseDown;
 	};

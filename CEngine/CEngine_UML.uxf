@@ -408,8 +408,8 @@ _GameData: Class_
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>720</x>
-      <y>632</y>
+      <x>704</x>
+      <y>616</y>
       <w>256</w>
       <h>136</h>
     </coordinates>
@@ -445,5 +445,16 @@ GameObject(lua_State*, string)
     </coordinates>
     <panel_attributes>lt=&lt;-&gt;&gt;&gt;&gt;</panel_attributes>
     <additional_attributes>64;24;24;24;24;240;48;240</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>936</x>
+      <y>584</y>
+      <w>184</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-&gt;&gt;&gt;</panel_attributes>
+    <additional_attributes>24;56;136;56;136;24;168;24</additional_attributes>
   </element>
 </diagram>

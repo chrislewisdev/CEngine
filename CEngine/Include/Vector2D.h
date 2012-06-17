@@ -62,7 +62,7 @@ namespace CEngine
 		Vector2D operator - () const;
 
 		//Declare public properties
-		//! Horizontal displacement of this vector
+		//! Horizontal displacement of this vector.
 		float x;
 		//!	Vertical displacement of this vector.
 		float y;

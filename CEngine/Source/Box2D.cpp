@@ -31,9 +31,21 @@ Box2D::Box2D(float x, float y, float xSize, float ySize)
 }
 
 //This function checks for a point collision inside our box
-bool Box2D::BoxCollision(Vector2D target) const
+bool Box2D::Contains(Vector2D target) const
 {
 	return (target.x >= pos.x && target.x <= pos.x + size.x && target.y >= pos.y && target.y <= pos.y + size.y);
+}
+
+//This function checks if the target box is entirely within this one
+bool Box2D::Contains(const Box2D& target) const
+{
+	//For the target box to be contained within us, the target box's bounds must each be the max/min of our intersection area
+	if (Math::Max(pos.x, target.pos.x) != target.pos.x) return false;
+	if (Math::Min(pos.x + size.x, target.pos.x + target.size.x) != target.pos.x + target.size.x) return false;
+	if (Math::Max(pos.y, target.pos.y) != target.pos.y) return false;
+	if (Math::Min(pos.y + size.y, target.pos.y + target.size.y) != target.pos.y + target.size.y) return false;
+
+	return true;
 }
 
 //This function checks for a collision against a point/size

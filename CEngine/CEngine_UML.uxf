@@ -42,7 +42,7 @@ _Box2D: Struct_
 +BOX2D(Vector2D p, Vector2D s)
 +BOX2D(float x, float y, float xs, float ys)
 --
-+BoxCollision(Vector2D target)
++Contains(Vector2D target)
 +BoxCollision(Vector2D target, Vector2D targetSize)
 +BoxCollision(BOX2D target)</panel_attributes>
     <additional_attributes/>
@@ -61,17 +61,17 @@ _Vector2D: Class_
 +x:float
 +y:float
 --
-+VECTOR2D()
-+VECTOR2D(float i, float j)
++Vector2D()
++Vector2D(float i, float j)
 --
 +Length():float
-+UnitVector():VECTOR2D
-+Dot(VECTOR2D target):float
++UnitVector():Vector2D
++Dot(Vector2D target):float
 --
-+operator+(VECTOR2D&amp;, VECTOR2D&amp;)
-+operator+=(VECTOR2D&amp;, VECTOR2D&amp;)
-+operator-(VECTOR2D&amp;, VECTOR2D&amp;)
-+operator-=(VECTOR2D&amp;, VECTOR2D&amp;)</panel_attributes>
++operator+(Vector2D&amp;, Vector2D&amp;)
++operator+=(Vector2D&amp;, Vector2D&amp;)
++operator-(Vector2D&amp;, Vector2D&amp;)
++operator-=(Vector2D&amp;, Vector2D&amp;)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -84,11 +84,10 @@ _Vector2D: Class_
     </coordinates>
     <panel_attributes>_Ray2D: Class_
 --
--o:VECTOR2D
--d:VECTOR2D
+-origin:Vector2D
+-direction:Vector2D
 --
-+RAY2D()
-+RAY2D(VECTOR2D o, VECTOR2D d)
++RAY2D(Vector2D o, Vector2D d)
 --
 UNFINISHED
 +Collision(???)</panel_attributes>
@@ -456,5 +455,36 @@ GameObject(lua_State*, string)
     </coordinates>
     <panel_attributes>lt=&lt;-&gt;&gt;&gt;</panel_attributes>
     <additional_attributes>24;56;136;56;136;24;168;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>328</x>
+      <y>96</y>
+      <w>224</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>_Circle2D: Class_
+--
+-center:Vector2D
+-radius:float
+--
++Circle2D(Vector2D c, float r)
+--
++Contains(Vector2D target):bool
++CircleCollision(Circle2D target):bool
++CircleCollision(Vector2D c, float r):bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>264</x>
+      <y>96</y>
+      <w>80</w>
+      <h>288</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-&gt;&gt;&gt;&gt;</panel_attributes>
+    <additional_attributes>64;272;24;272;24;24;64;24</additional_attributes>
   </element>
 </diagram>

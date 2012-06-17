@@ -28,12 +28,17 @@ namespace CEngine
 		Box2D(float x, float y, float xSize, float ySize);
 
 		//Declare public functions
-		/// \brief Checks for collision with a single Point- i.e. if the target Point is within our Box
+		/// \brief Checks if the target Vector Position is within our box
 		///
 		/// \param target The target position to check against
 		/// \return True if there's a collision, false if not
-		bool BoxCollision(Vector2D target) const;
-		/// \brief Checks for collision against a Point with a size- if the target area overlaps with our Box
+		bool Contains(Vector2D target) const;
+		/// \brief Checks if the target box is entirely contained within this box
+		///
+		/// \param target The box to check against
+		/// \return True if the target box is completely contained within this box, false if not
+		bool Contains(const Box2D& target) const;
+		/// \brief Checks for collision against a Vector Position with a size- if the target area overlaps with our Box
 		///
 		/// \param target The target position to check against
 		/// \param targetSize The width/height values of the target area
@@ -46,9 +51,9 @@ namespace CEngine
 		bool BoxCollision(const Box2D& target) const;
 
 		//Declare public properties
-		//! Position (x,y) struct
+		//! Position (x,y) info
 		Vector2D pos;
-		//! Size (x,y) struct
+		//! Size (x,y) info
 		Vector2D size;
 	};
 

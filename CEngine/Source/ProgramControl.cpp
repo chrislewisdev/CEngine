@@ -10,7 +10,7 @@ using namespace CEngine;
 
 //Define our static ProgramControl variables
 Input ProgramControl::InputControl;
-const Input* const ProgramControl::ProgramInput = &ProgramControl::InputControl;
+const Input& ProgramControl::ProgramInput = ProgramControl::InputControl;
 
 //Constructor creates a new window on creation- nothing else needs to be initialised
 ProgramControl::ProgramControl(const char *title, int width, int height)
@@ -29,6 +29,9 @@ ProgramControl::ProgramControl()
 //This function updates our overall program states
 void ProgramControl::Update(float deltaTime)
 {
+	//Update our ticks counter
+	ticks = GetTickCount();
+
 	//Process Window Messages
 	SDL_Event windowEvent;
 	//Loop as long as we have messages
@@ -53,9 +56,6 @@ void ProgramControl::Update(float deltaTime)
 
 	//Do a Batch Remove on our Game Data
 	Storage.PerformBatchRemove();
-
-	//Update our ticks counter
-	ticks = GetTickCount();
 }
 
 //This function returns the time passed since our last update

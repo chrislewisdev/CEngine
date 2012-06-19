@@ -25,6 +25,8 @@ namespace CEngine
 		GameObject();
 		//! Constructor to initialise the position/size of our object
 		GameObject(Box2D boundingBox);
+		//! Virtual Destructor to support polymorphism
+		virtual ~GameObject() {}
 
 		//Declare public functions
 		/// \brief Performs a single Update loop on our GameObject, performing all necessary logic. Override this function to provide

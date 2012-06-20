@@ -16,6 +16,18 @@ StateMachine::StateMachine()
 
 }
 
+//Copy Constructor
+StateMachine::StateMachine(const StateMachine& target)
+{
+	//Copy over all States from the target
+	for (StateCollection::const_iterator cdtr = target.States.begin(); cdtr != target.States.end(); cdtr++)
+	{
+		States.insert(std::pair<int, StatePointer>(cdtr->first, StatePointer(cdtr->second->Clone(this))));
+	}
+	CurrentStateID = target.CurrentStateID;
+	CurrentState = States.find(CurrentStateID)->second.get();
+}
+
 //This function inserts a new state into our storage with the specified ID
 void StateMachine::AddState(unsigned int id, StatePointer State)
 {

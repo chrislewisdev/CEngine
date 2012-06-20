@@ -6,8 +6,8 @@
 **************************************************/
 
 //Include guard
-#ifndef CENGINE_Window_H
-#define CENGINE_Window_H
+#ifndef CENGINE_WINDOW_H
+#define CENGINE_WINDOW_H
 
 //Include any necessary headers
 #include <stdexcept>
@@ -66,6 +66,8 @@ namespace CEngine
 		void SetBackgroundColour(float r, float g, float b);
 		//! Flips our two frame buffers to update the screen to the newly drawn frame. Will throw a UsageException if window isn't open.
 		void UpdateScreen();
+		//! Clears the screen in preparation for new drawing.
+		void ClearScreen();
 
 	private:
 		//Declare private functions

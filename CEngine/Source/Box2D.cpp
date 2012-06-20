@@ -17,7 +17,7 @@ Box2D::Box2D()
 }
 
 //Constructor to take position/size
-Box2D::Box2D(Vector2D p, Size2D s)
+Box2D::Box2D(Vector2D p, Vector2D s)
 	: pos(p), size(s)
 {
 
@@ -49,16 +49,16 @@ bool Box2D::Contains(const Box2D& target) const
 }
 
 //This function checks for a collision against a point/size
-bool Box2D::BoxCollision(Vector2D target, Size2D targetSize) const
+bool Box2D::Overlap(Vector2D target, Vector2D targetSize) const
 {
-	return BoxCollision(Box2D(target, targetSize));
+	return Overlap(Box2D(target, targetSize));
 }
 
 //This function checks for collision against another Box
-bool Box2D::BoxCollision(const Box2D& target) const
+bool Box2D::Overlap(const Box2D& target) const
 {
 	//Declare storage for our intersection range
-	Size2D intersection;
+	Vector2D intersection;
 
 	//Calculate the intersection widths between us and our target
 	intersection.x = Math::Min(pos.x + size.x, target.pos.x + target.size.x) - Math::Max(pos.x, target.pos.x);

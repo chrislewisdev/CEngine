@@ -39,6 +39,12 @@ namespace CEngine
 		///
 		/// \return void
 		virtual void Draw();
+		/// \brief Virtual function return a newly constructed (dynamic) copy of this GameObject instance. While useful in a general sense
+		/// this function is also utilised by CEngine's internals for polymorphic copying of GameObjects so this is an important function
+		/// to keep implemented in your child classes!
+		///
+		/// \return A new dynamically constructed GameObject, as a copy of this one.
+		virtual GameObject *Clone();
 		/// \brief Returns a copy of this object's bounding box.
 		///
 		/// \return A value copy our bounding box.

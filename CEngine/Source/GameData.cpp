@@ -15,12 +15,30 @@ GameData::GameData()
 	
 }
 
+//Copy Constructor
+GameData::GameData(const GameData& target)
+{
+	//Check that the target has no objects waiting to be removed
+	if (target.RemoveList.size() != 0) throw CopyException("Attempted to copy a GameData instance that has objects waiting to be removed.");
+	Copy(target);
+}
+
+//Assignment operator
+const GameData& GameData::operator = (const GameData& target)
+{
+	//Check that the target has no objects waiting to be removed
+	if (target.RemoveList.size() != 0) throw CopyException("Attempted to copy a GameData instance that has objects waiting to be removed.");
+
+	//Clear out our own data
+	ClearAll();
+
+	Copy(target);
+}
+
 //Destructor will explicitly clear out our existing game data
 GameData::~GameData()
 {
-	AddList.clear();
-	Objects.clear();
-	RemoveList.clear();
+	ClearAll();
 }
 
 //This function adds a new GameObject waiting to be added into the gamestate
@@ -82,7 +100,30 @@ GameObjectCollection::iterator GameData::End()
 }
 
 //This function returns the size of our collection
-int GameData::ObjectCount()
+int GameData::ObjectCount() const
 {
 	return Objects.size();
+}
+
+//This function copies data from another GameData instance
+void GameData::Copy(const GameData& target)
+{
+	//Copy the Add List from the target
+	for (vector<GameObjectPointer>::const_iterator cdtr = target.AddList.begin(); cdtr != target.AddList.end(); cdtr++)
+	{
+		AddObject(GameObjectPointer((*cdtr)->Clone()));
+	}
+	//Copy the core Objects list
+	for (GameObjectCollection::const_iterator cdtr = target.Objects.begin(); cdtr != target.Objects.end(); cdtr++)
+	{
+		Objects.push_back(GameObjectPointer((*cdtr)->Clone()));
+	}
+}
+
+//This function clears all our data lists
+void GameData::ClearAll()
+{
+	AddList.clear();
+	Objects.clear();
+	RemoveList.clear();
 }

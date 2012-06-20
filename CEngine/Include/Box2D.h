@@ -43,12 +43,12 @@ namespace CEngine
 		/// \param target The target position to check against
 		/// \param targetSize The width/height values of the target area
 		/// \return True if there's a collision, false if not
-		bool BoxCollision(Vector2D target, Vector2D targetSize) const;
+		bool Overlap(Vector2D target, Vector2D targetSize) const;
 		/// \brief Checks for collision against another Box- if the two Boxes overlap at all
 		///
 		/// \param target The target Box to check against
 		/// \return True if there's a collision, false if not
-		bool BoxCollision(const Box2D& target) const;
+		bool Overlap(const Box2D& target) const;
 
 		//Declare public properties
 		//! Position (x,y) info

@@ -105,6 +105,13 @@ void Window::UpdateScreen()
 	SDL_GL_SwapBuffers();
 }
 
+//This function clears the current OpenGL screen
+void Window::ClearScreen()
+{
+	if (!isOpen) throw UsageException("Window must be Open before you Clear the screen.");
+	glClear(GL_COLOR_BUFFER_BIT);
+}
+
 //This function attempts to initialise SDL Video
 void Window::InitSDL()
 {

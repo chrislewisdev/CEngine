@@ -35,6 +35,12 @@ void GameObject::Draw()
 	DrawBoundingBox();
 }
 
+//This function returns a clone of this GameObject
+GameObject *GameObject::Clone()
+{
+	return new GameObject(*this);
+}
+
 //This function returns a copy of our bounding box
 Box2D GameObject::BoundingBox()
 {

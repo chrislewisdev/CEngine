@@ -35,6 +35,11 @@ namespace CEngine
 		virtual void Update(float deltaTime) = 0;
 		//! Pure virtual method to be called when a State is being transitioned out of- perform any clean-up here
 		virtual void Exit() = 0;
+		/// \brief Pure virtual Clone method. Allows polymorphic cloning of State instances where necessary.
+		/// Very important to implement if you plan on copying StateMachines in your code!
+		///
+		/// \param NewOwner A pointer to the new StateMachine which is to own this copy.
+		virtual State *Clone(StateMachine *NewOwner) = 0;
 
 	protected:
 		//Declare protected properties

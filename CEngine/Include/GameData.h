@@ -34,8 +34,24 @@ namespace CEngine
 	public:
 		//! Default Constructor, creates empty game data
 		GameData();
+		/// \brief Copy Constructor. Will perform a deep copy of all GameObjects in the other GameData instance as well as all
+		/// GameObjects that are waiting to be added. However copying of those waiting to be removed is not possible and as
+		/// such this constructor imposes the restriction that the list of objects waiting to be removed on the other GameData instance
+		/// MUST be empty prior to copying.
+		GameData(const GameData& target);
+		/// \brief Assignment Operator. Works just like the Copy Constructor but clears out any existing data before copying.
+		const GameData& operator = (const GameData& target);
 		//! Destructor. Makes sure all existing game data is cleaned up.
 		~GameData();
+
+		//Declare exception classes
+		/// \brief Exception class for errors when copying data from one GameData instance to another. Currently only includes
+		/// attempting to copy when objects are present in the Removal List.
+		class CopyException : public std::exception
+		{
+		public:
+			CopyException(const char *what) : std::exception(what) {}
+		};
 
 		//Declare public functions
 		/// \brief Requests a new object be added to the game state. Note that the new object will not be actually added into the proper
@@ -71,9 +87,15 @@ namespace CEngine
 		GameObjectCollection::iterator End();
 		/// \brief Returns the no. of GameObjects currently in our collection
 		/// \return An integer representing our collection size.
-		int ObjectCount();
+		int ObjectCount() const;
 
 	private:
+		//Declare private functions
+		//! Copies data from another GameData. Used in Copy Constructor and oeperator =
+		void Copy(const GameData &target);
+		//! Clears out all our data
+		void ClearAll();
+
 		//Declare private properties
 		//Collection of GameObjectPointers to add into our collection on the next batch add
 		std::vector<GameObjectPointer> AddList;

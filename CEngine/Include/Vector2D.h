@@ -67,13 +67,6 @@ namespace CEngine
 		//!	Vertical displacement of this vector.
 		float y;
 	};
-
-	/// \class CEngine::Size2D
-	/// \brief Typedef for Vector2D as a Size indicator.
-	typedef Vector2D Size2D;
-	/// \class CEngine::Point2D
-	/// \brief Typedef for Vector2D as an on-screen Point indicator.
-	typedef Vector2D Point2D;
 }
 
 #endif

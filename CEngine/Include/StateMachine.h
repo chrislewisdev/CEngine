@@ -20,7 +20,7 @@ namespace CEngine
 	/// \brief Typedef as boost::shared_ptr<State>. Used for pointer management in StateMachine and used to construct State pointers to AddState().
 	typedef boost::shared_ptr<State> StatePointer;
 
-	/// \brief Controls storage, handling and operation of States in an object
+	/// \brief Controls storage, handling and operation of States in an object.
 	///
 	/// The StateMachine class handles all States designated to it. New States must be added by passing a new'd State instance
 	/// to AddState after its ID value. The ID values you set can be used from then on to identify current states and designate
@@ -33,6 +33,8 @@ namespace CEngine
 	public:
 		//! Default Constructor- no initialisations necessary
 		StateMachine();
+		//! Copy Constructor. Performs a deep copy of all States attached to the target and assumes the current State of the target.
+		StateMachine(const StateMachine& target);
 
 		//Declare exception classes
 		/// \brief Exception class for Null State errors in the StateMachine, e.g. calling Update without setting the current state
@@ -78,7 +80,11 @@ namespace CEngine
 
 	private:
 		//Declare a typedef for our choice of State storage
-		typedef std::map<int, StatePointer > StateCollection;
+		typedef std::map<int, StatePointer> StateCollection;
+
+		//Declare operator= as private. Once created and properly set up, StateMachines shouldn't be assigned amongst each other.
+		//The Copy Constructor can be used to instantiate a StateMachine as a direct copy of another.
+		void operator = (const StateMachine& target) {}
 
 		//Declare private properties
 		//State map storage

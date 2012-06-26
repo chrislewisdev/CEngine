@@ -36,7 +36,7 @@ void GameObject::Draw()
 }
 
 //This function returns a clone of this GameObject
-GameObject *GameObject::Clone()
+GameObject *GameObject::Clone() const
 {
 	return new GameObject(*this);
 }

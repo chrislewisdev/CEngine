@@ -44,7 +44,7 @@ namespace CEngine
 		/// to keep implemented in your child classes!
 		///
 		/// \return A new dynamically constructed GameObject, as a copy of this one.
-		virtual GameObject *Clone();
+		virtual GameObject *Clone() const;
 		/// \brief Returns a copy of this object's bounding box.
 		///
 		/// \return A value copy our bounding box.

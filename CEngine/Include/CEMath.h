@@ -19,7 +19,7 @@ namespace CEngine
 		/// \param y The second value
 		/// \return The smallest!
 		template <class T>
-		T Min(const T& x, const T& y)
+		static T Min(const T& x, const T& y)
 		{
 			return x < y ? x : y;
 		}
@@ -30,7 +30,7 @@ namespace CEngine
 		/// \param y The second value
 		/// \return The largest!
 		template <class T>
-		T Max(const T& x, const T& y)
+		static T Max(const T& x, const T& y)
 		{
 			return x > y ? x : y;
 		}

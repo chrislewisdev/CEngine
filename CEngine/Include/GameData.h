@@ -79,6 +79,11 @@ namespace CEngine
 		/// \brief Performs a batch remove of all objects currently waiting to be removed from the game state
 		/// \return void
 		void PerformBatchRemove();
+		/// \brief Clears out all existing data. This includes all current Game Objects plus any that are waiting to be added, and naturally
+		/// cancels out all pending removals. Useful as a flatout reset for your game data where appropriate. Should be perfectly safe as long
+		/// as you don't try to access the old data in any way (e.g. through hanging references) and so on.
+		/// \return void
+		void ClearAll();
 		/// \brief Returns the starting iterator for our collection of GameObjects.
 		/// \return An iterator referencing the start of our GameObjects collection.
 		GameObjectCollection::iterator Begin();
@@ -93,8 +98,6 @@ namespace CEngine
 		//Declare private functions
 		//! Copies data from another GameData. Used in Copy Constructor and oeperator =
 		void Copy(const GameData &target);
-		//! Clears out all our data
-		void ClearAll();
 
 		//Declare private properties
 		//Collection of GameObjectPointers to add into our collection on the next batch add

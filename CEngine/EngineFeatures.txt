@@ -1,41 +1,9 @@
-- Utility classes
-	- Box2D struct/class (position/size data combined)
-	- Vector class
-	- Ray class
-		- Used closely with vectors
-- Graphics Context Creation
-	- Window class
-		- Creation of an SDL Window
-		- Setup of basic OpenGL settings
-		- Screen updates
-		- SDL closure
-	- Consider: Expansion of Window class responsibilities?
-- Program Flow Foundation
-	- State Machine class
-		- Handles updating and switching between a set of States
-		- Has OWNERSHIP of own instances of a State, e.g. no State Singletons, has own pointer to a State instance
-		- State changes can be requested by call or through States themselves (through return value?)
-	- State class
-		- Base class for states to inherit off to define their own State functionality
-		- Consists of functions like Enter, Update, Exit
-	- Consider: how does a class contained in a State (e.g. a Menu Button in the Menu State) communicate a state change up the chain?
-- Input
-	- Input class
-		- Tracks input automatically through each loop
-		- Interface like GetKey('a') and any other relevant input
 - GameObject class
 	- Used as base class for all objects used in-game
 	- Has virtuals like Update(), Draw() functions
 	- Is ready to integrate with Lua scripts, providing members as appropriate
 	- Consider: How do child classes interface with Lua to provide their own members?
 	- Consider: Do GameObjects have their own StateMachine? (they may)
-- Object storage
-	- Level class (Consider better name)
-		- Storage class for all game objects
-		- Intermediary class for map loading, holding map data as appropriate
-		- Also storage for things relating directly to maps / that need access to object data
-			- E.g. BSP-Tree class
-			- Map data for pathfinding
 - Collision Systems
 	- Facilities for Raycasting and colliding with all types of objects (primarily squares)
 	- BSP-Tree class
@@ -70,3 +38,38 @@
 	- Consider: Specifying custom rules for navigation over map terrains, e.g. a top-view terrain traversal vs. side-view where jumping
 		must be taken into account
 		- This may fit best with the potential map data stored in the Level storage class
+
+COMPLETED (OR MOSTLY COMPLETED) SECTION:
+
+- Utility classes
+	- Box2D struct/class (position/size data combined)
+	- Vector class
+	- Ray class
+		- Used closely with vectors
+- Graphics Context Creation
+	- Window class
+		- Creation of an SDL Window
+		- Setup of basic OpenGL settings
+		- Screen updates
+		- SDL closure
+	- Consider: Expansion of Window class responsibilities?
+- Program Flow Foundation
+	- State Machine class
+		- Handles updating and switching between a set of States
+		- Has OWNERSHIP of own instances of a State, e.g. no State Singletons, has own pointer to a State instance
+		- State changes can be requested by call or through States themselves (through return value?)
+	- State class
+		- Base class for states to inherit off to define their own State functionality
+		- Consists of functions like Enter, Update, Exit
+	- Consider: how does a class contained in a State (e.g. a Menu Button in the Menu State) communicate a state change up the chain?
+- Input
+	- Input class
+		- Tracks input automatically through each loop
+		- Interface like GetKey('a') and any other relevant input
+- Object storage
+	- Level class (Consider better name)
+		- Storage class for all game objects
+		- Intermediary class for map loading, holding map data as appropriate
+		- Also storage for things relating directly to maps / that need access to object data
+			- E.g. BSP-Tree class
+			- Map data for pathfinding

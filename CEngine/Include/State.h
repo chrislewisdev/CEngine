@@ -39,7 +39,7 @@ namespace CEngine
 		/// Very important to implement if you plan on copying StateMachines in your code!
 		///
 		/// \param NewOwner A pointer to the new StateMachine which is to own this copy.
-		virtual State *Clone(StateMachine *NewOwner) = 0;
+		virtual State *Clone(StateMachine *NewOwner) const = 0;
 
 	protected:
 		//Declare protected properties

@@ -5,6 +5,7 @@
 ******************************************************************/
 
 #include "ProgramControl.h"
+#include <SDL.h>
 
 using namespace CEngine;
 
@@ -14,24 +15,30 @@ const Input& ProgramControl::ProgramInput = ProgramControl::InputControl;
 
 //Constructor creates a new window on creation- nothing else needs to be initialised
 ProgramControl::ProgramControl(const char *title, int width, int height)
-	: exit(false), ticks(GetTickCount())
+	: exit(false)
 {
 	MainWindow.Open(title, width, height);
+	if (SDL_InitSubSystem(SDL_INIT_TIMER) == -1)
+	{
+		throw Window::InitException("SDL Initialisation failed.");
+	}
+	ticks = SDL_GetTicks();
 }
 
 //Constructor that doesn't open a window
 ProgramControl::ProgramControl()
-	: exit(false), ticks(GetTickCount())
+	: exit(false)
 {
-
+	if (SDL_Init(SDL_INIT_TIMER) == -1)
+	{
+		throw Window::InitException("SDL Initialisation failed.");
+	}
+	ticks = SDL_GetTicks();
 }
 
 //This function updates our overall program states
 void ProgramControl::Update(float deltaTime)
 {
-	//Update our ticks counter
-	ticks = GetTickCount();
-
 	//Process Window Messages
 	SDL_Event windowEvent;
 	//Loop as long as we have messages
@@ -49,6 +56,9 @@ void ProgramControl::Update(float deltaTime)
 		}
 	}
 
+	//Update our ticks counter
+	ticks = SDL_GetTicks();
+
 	//Do a Batch Add on our Game Data
 	Storage.PerformBatchAdd();
 
@@ -61,7 +71,7 @@ void ProgramControl::Update(float deltaTime)
 //This function returns the time passed since our last update
 float ProgramControl::TimeSinceLastUpdate() const
 {
-	return (GetTickCount() - ticks) / 1000.0f;
+	return (SDL_GetTicks() - ticks) / 1000.0f;
 }
 
 //This function returns a pointer to our Game Data instance

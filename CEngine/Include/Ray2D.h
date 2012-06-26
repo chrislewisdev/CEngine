@@ -21,8 +21,7 @@ namespace CEngine
 		//! Main Constructor. Must initialise both origin and direction of Ray.
 		Ray2D(Vector2D o, Vector2D d);
 
-	private:
-		//Declare private properties
+		//Declare public properties
 		//! Vector dictating our origin position
 		Vector2D origin;
 		//! Vector dictating our Ray direction

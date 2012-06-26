@@ -7,7 +7,6 @@
 #ifndef CENGINE_PROGRAMCONTROL_H
 #define CENGINE_PROGRAMCONTROL_H
 
-#include <Windows.h>
 #include "Window.h"
 #include "Input.h"
 #include "StateMachine.h"
@@ -15,13 +14,15 @@
 
 namespace CEngine
 {
-	class GameData;
-
 	/// \brief Manages program flow and key game classes like GameControl and GameData. Used for running the main loop of your game.
 	///
 	/// The ProgramControl class brings the various key game component classes together to run your game. It acts as they key State Machine
 	/// in your game and owns Game Data, the Game Control State Machine, Input and the Graphics Window. It should make up most of the necessary
 	/// main loop for your game.
+	/// It's worth noting that although copying/assignment is valid for most of the parts of ProgramControl, copy construction and assignment
+	/// are DISABLED for this class. This is primarily due to various potential complications with StateMachine assignment but it is also
+	/// not considered something that is likely to be needed/important- most likely the only assignment necessary would be of the GameData member,
+	/// which can be done by the user as-is.
 	class ProgramControl : public StateMachine
 	{
 	public:
@@ -65,16 +66,21 @@ namespace CEngine
 		static const Input& ProgramInput;
 
 	private:
+		//! Declare copy constructor and assignment operator as private. For various reasons these are not feasible just now
+		//! and most likely won't be needed.
+		ProgramControl(const ProgramControl& other) {}
+		void operator = (const ProgramControl& other) {}
+
 		//Declare private properties
-		//Input storage for our entire program
+		//! Input storage for our entire program
 		static Input InputControl;
-		//Our program's Window Instance
+		//! Our program's Window Instance
 		Window MainWindow;
-		//Instance of our complete game data storage
+		//! Instance of our complete game data storage
 		GameData Storage;
-		//Ticks counter- set in Update() and used by TimeSinceLastUpdate()
-		DWORD ticks;
-		//Exit flag- set to true when we want to exit the game
+		//! Ticks counter- set in Update() and used by TimeSinceLastUpdate()
+		unsigned int ticks;
+		//! Exit flag- set to true when we want to exit the game
 		bool exit;
 	};
 }

@@ -77,7 +77,7 @@ Vector2D& Vector2D::operator *= (float rhs)
 }
 
 //Vector division
-Vector2D Vector2D::operator / (float rhs)
+Vector2D Vector2D::operator / (float rhs) const
 {
 	if (rhs == 0) throw std::invalid_argument("Vector / attempted to divide by zero.");
 	return Vector2D(this->x / rhs, this->y / rhs);

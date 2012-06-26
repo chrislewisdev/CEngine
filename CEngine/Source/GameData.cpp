@@ -33,6 +33,8 @@ const GameData& GameData::operator = (const GameData& target)
 	ClearAll();
 
 	Copy(target);
+
+	return *this;
 }
 
 //Destructor will explicitly clear out our existing game data

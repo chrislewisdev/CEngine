@@ -118,11 +118,23 @@ void Window::InitSDL()
 	//Check if SDL has already been initialised- this should mean another Window is already open
 	if (SDL_WasInit(SDL_INIT_VIDEO) != 0)
 	{
-		throw InitException("SDL is already initialised. This most likely means another Window is already open. You cannot create separate windows at this time.");
+		throw InitException("SDL is already initialised. This most likely means another Window is already open. You cannot create multiple windows at the same time.");
 	}
-	if (SDL_Init(SDL_INIT_VIDEO) == -1)
+	//Check if ANYTHING has been initialised yet- if it has, we need only initialise the video subsystem
+	if (SDL_WasInit(SDL_INIT_EVERYTHING) != 0)
 	{
-		throw InitException("SDL Initialisation failed.");
+		if (SDL_InitSubSystem(SDL_INIT_VIDEO) == -1)
+		{
+			throw InitException("SDL Initialisation failed.");
+		}
+	}
+	else
+	{
+		//Otherwise, do a normal Init for video only
+		if (SDL_Init(SDL_INIT_VIDEO) == -1)
+		{
+			throw InitException("SDL Initialisation failed.");
+		}
 	}
 	initialised = true;
 }

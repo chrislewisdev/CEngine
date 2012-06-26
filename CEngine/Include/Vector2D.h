@@ -55,8 +55,10 @@ namespace CEngine
 		//Scalar multiplication/division
 		friend Vector2D operator * (float lhs, const Vector2D& rhs)
 			{ return Vector2D(rhs.x * lhs, rhs.y * lhs); }
+		friend Vector2D operator * (const Vector2D& lhs, float rhs)
+			{ return rhs * lhs; }
 		Vector2D& operator *= (float rhs);
-		Vector2D operator / (float rhs);
+		Vector2D operator / (float rhs) const;
 		Vector2D& operator /= (float rhs);
 		//Negation operator
 		Vector2D operator - () const;

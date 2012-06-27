@@ -32,6 +32,9 @@ namespace CEngine
 		/// Throws an invalid_argument exception on a zero vector.
 		/// \return The Unit Vector of this vector.
 		Vector2D UnitVector() const;
+		/// \brief Returns a Vector that is perpendicular to this one. Preserves the length of this vector.
+		/// \return The perpendicular vector.
+		Vector2D PerpendicularVector() const;
 		/// \brief Calculates the Dot Product of this vector with another target vector.
 		///
 		/// \param target The target vector to calculate our Dot Product with.
@@ -45,6 +48,11 @@ namespace CEngine
 		Vector2D YComponent() const;
 
 		//Declare operator overloads (non-member operators inlined)
+		//Comparison
+		friend bool operator == (const Vector2D& lhs, const Vector2D& rhs)
+			{ return (lhs.x == rhs.x && lhs.y == rhs.y);}
+		friend bool operator != (const Vector2D& lhs, const Vector2D& rhs)
+			{return !(lhs == rhs);}
 		//Vector addition/subtraction
 		friend Vector2D operator + (const Vector2D& lhs, const Vector2D& rhs)
 			{ return Vector2D(lhs.x + rhs.x, lhs.y + rhs.y); }

@@ -33,8 +33,15 @@ float Vector2D::Length() const
 Vector2D Vector2D::UnitVector() const
 {
 	float length = Length();
-	if (length == 0) throw std::invalid_argument("Attempted to create Unit Vector on a Zero Vector");
+	if (length == 0) throw std::invalid_argument("Attempted to create Unit Vector from a Zero Vector");
 	return Vector2D(x/length, y/length);
+}
+
+//This function returns a vector that is perpendicular to this one
+Vector2D Vector2D::PerpendicularVector() const
+{
+	if (Length() == 0) throw std::invalid_argument("Cannot create a Perpendicular Vector from a Zero Vector");
+	return Vector2D(y, -x);
 }
 
 //This function calculates the dot product of this vector with another

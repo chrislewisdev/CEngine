@@ -3,7 +3,6 @@
 	- Has virtuals like Update(), Draw() functions
 	- Is ready to integrate with Lua scripts, providing members as appropriate
 	- Consider: How do child classes interface with Lua to provide their own members?
-	- Consider: Do GameObjects have their own StateMachine? (they may)
 - Collision Systems
 	- Facilities for Raycasting and colliding with all types of objects (primarily squares)
 	- BSP-Tree class

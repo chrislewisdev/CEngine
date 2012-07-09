@@ -5,10 +5,9 @@
 *******************************************************************/
 
 #include "Ray2D.h"
+#include "Collision.h"
 
 using namespace CEngine;
-
-const Vector2D Ray2D::NoIntersection(-1.23456789f, -1.23456789f);
 
 //Main Constructor
 Ray2D::Ray2D(Vector2D o, Vector2D d)
@@ -59,10 +58,13 @@ Vector2D Ray2D::IntersectionPoint(const Ray2D& target) const
 	//Even though n1 == -n2 is likely to indicate opposite rays, they still count as the same line and would entail an incorrect calculation of i
 	if (n1 == n2 || n1 == -n2)
 	{
-		return NoIntersection;
+		return Collision::NoIntersection;
 	}
 
 	//Calculate the point of intersection between the two rays (not considering ray bounds just yet)
+	//The following math is all primarily derived from i.n1 == p.n1 && i.n2 == q.n2
+	//Where: i = point of intersection, p = origin of ray 1, n1 = normal to the line of ray 1,
+	//And:	 q = origin of ray 2, n2 = normal to the line of ray 2
 	Vector2D i;
 	float pDotN = target.origin.DotProduct(n2), qDotN = origin.DotProduct(n1);
 	//We need special-case code when n1.x == 0 since it is used for division in our equation
@@ -83,7 +85,7 @@ Vector2D Ray2D::IntersectionPoint(const Ray2D& target) const
 	//Check that the projected intersection is actually within both our rays
 	if (!Contains(i) || !target.Contains(i))
 	{
-		return NoIntersection;
+		return Collision::NoIntersection;
 	}
 
 	//If all our tests passed, return the intersection point
@@ -93,5 +95,5 @@ Vector2D Ray2D::IntersectionPoint(const Ray2D& target) const
 //This function checks if our two rays intersect without returning the intersection point
 bool Ray2D::Intersects(const Ray2D& target) const
 {
-	return (IntersectionPoint(target) != NoIntersection);
+	return (IntersectionPoint(target) != Collision::NoIntersection);
 }

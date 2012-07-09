@@ -41,6 +41,10 @@ public:
 		}
 	}
 	void Exit() {}
+	State *Clone(StateMachine *NewOwner) const
+	{
+		return new ExampleState(NewOwner, GameStorage);
+	}
 };
 
 int main()

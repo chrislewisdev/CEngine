@@ -86,6 +86,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Include\Box2D.h" />
+    <ClInclude Include="Include\Circle2D.h" />
+    <ClInclude Include="Include\Collision.h" />
     <ClInclude Include="Include\Doxy.h" />
     <ClInclude Include="Include\GameData.h" />
     <ClInclude Include="Include\GameObject.h" />
@@ -101,6 +103,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Box2D.cpp" />
+    <ClCompile Include="Source\Circle2D.cpp" />
+    <ClCompile Include="Source\Collision.cpp" />
     <ClCompile Include="Source\Examples\ExampleBox2D.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>

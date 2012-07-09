@@ -38,7 +38,7 @@ int main()
 
 	//Boxes provide collision detection between each other- collision should be detected for just about any possible intersection of boxes
 	Box2D b(25, 25, 50, 50);
-	if (b.BoxCollision(a))
+	if (b.Overlap(a))
 		glColor3f(1.0f, 0.0f, 0.0f);
 	DrawBox(b);
 

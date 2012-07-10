@@ -5,6 +5,7 @@
 ********************************************************************/
 
 #include "GameObject.h"
+#include "Collision.h"
 #include <Windows.h>
 #include <gl/GL.h>
 
@@ -59,4 +60,22 @@ void GameObject::DrawBoundingBox()
 			glVertex2f(bounds.size.x, bounds.size.y);
 		glEnd();
 	glPopMatrix();
+}
+
+//This function checks for collision against a box
+bool GameObject::CheckCollision(const Box2D& target)
+{
+	return bounds.Overlap(target);
+}
+
+//This function checks for collision against a ray
+bool GameObject::CheckCollision(const Ray2D& target)
+{
+	return (Collision::RayBoxIntersection(target, bounds) != Collision::NoIntersection);
+}
+
+//This function checks for collision against a circle
+bool GameObject::CheckCollision(const Circle2D& target)
+{
+	return (Collision::CircleBoxOverlap(target, bounds));
 }

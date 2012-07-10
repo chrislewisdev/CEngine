@@ -106,5 +106,53 @@ namespace CEngine
 			//If all our sides failed the check, there is no intersection
 			return NoIntersection;
 		}
+
+		//This function checks for an intersection between a ray and a circle
+		Vector2D RayCircleIntersection(const Ray2D& ray, const Circle2D& circle)
+		{
+			//Get the unit vector of our direction
+			Vector2D d = ray.direction.UnitVector();
+
+			//First check for the ray starting inside the circle
+			if (circle.Contains(ray.origin)) return ray.origin;
+
+			//Get the vector from the ray start to the circle center
+			Vector2D e = circle.pos - ray.origin;
+
+			float a = e.DotProduct(d);
+
+			float fSquared = circle.radius * circle.radius - e.DotProduct(e) + a * a;
+
+			//If f-squared is negative, there is no intersection
+			if (fSquared < 0) return NoIntersection;
+
+			//Solve for t, the parametric distance (through 0..length) along our ray to the intersection point
+			float t = a - sqrt(fSquared);
+
+			//Check if this point is valid for both our circle and our ray
+			Vector2D i = ray.origin + t * d;
+			if (t >= 0 && t < ray.direction.Length())
+			{
+				return i;
+			}
+			else 
+			{
+				return NoIntersection;
+			}
+		}
+
+		//This function checks for an overlap between a box and a circle
+		bool CircleBoxOverlap(const Circle2D& circle, const Box2D& box)
+		{
+			//Find the closest point on the box to our circle
+			Vector2D cp(circle.pos);
+			if (cp.x < box.pos.x) cp.x = box.pos.x;
+			else if (cp.x > box.pos.x + box.size.x) cp.x = box.pos.x + box.size.x;
+			if (cp.y < box.pos.y) cp.y = box.pos.y;
+			else if (cp.y > box.pos.y + box.size.y) cp.y = box.pos.y + box.size.y;
+
+			//If the circle contains this point, we have an overlap
+			return circle.Contains(cp);
+		}
 	}
 }

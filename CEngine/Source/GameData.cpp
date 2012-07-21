@@ -11,6 +11,7 @@ using namespace std;
 
 //Define our constructor- currently no initialisation necessary
 GameData::GameData()
+	: SubclassEnforcer(NULL)
 {
 	
 }
@@ -46,7 +47,18 @@ GameData::~GameData()
 //This function adds a new GameObject waiting to be added into the gamestate
 void GameData::AddObject(GameObject *object)
 {
+	CheckSubclass(object);
 	AddList.push_back(GameObjectPointer(object));
+}
+
+//This function adds a new GameObject and returns a Handle referencing it
+GameObjectHandle GameData::AddObjectWithHandle(GameObject *object)
+{
+	CheckSubclass(object);
+	GameObjectPointer add(object);
+	GameObjectHandle handle(add);
+	AddList.push_back(add);
+	return handle;
 }
 
 //This function adds all currently waiting objects into the game
@@ -129,4 +141,37 @@ void GameData::ClearAll()
 	AddList.clear();
 	Objects.clear();
 	RemoveList.clear();
+}
+
+//This function sets our current subclass enforcement to the specified type
+template <class T> void GameData::EnforceSubclass()
+{
+	//Check that the specified type is a valid subclass of GameObject at all
+	try
+	{
+		GameObject check;
+		dynamic_cast<T*>(&check);
+	}
+	catch (bad_cast& e)
+	{
+		throw InvalidSubclassException("Type specified for subclass enforcement not a child of GameObject!");
+	}
+	SubclassEnforcer = CheckSubclass<T>;
+}
+
+//This function stops us from enforcing any subclass
+void GameData::StopEnforcingSubclass()
+{
+	SubclassEnforcer = NULL;
+}
+
+//This function checks the passed GameObject against our current subclass enforcer
+void GameData::CheckSubclass(GameObject *object)
+{
+	if (SubclassEnforcer && !SubclassEnforcer(object))
+	{
+		string error = "GameObject passed to AddObject violated subclass enforcement. Type was ";
+		error += string(typeid(object).name());
+		throw InvalidSubclassException(error.c_str());
+	}
 }

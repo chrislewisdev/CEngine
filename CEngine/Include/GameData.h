@@ -11,6 +11,7 @@
 #include <vector>
 #include <set>
 #include <boost/shared_ptr.hpp>
+#include <boost/weak_ptr.hpp>
 #include "GameObject.h"
 
 namespace CEngine
@@ -18,9 +19,27 @@ namespace CEngine
 	/// \class CEngine::GameObjectPointer
 	/// \brief Alias for boost::shared_ptr<GameObject>, used by GameData class for GameObject pointers
 	typedef boost::shared_ptr<GameObject> GameObjectPointer;
+	/// \class CEngine::GameObjectHandle
+	/// \brief Alias for boost::weak_ptr<GameObject>- use this to reference GameObjects held by GameData from other classes in a 
+	/// more persistent manner. Be very careful though not to keep any new shared locks on the object.
+	typedef boost::weak_ptr<GameObject> GameObjectHandle;
 	/// \class CEngine::GameObjectCollection
 	/// \brief Alias for the internal collection used to store GameObjects. Can be used to get the right iterator type for GameObjects.
 	typedef std::list<GameObjectPointer> GameObjectCollection;
+
+	//This function checks that the provided GameObject is a valid instance of subclass T
+	template <class T> bool CheckSubclass(GameObject *o)
+	{
+		try
+		{
+			dynamic_cast<T*>(o);
+			return true;
+		}
+		catch (std::bad_cast& e)
+		{
+			return false;
+		}
+	}
 
 	/// \brief Class to hold all active game state data, e.g. managing instances of game objects, current level data, etc.
 	///
@@ -29,6 +48,9 @@ namespace CEngine
 	/// game-state, such as BSP-trees for collision. It is designed to be interfaced with by Game States (and others) to work on the current
 	/// game state.
 	/// It provides Begin() and End() functions to use for iterating through GameObjects without needing access to the collections themselves.
+	/// The GameObjectHandle typedef is provided to use as references to specific GameObjects from classes other than GameData (e.g. other
+	/// GameObjects). However take care when using these not to keep any new shared locks on the object- if you do so, when you attempt to
+	/// delete the referenced GameObject the GameData class will recognise that there are other references to it and throw a DanglingPointerException.
 	class GameData
 	{
 	public:
@@ -59,14 +81,28 @@ namespace CEngine
 		public:
 			DanglingPointerException(const char *what) : std::exception(what) {}
 		};
+		/// \brief Exception class for when a GameObject attempting to be added to our GameData violates the subclass requirement
+		/// set with GameData::EnforceSubclass().
+		class InvalidSubclassException : public std::exception
+		{
+		public:
+			InvalidSubclassException(const char *what) : std::exception(what) {}
+		};
 
 		//Declare public functions
 		/// \brief Requests a new object be added to the game state. Note that the new object will not be actually added into the proper
 		/// game state until a Batch Add is performed (at the start of a new program Update)
 		///
-		/// \param object A (most likely new'd) pointer to the object to add in. Can be properly created with the GameObjectPointer constructor.
+		/// \param object A (most likely new'd) pointer to the object to add in.
 		/// \return void
 		void AddObject(GameObject *object);
+		/// \brief Same as AddObject, but returns a GameObjectHandle referencing the object you provided. Use this to access the new object
+		/// as you see fit, but remember that the object itself will still not be part of the current game scene until a batch add is
+		/// performed. Use with care!
+		///
+		/// \param object A (most likely new'd) pointer to the object to add in.
+		/// \return A GameObjectHandle referencing the object you just added.
+		GameObjectHandle AddObjectWithHandle(GameObject *object);
 		/// \brief Performs a batch add of objects into the game state, putting all requested new objects into our actual object collection.
 		/// \return void
 		void PerformBatchAdd();
@@ -100,11 +136,21 @@ namespace CEngine
 		/// \brief Returns the no. of GameObjects currently in our collection
 		/// \return An integer representing our collection size.
 		int ObjectCount() const;
+		/// \brief Template function to make GameData begin enforcing that all added objects are instances of the specified subclass
+		/// of GameObject. Useful if you want to introduce your own master subclass of GameObject from which all your GameObjects
+		/// inherit, and make sure this is never violated.
+		/// \return void
+		template <class T> void EnforceSubclass();
+		/// \brief Stops GameData from checking added GameObjects against any previously specified subclass.
+		/// \return void.
+		void StopEnforcingSubclass();
 
 	private:
 		//Declare private functions
-		//! Copies data from another GameData. Used in Copy Constructor and oeperator =
+		//! Copies data from another GameData. Used in Copy Constructor and operator =
 		void Copy(const GameData &target);
+		//! Checks the passed GameObject against our current subclass enforcer.
+		void CheckSubclass(GameObject *object);
 
 		//Declare private properties
 		//Collection of GameObjectPointers to add into our collection on the next batch add
@@ -113,6 +159,8 @@ namespace CEngine
 		GameObjectCollection Objects;
 		//Collection of iterators referencing objects to be removed in our next batch remove
 		std::vector<GameObjectCollection::iterator> RemoveList;
+		//Function pointer to our suitable 'check subclass' function for GameObjects
+		bool (*SubclassEnforcer)(GameObject*);
 	};
 
 	/// \example Examples/ExampleGameData.cpp

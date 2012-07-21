@@ -43,7 +43,7 @@ GameObject *GameObject::Clone() const
 }
 
 //This function returns a copy of our bounding box
-Box2D GameObject::BoundingBox()
+Box2D GameObject::BoundingBox() const
 {
 	return bounds;
 }

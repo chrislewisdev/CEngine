@@ -62,7 +62,7 @@ namespace CEngine
 		/// \param id The integer ID to use for the State (must be positive and unique)
 		/// \param NewState A StatePointer to a state instance to use as the new state. This must be created with keyword new.
 		/// \return void
-		void AddState(unsigned int id, StatePointer NewState);
+		void AddState(unsigned int id, State *NewState);
 		/// \brief Changes the current state to that with the specified ID. Throws a NullStateException if the ID matches no States
 		///
 		/// \param id ID value of the state to change to

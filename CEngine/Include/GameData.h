@@ -52,6 +52,13 @@ namespace CEngine
 		public:
 			CopyException(const char *what) : std::exception(what) {}
 		};
+		/// \brief Exception class for when a dangling shared pointer is detected whilst deleting a GameObject.
+		/// It is illegal to keep a shared pointer to a GameObject beyond its lifetime in GameData.
+		class DanglingPointerException : public std::exception
+		{
+		public:
+			DanglingPointerException(const char *what) : std::exception(what) {}
+		};
 
 		//Declare public functions
 		/// \brief Requests a new object be added to the game state. Note that the new object will not be actually added into the proper
@@ -59,7 +66,7 @@ namespace CEngine
 		///
 		/// \param object A (most likely new'd) pointer to the object to add in. Can be properly created with the GameObjectPointer constructor.
 		/// \return void
-		void AddObject(GameObjectPointer object);
+		void AddObject(GameObject *object);
 		/// \brief Performs a batch add of objects into the game state, putting all requested new objects into our actual object collection.
 		/// \return void
 		void PerformBatchAdd();

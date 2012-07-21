@@ -29,15 +29,15 @@ StateMachine::StateMachine(const StateMachine& target)
 }
 
 //This function inserts a new state into our storage with the specified ID
-void StateMachine::AddState(unsigned int id, StatePointer State)
+void StateMachine::AddState(unsigned int id, State *NewState)
 {
-	if (!State)
+	if (!NewState)
 		throw NullStateException("StateMachine::AddState was passed a null pointer.");
 
 	if (States.find(id) != States.end())
 		throw DuplicateStateIDException("Attempted to add a State with an existing ID number.");
 
-	States.insert(std::pair<int, StatePointer>(id, State));
+	States.insert(std::pair<int, StatePointer>(id, StatePointer(NewState)));
 }
 
 //This function sets our State to that with the specified ID

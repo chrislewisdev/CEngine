@@ -50,7 +50,7 @@ namespace CEngine
 		/// \brief Returns a copy of this object's bounding box.
 		///
 		/// \return A value copy of our bounding box.
-		Box2D BoundingBox();
+		Box2D BoundingBox() const;
 		/// \brief Checks for a collision against another Box2D. Override this function to specify how your GameObject should collide with boxes.
 		/// Default behavaiour is to check the box against our bounding box.
 		///

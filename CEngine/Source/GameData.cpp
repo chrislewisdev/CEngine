@@ -44,9 +44,9 @@ GameData::~GameData()
 }
 
 //This function adds a new GameObject waiting to be added into the gamestate
-void GameData::AddObject(GameObjectPointer object)
+void GameData::AddObject(GameObject *object)
 {
-	AddList.push_back(object);
+	AddList.push_back(GameObjectPointer(object));
 }
 
 //This function adds all currently waiting objects into the game
@@ -84,6 +84,7 @@ void GameData::PerformBatchRemove()
 {
 	for (vector<GameObjectCollection::iterator>::iterator cdtr = RemoveList.begin(); cdtr != RemoveList.end(); cdtr++)
 	{
+		if (!(*cdtr)->unique()) throw DanglingPointerException("Attempted to delete GameObject with other existing shared_ptr references");
 		Objects.erase(*cdtr);
 	}
 	RemoveList.clear();
@@ -113,7 +114,7 @@ void GameData::Copy(const GameData& target)
 	//Copy the Add List from the target
 	for (vector<GameObjectPointer>::const_iterator cdtr = target.AddList.begin(); cdtr != target.AddList.end(); cdtr++)
 	{
-		AddObject(GameObjectPointer((*cdtr)->Clone()));
+		AddObject((*cdtr)->Clone());
 	}
 	//Copy the core Objects list
 	for (GameObjectCollection::const_iterator cdtr = target.Objects.begin(); cdtr != target.Objects.end(); cdtr++)

@@ -49,7 +49,7 @@ Box2D GameObject::BoundingBox() const
 }
 
 //This function draws our bounding box to the screen
-void GameObject::DrawBoundingBox()
+void GameObject::DrawBoundingBox() const
 {
 	glPushMatrix();
 		glTranslatef(bounds.pos.x, bounds.pos.y, 0.0f);

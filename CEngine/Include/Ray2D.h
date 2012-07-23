@@ -19,7 +19,9 @@ namespace CEngine
 	class Ray2D
 	{
 	public:
-		//! Main Constructor. Must initialise both origin and direction of Ray.
+		//! Default Constructor. Initialises vectors to 0.
+		Ray2D();
+		//! Main Constructor to initialise both origin and direction of Ray.
 		Ray2D(Vector2D o, Vector2D d);
 
 		//Declare public functions

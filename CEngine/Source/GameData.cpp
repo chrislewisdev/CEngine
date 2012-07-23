@@ -18,6 +18,7 @@ GameData::GameData()
 
 //Copy Constructor
 GameData::GameData(const GameData& target)
+	: SubclassEnforcer(NULL)
 {
 	//Check that the target has no objects waiting to be removed
 	if (target.RemoveList.size() != 0) throw CopyException("Attempted to copy a GameData instance that has objects waiting to be removed.");
@@ -141,22 +142,6 @@ void GameData::ClearAll()
 	AddList.clear();
 	Objects.clear();
 	RemoveList.clear();
-}
-
-//This function sets our current subclass enforcement to the specified type
-template <class T> void GameData::EnforceSubclass()
-{
-	//Check that the specified type is a valid subclass of GameObject at all
-	try
-	{
-		GameObject check;
-		dynamic_cast<T*>(&check);
-	}
-	catch (bad_cast& e)
-	{
-		throw InvalidSubclassException("Type specified for subclass enforcement not a child of GameObject!");
-	}
-	SubclassEnforcer = CheckSubclass<T>;
 }
 
 //This function stops us from enforcing any subclass

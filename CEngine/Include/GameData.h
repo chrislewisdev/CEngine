@@ -28,14 +28,14 @@ namespace CEngine
 	typedef std::list<GameObjectPointer> GameObjectCollection;
 
 	//This function checks that the provided GameObject is a valid instance of subclass T
-	template <class T> bool CheckSubclass(GameObject *o)
+	template <class T> static bool TestSubclass(GameObject *o)
 	{
 		try
 		{
 			dynamic_cast<T*>(o);
 			return true;
 		}
-		catch (std::bad_cast& e)
+		catch (...)
 		{
 			return false;
 		}
@@ -136,14 +136,27 @@ namespace CEngine
 		/// \brief Returns the no. of GameObjects currently in our collection
 		/// \return An integer representing our collection size.
 		int ObjectCount() const;
+		/// \brief Stops GameData from checking added GameObjects against any previously specified subclass.
+		/// \return void.
+		void StopEnforcingSubclass();
 		/// \brief Template function to make GameData begin enforcing that all added objects are instances of the specified subclass
 		/// of GameObject. Useful if you want to introduce your own master subclass of GameObject from which all your GameObjects
 		/// inherit, and make sure this is never violated.
 		/// \return void
-		template <class T> void EnforceSubclass();
-		/// \brief Stops GameData from checking added GameObjects against any previously specified subclass.
-		/// \return void.
-		void StopEnforcingSubclass();
+		template <class T> void EnforceSubclass()
+		{
+			//Check that the specified type is a valid subclass of GameObject at all
+			try
+			{
+				GameObject check;
+				dynamic_cast<T*>(&check);
+			}
+			catch (...)
+			{
+				throw InvalidSubclassException("Type specified for subclass enforcement not a child of GameObject!");
+			}
+			SubclassEnforcer = TestSubclass<T>;
+		}
 
 	private:
 		//Declare private functions

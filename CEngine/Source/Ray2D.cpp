@@ -9,6 +9,12 @@
 
 using namespace CEngine;
 
+//Default Constructor
+Ray2D::Ray2D()
+{
+
+}
+
 //Main Constructor
 Ray2D::Ray2D(Vector2D o, Vector2D d)
 	: origin(o), direction(d)

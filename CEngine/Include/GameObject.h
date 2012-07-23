@@ -19,7 +19,6 @@ namespace CEngine
 	/// in your game. These functions are namely Update() and Draw() functions, which can be called to perform your main game logic
 	/// and graphics drawing for any singular object. The main property is a Box2D which is used for specifying the bounding box of an object,
 	/// along with a corresponding get function for this property.
-	/// This class will include Lua scripting integration functionality when I get to it.
 	class GameObject
 	{
 	public:
@@ -76,7 +75,7 @@ namespace CEngine
 		/// No colour is specified so you may specify it (and other changes) yourself before calling the draw.
 		///
 		/// \return void.
-		void DrawBoundingBox();
+		void DrawBoundingBox() const;
 
 		//Declare protected properties
 		//Bounding box storage

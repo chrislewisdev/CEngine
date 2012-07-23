@@ -91,11 +91,13 @@
     <ClInclude Include="Include\Doxy.h" />
     <ClInclude Include="Include\GameData.h" />
     <ClInclude Include="Include\GameObject.h" />
+    <ClInclude Include="Include\GameResources.h" />
     <ClInclude Include="Include\GameState.h" />
     <ClInclude Include="Include\CEMath.h" />
     <ClInclude Include="Include\Input.h" />
     <ClInclude Include="Include\ProgramControl.h" />
     <ClInclude Include="Include\Ray2D.h" />
+    <ClInclude Include="Include\Resource.h" />
     <ClInclude Include="Include\State.h" />
     <ClInclude Include="Include\StateMachine.h" />
     <ClInclude Include="Include\Vector2D.h" />
@@ -127,6 +129,7 @@
     </ClCompile>
     <ClCompile Include="Source\GameData.cpp" />
     <ClCompile Include="Source\GameObject.cpp" />
+    <ClCompile Include="Source\GameResources.cpp" />
     <ClCompile Include="Source\Input.cpp" />
     <ClCompile Include="Source\ProgramControl.cpp" />
     <ClCompile Include="Source\Ray2D.cpp" />

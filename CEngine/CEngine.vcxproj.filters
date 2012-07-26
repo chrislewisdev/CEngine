@@ -86,9 +86,6 @@
     <ClCompile Include="Source\Examples\ExampleStateMachine.cpp">
       <Filter>Source Files\Examples</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Examples\ExampleBox2D.cpp">
-      <Filter>Source Files\Examples</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Input.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -121,6 +118,9 @@
     </ClCompile>
     <ClCompile Include="Source\GameResources.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Examples\ExampleVector2D.cpp">
+      <Filter>Source Files\Examples</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

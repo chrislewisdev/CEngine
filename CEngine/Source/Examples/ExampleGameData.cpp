@@ -54,7 +54,7 @@ int main()
 	ProgramControl Control;
 
 	//Add our example game state into the program
-	Control.AddState(1, StatePointer(new ExampleState(&Control, Control.GetGameData())));
+	Control.AddState(1, new ExampleState(&Control, Control.GetGameData()));
 	Control.ChangeState(1);
 
 	//Retrieve our GameData handle
@@ -71,9 +71,9 @@ int main()
 	//referencing that object will be until it is ACTUALLY in the game).
 
 	//Add some game objects into the game
-	Storage->AddObject(GameObjectPointer(new ExampleObject()));
-	Storage->AddObject(GameObjectPointer(new ExampleObject()));
-	Storage->AddObject(GameObjectPointer(new ExampleObject()));
+	Storage->AddObject(new ExampleObject());
+	Storage->AddObject(new ExampleObject());
+	Storage->AddObject(new ExampleObject());
 
 	//Note how if you inspect the current no. of game objects NOW, the count will be 0
 	//This is because objects are not added/removed until a batch add/remove is performed

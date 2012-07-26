@@ -40,6 +40,15 @@ namespace CEngine
 		/// \param name The name of the resource to retrieve.
 		/// \return A pointer to the resource.
 		static Resource *GetResource(std::string name);
+		/// \brief Gets the specified resource, cast to the specified Resource subclass. Will result in a std::bad_cast exception if
+		/// the cast is invalid.
+		///
+		/// \param name The name of the resource to retrieve.
+		/// \return A pointer to the resource, in the type specified.
+		template <class T> static T *GetResource(std::string name)
+		{
+			return dynamic_cast<T*>(GetResource(name));
+		}
 
 	private:
 		//Typedef for our Resources storage

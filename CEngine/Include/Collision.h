@@ -23,6 +23,12 @@ namespace CEngine
 		/// \param box The Box2D to use in the check.
 		/// \return The point of intersection, or Collision::NoIntersection if there is none.
 		Vector2D RayBoxIntersection(const Ray2D& ray, const Box2D& box);
+		/// \brief Checks for intersection between Ray2D and Box2D without returning the intersection point.
+		///
+		/// \param ray The Ray2D to use in the check.
+		/// \param box The Box2D to use in the check.
+		/// \return True if they intersect, false if not.
+		bool RayBoxIntersects(const Ray2D& ray, const Box2D& box);
 		/// \brief Checks for and returns an intersection point between Ray2D and Circle2D. Returns constant Collision::NoIntersection
 		/// if they do not intersect.
 		///
@@ -30,6 +36,12 @@ namespace CEngine
 		/// \param circle The Circle2D to use in the check.
 		/// \return The point of intersection, or Collision::NoIntersection if there is none.
 		Vector2D RayCircleIntersection(const Ray2D& ray, const Circle2D& circle);
+		/// \brief Checks for intersection between a Ray2D and Circle2D, without returning the intersection point.
+		///
+		/// \param ray The Ray2D to use in the check.
+		/// \param circle The Circle2D to use in the check.
+		/// \return True if they intersect, false if not.
+		bool RayCircleIntersects(const Ray2D& ray, const Circle2D& circle);
 		/// \brief Checks for an overlapping collision between a Circle2D and Box2D.
 		///
 		/// \param circle The Circle2D to use in the check.

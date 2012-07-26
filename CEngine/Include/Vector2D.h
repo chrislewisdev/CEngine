@@ -77,6 +77,9 @@ namespace CEngine
 		//!	Vertical displacement of this vector.
 		float y;
 	};
+
+	/// \example Examples/ExampleVector2D.cpp
+	/// Provides a basic demonstration of the range of functionality Vector2D provides.
 }
 
 #endif

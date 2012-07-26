@@ -107,6 +107,12 @@ namespace CEngine
 			return NoIntersection;
 		}
 
+		//This function returns true/false on intersection between ray and box
+		bool RayBoxIntersects(const Ray2D& ray, const Box2D& box)
+		{
+			return (RayBoxIntersection(ray, box) != NoIntersection);
+		}
+
 		//This function checks for an intersection between a ray and a circle
 		Vector2D RayCircleIntersection(const Ray2D& ray, const Circle2D& circle)
 		{
@@ -139,6 +145,12 @@ namespace CEngine
 			{
 				return NoIntersection;
 			}
+		}
+
+		//This function returns true/false for intersection between ray and circle
+		bool RayCircleIntersects(const Ray2D& ray, const Circle2D& circle)
+		{
+			return (RayCircleIntersection(ray, circle) != NoIntersection);
 		}
 
 		//This function checks for an overlap between a box and a circle

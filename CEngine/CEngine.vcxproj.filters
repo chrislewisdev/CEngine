@@ -125,6 +125,9 @@
     <ClCompile Include="Source\Examples\ExampleShapes.cpp">
       <Filter>Source Files\Examples</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Examples\ExampleMath.cpp">
+      <Filter>Source Files\Examples</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="EngineFeatures.txt" />

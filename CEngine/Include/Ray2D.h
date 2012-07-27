@@ -44,6 +44,9 @@ namespace CEngine
 		//! Vector dictating our Ray direction
 		Vector2D direction;
 	};
+
+	/// \example Examples/ExampleShapes.cpp
+	/// Demonstrates usage of the Ray2D class with collision and positioning.
 }
 
 #endif

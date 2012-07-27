@@ -42,7 +42,7 @@ public:
 		//Vector2Ds are naturally position and size respectively
 		Box2D box2(Vector2D(50, 150), Vector2D(75, 75));
 
-		//To change these values later on just the public Box2D members 'pos' and 'size'
+		//To change these later on just use the public Box2D members 'pos' and 'size'
 		box1.pos.y = 90;
 		box2.size.x = 25;
 		
@@ -73,6 +73,9 @@ public:
 		//Note that the 'direction' vector also specifies the length of the ray!!!
 		Ray2D ray1(Vector2D(0, 0), Vector2D(800, 600));
 		Ray2D ray2(Vector2D(50, 500), Vector2D(400, -400));
+
+		//Ray2D's members are also public
+		//ray.origin, ray.direction
 
 		//Collision between rays is handled using the IntersectionPoint function
 		//This will return the intersection point between the two, or the constant Collision::NoIntersection if there is none

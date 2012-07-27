@@ -17,6 +17,12 @@ namespace CEngine
 	/// \brief Alias as boost::shared_ptr<Resource>. Primarily used internally by class GameResources.
 	typedef boost::shared_ptr<Resource> ResourcePointer;
 
+	/// \brief All-static class with functions for handling a collection of Resource items.
+	///
+	/// The GameResources class is a class with all-static members which has a simple interface for adding/retrieving/deleting Resources
+	/// from storage. This allows you to keep resources for your game (such as potentially large images, files etc) in a single location
+	/// and then reference it via pointers to the resource so as to prevent duplication.
+	/// Individual resources are identified by a string as its name.
 	class GameResources
 	{
 	public:
@@ -35,7 +41,7 @@ namespace CEngine
 		/// \param newResource Pointer to a new resource to take into our storage. The class will assume ownership of this pointer.
 		/// \return void
 		static void AddResource(std::string name, Resource *newResource);
-		/// \brief Gets the specified resource.
+		/// \brief Gets the specified resource. Throws a ResourceNotFoundException if the resource does not exist.
 		///
 		/// \param name The name of the resource to retrieve.
 		/// \return A pointer to the resource.
@@ -49,6 +55,11 @@ namespace CEngine
 		{
 			return dynamic_cast<T*>(GetResource(name));
 		}
+		/// \brief Deletes the specified resource. Throws a ResourceNotFoundException if the resource does not exist.
+		///
+		/// \param name The name of the resource to delete.
+		/// \return void
+		static void DeleteResource(std::string name);
 
 	private:
 		//Typedef for our Resources storage

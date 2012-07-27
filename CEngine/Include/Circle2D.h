@@ -42,6 +42,9 @@ namespace CEngine
 		//! The radius of our circle moving out from the center.
 		float radius;
 	};
+
+	/// \example Examples/ExampleShapes.cpp
+	/// Demonstrates usage of the Circle2D class with collisions and positioning.
 }
 
 #endif

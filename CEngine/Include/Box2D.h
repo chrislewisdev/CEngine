@@ -57,7 +57,7 @@ namespace CEngine
 		Vector2D size;
 	};
 
-	/// \example Examples/ExampleBox2D.cpp
+	/// \example Examples/ExampleShapes.cpp
 	/// Demonstrates usage of the Box2D class visually with collision and positioning.
 }
 

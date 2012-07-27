@@ -14,17 +14,23 @@ namespace CEngine
 	/// \brief Abstract class used to provide a common interface for game resources.
 	///
 	/// The Resource class defines a very simple interface for creating and loading game resources, which is used by the GameResources class.
-	/// When creating any custom resource types for your game, inherit off this class and simply implement the Load function as necessary.
+	/// These are typically expected to be external game files (e.g. images), hence the filename parameter in the Constructor.
+	/// The filename is expected to be constant throughout a resource's lifetime, so it is declared private with the Filename() function
+	/// used for retrieving it when necessary.
+	/// It is strongly suggested you implement RAII (Resource Allocation Is Initialization) in your implementations of Resource-
+	/// load your resource completely in the Constructor, and then clean up in the Destructor.
 	class Resource
 	{
 	public:
 		//! Constructor takes a single filename to use when loading.
 		Resource(std::string fname) : filename(fname) {}
+		//! Virtual destructor for polymorphism
+		virtual ~Resource() {};
 
 		//Declare public functions
-		/// \brief Pure virtual function to implement loading of our resource. Use this to do whatever setup is required for your resource.
-		/// \return void
-		virtual void Load() = 0;
+		/// \brief Returns the filename of this resource
+		/// \return The filename!
+		const std::string& Filename() const {return filename;}
 
 	private:
 		//Declare private properties

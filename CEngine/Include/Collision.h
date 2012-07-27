@@ -13,7 +13,7 @@
 
 namespace CEngine
 {
-	//! Contains functions to check for collisions between differing geometry classes, like Box2D/Ray2D/Circle2D
+	//! Contains functions to check for collisions between differing geometry classes, like Box2D/Ray2D/Circle2D. Examples of these functions are in Examples/ExampleShapes.cpp
 	namespace Collision
 	{
 		/// \brief Checks for and returns an intersection point between Ray2D and Box2D. Returns constant Collision::NoIntersection

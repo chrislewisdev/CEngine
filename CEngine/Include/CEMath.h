@@ -8,11 +8,12 @@
 #define CENGINE_MATH_H
 
 #include <cmath>
+#include "Vector2D.h"
 
 //Declare C-style math functions in the CEngine::Math namespace
 namespace CEngine
 {
-	//! Namespace for various general-purpose math functions
+	//! Namespace for various general-purpose math functions. Examples are provided in Examples/ExampleMath.cpp.
 	namespace Math
 	{
 		static const float PI = 3.141592653f;
@@ -36,7 +37,7 @@ namespace CEngine
 		template <class T>
 		static T Max(const T& x, const T& y)
 		{
-			return x > y ? x : y;
+			return x < y ? y : x;
 		}
 
 		/// \brief Returns the angle from point A to B, in degrees. The value will be in the range -180 to 180 inclusive, where 0 degrees

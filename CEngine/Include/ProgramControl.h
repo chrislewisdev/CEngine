@@ -60,6 +60,11 @@ namespace CEngine
 		///
 		/// \return True if the program is trying to exit and should be terminated. False if not.
 		bool IsExiting() const;
+		/// \brief Sets whether or not the application will pause when minimised. (i.e. no game updates will be performed while paused)
+		/// Set to false by default.
+		///
+		/// \param pause True to enable pausing, false to disable.
+		void SetPauseOnMinimise(bool pause);
 
 		//Declare public properties
 		//! Global access to our program's input- can only access const members like GetKey() and so on
@@ -82,6 +87,8 @@ namespace CEngine
 		unsigned int ticks;
 		//! Exit flag- set to true when we want to exit the game
 		bool exit;
+		//! Flag for when the program is active (i.e. not minimised)
+		bool active, pauseWhenInactive, inputFocus;
 	};
 }
 

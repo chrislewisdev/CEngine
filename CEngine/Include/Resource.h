@@ -25,7 +25,7 @@ namespace CEngine
 		//! Constructor takes a single filename to use when loading.
 		Resource(std::string fname) : filename(fname) {}
 		//! Virtual destructor for polymorphism
-		virtual ~Resource() {};
+		virtual ~Resource() = 0 {};
 
 		//Declare public functions
 		/// \brief Returns the filename of this resource

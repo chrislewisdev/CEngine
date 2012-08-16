@@ -7,7 +7,6 @@
 //Include necessary headers
 #include "Window.h"
 #include <Windows.h>
-#include <SDL.h>
 #include <gl/GL.h>
 #include <gl/GLAux.h>
 #include <gl/GLU.h>
@@ -17,7 +16,7 @@ using namespace CEngine;
 
 //Define our Constructor
 Window::Window()
-	: width(0), height(0), initialised(false), isOpen(false)
+	: width(0), height(0), initialised(false), isOpen(false), windowFlags(0), videoInfo(NULL)
 {
 	
 }
@@ -38,7 +37,7 @@ void Window::Open(const char *title, int width, int height)
 	if (!initialised) InitSDL();
 
 	//Try to retrieve video device info
-	const SDL_VideoInfo *videoInfo = SDL_GetVideoInfo();
+	videoInfo = SDL_GetVideoInfo();
 	if (!videoInfo)
 	{
 		SDL_Quit();
@@ -55,31 +54,13 @@ void Window::Open(const char *title, int width, int height)
 	SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 5);
 	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
-	//Try set our video mode
-	if (!SDL_SetVideoMode(width, height, videoInfo->vfmt->BitsPerPixel, SDL_OPENGL))
-	{
-		SDL_Quit();
-		initialised = false;
-		throw InitException("Failed to set video mode.");
-	}
+	//Create our actual window
+	isOpen = true;
+	Resize(width, height);
 
 	//Set up Smooth Shading and a black background
 	glShadeModel(GL_SMOOTH);
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-
-	//Set up our on-screen viewport with our screen area sizes
-	glViewport(0, 0, width, height);
-
-	//Set up our projection matrix for a 2D projection with our pixel ends set for width/height
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	glOrtho(0, width, height, 0, 0, 1);
-
-	//Switch to and reset the modelview matrix
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
-
-	isOpen = true;
 }
 
 //This function will close our owned window
@@ -96,6 +77,50 @@ void Window::SetBackgroundColour(float r, float g, float b)
 {
 	if (!isOpen) throw UsageException("Window must be Open before you set the background colour.");
 	glClearColor(r, g, b, 1.0f);
+}
+
+//This function toggles fullscreen settings
+void Window::SetFullscreen(bool fullscreen)
+{
+	if (fullscreen) windowFlags |= SDL_FULLSCREEN;
+	else			windowFlags &= ~SDL_FULLSCREEN;
+	Resize(width, height);
+}
+
+//This function toggles window resizability
+void Window::SetResizable(bool resizable)
+{
+	if (resizable)	windowFlags |= SDL_RESIZABLE;
+	else			windowFlags &= ~SDL_RESIZABLE;
+	Resize(width, height);
+}
+
+//This function resizes our window area
+void Window::Resize(int width, int height)
+{
+	if (!isOpen) throw UsageException("Window must be Open to resize it!");
+
+	//Try set our video mode
+	if (!SDL_SetVideoMode(width, height, videoInfo->vfmt->BitsPerPixel, SDL_OPENGL | windowFlags))
+	{
+		SDL_Quit();
+		initialised = false;
+		isOpen = false;
+		throw InitException("Failed to set video mode.");
+	}
+	this->width = width; this->height = height;
+
+	//Set up our on-screen viewport with our screen area sizes
+	glViewport(0, 0, width, height);
+
+	//Set up our projection matrix for a 2D projection with our pixel ends set for width/height
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	glOrtho(0, width, height, 0, 0, 1);
+
+	//Switch to and reset the modelview matrix
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
 }
 
 //This function flips our frame buffers
@@ -137,4 +162,16 @@ void Window::InitSDL()
 		}
 	}
 	initialised = true;
+}
+
+//This function returns our window width
+int Window::GetWidth() const
+{
+	return width;
+}
+
+//This function returns our window height
+int Window::GetHeight() const
+{
+	return height;
 }

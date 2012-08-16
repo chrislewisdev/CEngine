@@ -15,7 +15,7 @@ const Input& ProgramControl::ProgramInput = ProgramControl::InputControl;
 
 //Constructor creates a new window on creation- nothing else needs to be initialised
 ProgramControl::ProgramControl(const char *title, int width, int height)
-	: exit(false)
+	: exit(false), active(true), pauseWhenInactive(false), inputFocus(true)
 {
 	MainWindow.Open(title, width, height);
 	if (SDL_InitSubSystem(SDL_INIT_TIMER) == -1)
@@ -52,20 +52,32 @@ void ProgramControl::Update(float deltaTime)
 			{
 				exit = true;
 			}
-			//Should handle a resize event too
+			else if (windowEvent.type == SDL_VIDEORESIZE)
+			{
+				MainWindow.Resize(windowEvent.resize.w, windowEvent.resize.h);
+			}
+			else if (windowEvent.type == SDL_ACTIVEEVENT)
+			{
+				if (windowEvent.active.state & SDL_APPACTIVE) active = (windowEvent.active.gain == 1);
+				if (windowEvent.active.state & SDL_APPINPUTFOCUS) inputFocus = (windowEvent.active.gain == 1);
+			}
 		}
 	}
 
 	//Update our ticks counter
 	ticks = SDL_GetTicks();
 
-	//Do a Batch Add on our Game Data
-	Storage.PerformBatchAdd();
+	//Don't run the game if we're minimised and set to pause on minimisation
+	if ((active && inputFocus) || !pauseWhenInactive)
+	{
+		//Do a Batch Add on our Game Data
+		Storage.PerformBatchAdd();
 
-	StateMachine::Update(deltaTime);
+		StateMachine::Update(deltaTime);
 
-	//Do a Batch Remove on our Game Data
-	Storage.PerformBatchRemove();
+		//Do a Batch Remove on our Game Data
+		Storage.PerformBatchRemove();
+	}
 }
 
 //This function returns the time passed since our last update
@@ -90,4 +102,10 @@ Window *ProgramControl::GetWindow()
 bool ProgramControl::IsExiting() const
 {
 	return exit;
+}
+
+//This function toggles program pausing while minimised
+void ProgramControl::SetPauseOnMinimise(bool pause)
+{
+	pauseWhenInactive = pause;
 }

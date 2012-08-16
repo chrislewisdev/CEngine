@@ -10,6 +10,7 @@
 #define CENGINE_WINDOW_H
 
 //Include any necessary headers
+#include <SDL.h>
 #include <stdexcept>
 
 //Declare our class in the CEngine namespace
@@ -55,6 +56,7 @@ namespace CEngine
 		/// \param title A const char* string for your title window caption.
 		/// \param width The width in pixels.
 		/// \param height The height in pixels.
+		/// \return void
 		void Open(const char *title, int width, int height);
 		//! Closes this OpenGL window.
 		void Close();
@@ -64,10 +66,30 @@ namespace CEngine
 		/// \param g The green value, between 0 and 1.
 		/// \param b The blue value, between 0 and 1.
 		void SetBackgroundColour(float r, float g, float b);
+		/// \brief Enables/disables fullscreen according to the argument passed.
+		///
+		/// \param fullscreen Whether fullscreen should be activated or not. True for fullscreen, false for windowed.
+		/// \return void
+		void SetFullscreen(bool fullscreen);
+		/// \brief Enables/disables window resizability according to the argument passed.
+		///
+		/// \param resizable Whether resizability should be activated or not. True for enabled, false for disabled.
+		/// \return void
+		void SetResizable(bool resizable);
+		/// \brief Resizes the window to the new specified dimensions. Will throw a UsageException if window isn't open.
+		///
+		/// \param width The new width.
+		/// \param height The new height
+		/// \return void
+		void Resize(int width, int height);
 		//! Flips our two frame buffers to update the screen to the newly drawn frame. Will throw a UsageException if window isn't open.
 		void UpdateScreen();
 		//! Clears the screen in preparation for new drawing.
 		void ClearScreen();
+		//! Returns the current width of the screen.
+		int GetWidth() const;
+		//! Returns the current height of the screen.
+		int GetHeight() const;
 
 	private:
 		//Declare private functions
@@ -75,10 +97,13 @@ namespace CEngine
 		void InitSDL();
 
 		//Declare private properties
+		const SDL_VideoInfo *videoInfo;
 		//Whether or not we've initialised SDL, and if we have a window open or not
 		bool initialised, isOpen;
 		//Width/height storage
 		int width, height;
+		//Flags for SDL window creation
+		unsigned int windowFlags;
 	};
 
 	/// \example Examples/ExampleWindow.cpp

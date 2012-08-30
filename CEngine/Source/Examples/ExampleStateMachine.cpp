@@ -35,7 +35,7 @@ int main()
 	//Create a new StateMachine object
 	StateMachine Game;
 
-	//Add new StatePointers with a newly constructed State instance- the StateMachine will take ownership of the State and automatically delete it
+	//Add new State pointers with a newly constructed State instance- the StateMachine will take ownership of the State and automatically delete it
 	Game.AddState(GameState, StatePointer(new ExampleState(&Game, "Playing the game.")));
 	Game.AddState(MenuState, StatePointer(new ExampleState(&Game, "Viewing the menu.")));
 	Game.AddState(WhateverState, StatePointer(new ExampleState(&Game, "Doing whatever.")));

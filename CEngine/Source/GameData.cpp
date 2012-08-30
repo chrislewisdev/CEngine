@@ -13,7 +13,7 @@ using namespace std;
 GameData::GameData()
 	: SubclassEnforcer(NULL)
 {
-	
+	SetContext("");
 }
 
 //Copy Constructor
@@ -45,6 +45,17 @@ GameData::~GameData()
 	ClearAll();
 }
 
+//This function transitions into the specified Object Context
+void GameData::SetContext(string id)
+{
+	//Flush any pending add/remove requests before switching contexts
+	PerformBatchRemove();
+	PerformBatchAdd();
+
+	Objects = &ObjectContexts[id];
+	currentContext = id;
+}
+
 //This function adds a new GameObject waiting to be added into the gamestate
 void GameData::AddObject(GameObject *object)
 {
@@ -67,7 +78,7 @@ void GameData::PerformBatchAdd()
 {
 	for (vector<GameObjectPointer>::iterator cdtr = AddList.begin(); cdtr != AddList.end(); cdtr++)
 	{
-		Objects.push_back(*cdtr);
+		Objects->push_back(*cdtr);
 	}
 	AddList.clear();
 }
@@ -98,7 +109,7 @@ void GameData::PerformBatchRemove()
 	for (vector<GameObjectCollection::iterator>::iterator cdtr = RemoveList.begin(); cdtr != RemoveList.end(); cdtr++)
 	{
 		if (!(*cdtr)->unique()) throw DanglingPointerException("Attempted to delete GameObject with other existing shared_ptr references");
-		Objects.erase(*cdtr);
+		Objects->erase(*cdtr);
 	}
 	RemoveList.clear();
 }
@@ -106,19 +117,19 @@ void GameData::PerformBatchRemove()
 //This function returns our starting iterator for GameObject storage
 GameObjectCollection::iterator GameData::Begin()
 {
-	return Objects.begin();
+	return Objects->begin();
 }
 
 //This function returns our end iterator for GameObject storage
 GameObjectCollection::iterator GameData::End()
 {
-	return Objects.end();
+	return Objects->end();
 }
 
 //This function returns the size of our collection
 int GameData::ObjectCount() const
 {
-	return Objects.size();
+	return Objects->size();
 }
 
 //This function copies data from another GameData instance
@@ -129,19 +140,36 @@ void GameData::Copy(const GameData& target)
 	{
 		AddObject((*cdtr)->Clone());
 	}
-	//Copy the core Objects list
-	for (GameObjectCollection::const_iterator cdtr = target.Objects.begin(); cdtr != target.Objects.end(); cdtr++)
+	//Copy all of our object contexts
+	for (map<string, GameObjectCollection>::const_iterator context = target.ObjectContexts.begin(); context != target.ObjectContexts.end(); context++)
 	{
-		Objects.push_back(GameObjectPointer((*cdtr)->Clone()));
+		SetContext(context->first);
+		for (GameObjectCollection::const_iterator cdtr = context->second.begin(); cdtr != context->second.end(); cdtr++)
+		{
+			Objects->push_back(GameObjectPointer((*cdtr)->Clone()));
+		}
 	}
+
+	//Switch to the current context of the target
+	SetContext(target.currentContext);
 }
 
-//This function clears all our data lists
+//This function clears all data from the current context
+void GameData::ClearCurrentContext()
+{
+	AddList.clear();
+	Objects->clear();
+	RemoveList.clear();
+}
+
+//This function clears all data from ALL contexts
 void GameData::ClearAll()
 {
 	AddList.clear();
-	Objects.clear();
+	ObjectContexts.clear();
 	RemoveList.clear();
+
+	SetContext("");
 }
 
 //This function stops us from enforcing any subclass

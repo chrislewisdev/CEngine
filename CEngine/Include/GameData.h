@@ -9,10 +9,11 @@
 
 #include <list>
 #include <vector>
-#include <set>
+#include <map>
 #include <boost/shared_ptr.hpp>
 #include <boost/weak_ptr.hpp>
 #include "GameObject.h"
+#include <string>
 
 namespace CEngine
 {
@@ -90,6 +91,12 @@ namespace CEngine
 		};
 
 		//Declare public functions
+		/// \brief Sets the current storage context to that of the specified ID. If the specified context does not exist, it will be
+		/// created. Note that any pending object additions/removals will be performed before the context is changed.
+		///
+		/// \param id A string indicating the context to switch to.
+		/// \return void
+		void SetContext(std::string id);
 		/// \brief Requests a new object be added to the game state. Note that the new object will not be actually added into the proper
 		/// game state until a Batch Add is performed (at the start of a new program Update)
 		///
@@ -122,9 +129,12 @@ namespace CEngine
 		/// \brief Performs a batch remove of all objects currently waiting to be removed from the game state
 		/// \return void
 		void PerformBatchRemove();
-		/// \brief Clears out all existing data. This includes all current Game Objects plus any that are waiting to be added, and naturally
-		/// cancels out all pending removals. Useful as a flatout reset for your game data where appropriate. Should be perfectly safe as long
-		/// as you don't try to access the old data in any way (e.g. through hanging references) and so on.
+		/// \brief Clears out all data in the current context. This includes all current Game Objects plus any that are waiting to be added,
+		/// and naturally cancels out all pending removals. Useful as a flatout reset for your game data where appropriate. Just make sure you
+		/// have no hanging references afterwards!
+		/// \return void
+		void ClearCurrentContext();
+		/// \brief Same as ClearCurrentContext, but clears out data for ALL Object Contexts. Good for a complete reset of your game data.
 		/// \return void
 		void ClearAll();
 		/// \brief Returns the starting iterator for our collection of GameObjects.
@@ -168,12 +178,16 @@ namespace CEngine
 		//Declare private properties
 		//Collection of GameObjectPointers to add into our collection on the next batch add
 		std::vector<GameObjectPointer> AddList;
+		//Map of all our different Object Contexts
+		std::map< std::string, GameObjectCollection > ObjectContexts;
 		//Collection of all game objects currently in our game state
-		GameObjectCollection Objects;
+		GameObjectCollection *Objects;
 		//Collection of iterators referencing objects to be removed in our next batch remove
 		std::vector<GameObjectCollection::iterator> RemoveList;
 		//Function pointer to our suitable 'check subclass' function for GameObjects
 		bool (*SubclassEnforcer)(GameObject*);
+		//Tracking string for current context
+		std::string currentContext;
 	};
 
 	/// \example Examples/ExampleGameData.cpp

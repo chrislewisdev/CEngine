@@ -6,6 +6,8 @@
 using namespace CEngine;
 using namespace std;
 
+#undef main
+
 int main()
 {
 	//Create a Window object
@@ -41,11 +43,19 @@ int main()
 	MainWindow.SetBackgroundColour(0.0f, 1.0f, 0.0f);
 
 	//These two lines force our screen to update so we can actually see the background colour change
-	glClear(GL_COLOR_BUFFER_BIT);
+	MainWindow.ClearScreen();
 	MainWindow.UpdateScreen();
 
-	//Give us 500ms to marvel at our creation
-	Sleep(500);
+	//You can toggle whether or not the window is resizable/fullscreen
+	MainWindow.SetResizable(false);
+	//MainWindow.SetFullscreen(false);
+
+	//You can also directly resize the window yourself!
+	MainWindow.Resize(40, 30);
+	MainWindow.Resize(100, 150);
+
+	MainWindow.ClearScreen();
+	MainWindow.UpdateScreen();
 
 	cout << "Press any key to exit.";
 	cin.get();

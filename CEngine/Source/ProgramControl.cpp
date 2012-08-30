@@ -54,10 +54,12 @@ void ProgramControl::Update(float deltaTime)
 			}
 			else if (windowEvent.type == SDL_VIDEORESIZE)
 			{
+				//Window resizing (will only do so if enabled)
 				MainWindow.Resize(windowEvent.resize.w, windowEvent.resize.h);
 			}
 			else if (windowEvent.type == SDL_ACTIVEEVENT)
 			{
+				//Minimise/restore or input loss events
 				if (windowEvent.active.state & SDL_APPACTIVE) active = (windowEvent.active.gain == 1);
 				if (windowEvent.active.state & SDL_APPINPUTFOCUS) inputFocus = (windowEvent.active.gain == 1);
 			}

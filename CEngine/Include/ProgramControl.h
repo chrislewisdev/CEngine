@@ -90,6 +90,9 @@ namespace CEngine
 		//! Flag for when the program is active (i.e. not minimised)
 		bool active, pauseWhenInactive, inputFocus;
 	};
+
+	/// \example Examples/ExampleProgramControl.cpp
+	/// Demonstrates use of the ProgramControl class.
 }
 
 #endif

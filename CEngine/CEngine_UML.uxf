@@ -5,7 +5,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>640</x>
-      <y>128</y>
+      <y>136</y>
       <w>232</w>
       <h>152</h>
     </coordinates>
@@ -29,7 +29,7 @@ _Window: Class_
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>312</x>
-      <y>584</y>
+      <y>592</y>
       <w>288</w>
       <h>152</h>
     </coordinates>
@@ -52,7 +52,7 @@ _Box2D: Struct_
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>328</x>
-      <y>328</y>
+      <y>336</y>
       <w>224</w>
       <h>200</h>
     </coordinates>
@@ -79,7 +79,7 @@ _Vector2D: Class_
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>0</x>
-      <y>352</y>
+      <y>360</y>
       <w>240</w>
       <h>168</h>
     </coordinates>
@@ -100,9 +100,9 @@ _Ray2D: Class_
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>216</x>
-      <y>360</y>
-      <w>120</w>
-      <h>32</h>
+      <y>368</y>
+      <w>128</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-&gt;&gt;&gt;&gt;</panel_attributes>
     <additional_attributes>112;24;24;24</additional_attributes>
@@ -111,7 +111,7 @@ _Ray2D: Class_
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>936</x>
-      <y>88</y>
+      <y>96</y>
       <w>224</w>
       <h>152</h>
     </coordinates>
@@ -134,7 +134,7 @@ _StateMachine: Class_
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1232</x>
-      <y>88</y>
+      <y>96</y>
       <w>168</w>
       <h>152</h>
     </coordinates>
@@ -154,7 +154,7 @@ _StateMachine: Class_
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1136</x>
-      <y>88</y>
+      <y>96</y>
       <w>112</w>
       <h>40</h>
     </coordinates>
@@ -165,7 +165,7 @@ _StateMachine: Class_
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>632</x>
-      <y>344</y>
+      <y>352</y>
       <w>256</w>
       <h>208</h>
     </coordinates>
@@ -193,7 +193,7 @@ _Input: Class_
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>936</x>
-      <y>344</y>
+      <y>352</y>
       <w>232</w>
       <h>160</h>
     </coordinates>
@@ -218,7 +218,7 @@ ProgramControl(char char*, int, int)
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1008</x>
-      <y>216</y>
+      <y>224</y>
       <w>40</w>
       <h>144</h>
     </coordinates>
@@ -229,7 +229,7 @@ ProgramControl(char char*, int, int)
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>640</x>
-      <y>80</y>
+      <y>88</y>
       <w>80</w>
       <h>24</h>
     </coordinates>
@@ -240,9 +240,9 @@ ProgramControl(char char*, int, int)
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>640</x>
-      <y>80</y>
-      <w>32</w>
-      <h>56</h>
+      <y>88</y>
+      <w>40</w>
+      <h>64</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>24;24;24;48</additional_attributes>
@@ -251,7 +251,7 @@ ProgramControl(char char*, int, int)
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>864</x>
-      <y>360</y>
+      <y>368</y>
       <w>88</w>
       <h>40</h>
     </coordinates>
@@ -262,7 +262,7 @@ ProgramControl(char char*, int, int)
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1104</x>
-      <y>568</y>
+      <y>576</y>
       <w>256</w>
       <h>144</h>
     </coordinates>
@@ -285,7 +285,7 @@ _GameData: Class_
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1232</x>
-      <y>344</y>
+      <y>352</y>
       <w>192</w>
       <h>64</h>
     </coordinates>
@@ -301,7 +301,7 @@ _GameData: Class_
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1144</x>
-      <y>368</y>
+      <y>376</y>
       <w>64</w>
       <h>216</h>
     </coordinates>
@@ -312,7 +312,7 @@ _GameData: Class_
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>824</x>
-      <y>256</y>
+      <y>264</y>
       <w>160</w>
       <h>104</h>
     </coordinates>
@@ -323,7 +323,7 @@ _GameData: Class_
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>728</x>
-      <y>80</y>
+      <y>88</y>
       <w>88</w>
       <h>24</h>
     </coordinates>
@@ -334,9 +334,9 @@ _GameData: Class_
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>720</x>
-      <y>80</y>
-      <w>32</w>
-      <h>56</h>
+      <y>88</y>
+      <w>40</w>
+      <h>64</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>24;24;24;48</additional_attributes>
@@ -345,7 +345,7 @@ _GameData: Class_
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1280</x>
-      <y>216</y>
+      <y>224</y>
       <w>40</w>
       <h>144</h>
     </coordinates>
@@ -356,7 +356,7 @@ _GameData: Class_
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1264</x>
-      <y>384</y>
+      <y>392</y>
       <w>40</w>
       <h>200</h>
     </coordinates>
@@ -367,7 +367,7 @@ _GameData: Class_
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>936</x>
-      <y>0</y>
+      <y>8</y>
       <w>104</w>
       <h>24</h>
     </coordinates>
@@ -378,7 +378,7 @@ _GameData: Class_
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>920</x>
-      <y>0</y>
+      <y>8</y>
       <w>40</w>
       <h>104</h>
     </coordinates>
@@ -389,7 +389,7 @@ _GameData: Class_
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>968</x>
-      <y>32</y>
+      <y>40</y>
       <w>152</w>
       <h>24</h>
     </coordinates>
@@ -400,7 +400,7 @@ _GameData: Class_
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>960</x>
-      <y>32</y>
+      <y>40</y>
       <w>40</w>
       <h>72</h>
     </coordinates>
@@ -411,7 +411,7 @@ _GameData: Class_
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1488</x>
-      <y>560</y>
+      <y>568</y>
       <w>256</w>
       <h>176</h>
     </coordinates>
@@ -436,9 +436,9 @@ GameObject(Box2D)
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>528</x>
-      <y>360</y>
-      <w>112</w>
-      <h>32</h>
+      <y>368</y>
+      <w>120</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-&gt;&gt;&gt;&gt;</panel_attributes>
     <additional_attributes>24;24;104;24</additional_attributes>
@@ -447,9 +447,9 @@ GameObject(Box2D)
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>264</x>
-      <y>376</y>
-      <w>72</w>
-      <h>248</h>
+      <y>384</y>
+      <w>80</w>
+      <h>256</h>
     </coordinates>
     <panel_attributes>lt=&lt;-&gt;&gt;&gt;&gt;</panel_attributes>
     <additional_attributes>64;24;24;24;24;240;48;240</additional_attributes>
@@ -458,7 +458,7 @@ GameObject(Box2D)
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>328</x>
-      <y>96</y>
+      <y>104</y>
       <w>224</w>
       <h>168</h>
     </coordinates>
@@ -479,9 +479,9 @@ _Circle2D: Class_
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>264</x>
-      <y>96</y>
-      <w>72</w>
-      <h>280</h>
+      <y>104</y>
+      <w>80</w>
+      <h>288</h>
     </coordinates>
     <panel_attributes>lt=&lt;-&gt;&gt;&gt;&gt;</panel_attributes>
     <additional_attributes>64;272;24;272;24;24;64;24</additional_attributes>
@@ -490,7 +490,7 @@ _Circle2D: Class_
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1336</x>
-      <y>584</y>
+      <y>592</y>
       <w>168</w>
       <h>40</h>
     </coordinates>
@@ -501,7 +501,7 @@ _Circle2D: Class_
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>576</x>
-      <y>696</y>
+      <y>704</y>
       <w>928</w>
       <h>40</h>
     </coordinates>
@@ -512,17 +512,17 @@ _Circle2D: Class_
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1536</x>
-      <y>88</y>
+      <y>96</y>
       <w>168</w>
       <h>96</h>
     </coordinates>
-    <panel_attributes>/_Resource: Class_/
+    <panel_attributes>bg=gray
+/_Resource: Class_/
 --
 -filename:string
 --
 Resource(string)
 --
-/+Load():void/
 /+Filename():string/</panel_attributes>
     <additional_attributes/>
   </element>
@@ -530,25 +530,27 @@ Resource(string)
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1800</x>
-      <y>88</y>
+      <y>96</y>
       <w>216</w>
       <h>144</h>
     </coordinates>
-    <panel_attributes>_Resources: Class_
+    <panel_attributes>bg=gray
+_GameResources: Class_
 --
 -resources:map&lt;string, Resource*&gt;
 --
 Resources()
 --
 +AddResource(string, Resource*):void
-+GetResource(string):Resource*</panel_attributes>
++GetResource(string):Resource*
++DeleteResource(string)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1680</x>
-      <y>88</y>
+      <y>96</y>
       <w>136</w>
       <h>40</h>
     </coordinates>

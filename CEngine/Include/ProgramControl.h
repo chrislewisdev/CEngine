@@ -19,6 +19,7 @@ namespace CEngine
 	/// The ProgramControl class brings the various key game component classes together to run your game. It acts as they key State Machine
 	/// in your game and owns Game Data, the Game Control State Machine, Input and the Graphics Window. It should make up most of the necessary
 	/// main loop for your game.
+	///
 	/// It's worth noting that although copying/assignment is valid for most of the parts of ProgramControl, copy construction and assignment
 	/// are DISABLED for this class. This is primarily due to various potential complications with StateMachine assignment but it is also
 	/// not considered something that is likely to be needed/important- most likely the only assignment necessary would be of the GameData member,

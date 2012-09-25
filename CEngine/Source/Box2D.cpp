@@ -67,3 +67,9 @@ bool Box2D::Overlap(const Box2D& target) const
 	//If both values are positive, we have a valid area which means we're intersecting
 	return (intersection.x > 0 && intersection.y > 0);
 }
+
+//This function returns the center of our box
+Vector2D Box2D::Center() const
+{
+	return (pos + size/2);
+}

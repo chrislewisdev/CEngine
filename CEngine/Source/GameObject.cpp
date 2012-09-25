@@ -24,24 +24,6 @@ GameObject::GameObject(Box2D boundingBox)
 
 }
 
-//This function Updates our object- again, this currently doesn't need to do anything
-void GameObject::Update(float deltaTime)
-{
-
-}
-
-//This base function simply draws our bounding box to show where we are
-void GameObject::Draw()
-{
-	DrawBoundingBox();
-}
-
-//This function returns a clone of this GameObject
-GameObject *GameObject::Clone() const
-{
-	return new GameObject(*this);
-}
-
 //This function returns a copy of our bounding box
 Box2D GameObject::BoundingBox() const
 {
@@ -60,22 +42,4 @@ void GameObject::DrawBoundingBox() const
 			glVertex2f(bounds.size.x, bounds.size.y);
 		glEnd();
 	glPopMatrix();
-}
-
-//This function checks for collision against a box
-bool GameObject::CheckCollision(const Box2D& target)
-{
-	return bounds.Overlap(target);
-}
-
-//This function checks for collision against a ray
-bool GameObject::CheckCollision(const Ray2D& target)
-{
-	return (Collision::RayBoxIntersection(target, bounds) != Collision::NoIntersection);
-}
-
-//This function checks for collision against a circle
-bool GameObject::CheckCollision(const Circle2D& target)
-{
-	return (Collision::CircleBoxOverlap(target, bounds));
 }

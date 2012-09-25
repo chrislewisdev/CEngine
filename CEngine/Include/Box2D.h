@@ -49,6 +49,9 @@ namespace CEngine
 		/// \param target The target Box to check against
 		/// \return True if there's a collision, false if not
 		bool Overlap(const Box2D& target) const;
+		/// \brief Returns a vector depicting the center position of this box.
+		/// \return The center point of this box.
+		Vector2D Center() const;
 
 		//Declare public properties
 		//! Position (x,y) info

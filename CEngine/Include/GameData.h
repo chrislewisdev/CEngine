@@ -28,6 +28,31 @@ namespace CEngine
 	/// \brief Alias for the internal collection used to store GameObjects. Can be used to get the right iterator type for GameObjects.
 	typedef std::list<GameObjectPointer> GameObjectCollection;
 
+	/*
+	class GameObjectInstance
+	{
+	public:
+		GameObjectInstance(GameObject *o, unsigned int pid)
+			: instance(o), id(pid)
+		{
+
+		}
+
+		GameObject operator -> ()
+		{
+			return *instance.get();
+		}
+		bool operator < (const GameObjectInstance& other)
+		{
+			return (id < other.id);
+		}
+
+	private:
+		GameObjectPointer instance;
+		unsigned int id;
+	};
+	*/
+
 	//This function checks that the provided GameObject is a valid instance of subclass T
 	template <class T> static bool TestSubclass(GameObject *o)
 	{
@@ -48,10 +73,15 @@ namespace CEngine
 	/// in the game, data on the current level and so on. It will also house when appropriate other information designed to work on the
 	/// game-state, such as BSP-trees for collision. It is designed to be interfaced with by Game States (and others) to work on the current
 	/// game state.
+	///
 	/// It provides Begin() and End() functions to use for iterating through GameObjects without needing access to the collections themselves.
 	/// The GameObjectHandle typedef is provided to use as references to specific GameObjects from classes other than GameData (e.g. other
 	/// GameObjects). However take care when using these not to keep any new shared locks on the object- if you do so, when you attempt to
 	/// delete the referenced GameObject the GameData class will recognise that there are other references to it and throw a DanglingPointerException.
+	/// 
+	/// GameData also supports the use of different 'contexts' throughout its lifetime. This allows you store multiple distinct sets of objects in the
+	/// same GameData instance without them interfering with each other (e.g. objects for two different game states). Contexts are identified
+	/// by names and selected using the SetContext function. The default context upon startup is simply identified by the empty string.
 	class GameData
 	{
 	public:
@@ -96,7 +126,7 @@ namespace CEngine
 		///
 		/// \param id A string indicating the context to switch to.
 		/// \return void
-		void SetContext(std::string id);
+		void SetContext(const std::string& id);
 		/// \brief Requests a new object be added to the game state. Note that the new object will not be actually added into the proper
 		/// game state until a Batch Add is performed (at the start of a new program Update)
 		///
@@ -151,20 +181,11 @@ namespace CEngine
 		void StopEnforcingSubclass();
 		/// \brief Template function to make GameData begin enforcing that all added objects are instances of the specified subclass
 		/// of GameObject. Useful if you want to introduce your own master subclass of GameObject from which all your GameObjects
-		/// inherit, and make sure this is never violated.
+		/// inherit, and make sure this is never violated. Note that if you set the type as a non-subclass of GameObject, all future
+		/// Add calls will fail until you fix it!
 		/// \return void
 		template <class T> void EnforceSubclass()
 		{
-			//Check that the specified type is a valid subclass of GameObject at all
-			try
-			{
-				GameObject check;
-				dynamic_cast<T*>(&check);
-			}
-			catch (...)
-			{
-				throw InvalidSubclassException("Type specified for subclass enforcement not a child of GameObject!");
-			}
 			SubclassEnforcer = TestSubclass<T>;
 		}
 

@@ -135,5 +135,6 @@
   <ItemGroup>
     <None Include="EngineFeatures.txt" />
     <None Include="Notes.txt" />
+    <None Include="Changelog.txt" />
   </ItemGroup>
 </Project>

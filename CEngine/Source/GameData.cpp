@@ -46,7 +46,7 @@ GameData::~GameData()
 }
 
 //This function transitions into the specified Object Context
-void GameData::SetContext(string id)
+void GameData::SetContext(const string& id)
 {
 	//Flush any pending add/remove requests before switching contexts
 	PerformBatchRemove();

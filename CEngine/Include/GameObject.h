@@ -35,17 +35,17 @@ namespace CEngine
 		///
 		/// \param deltaTime The time that has passed in seconds since the last update.
 		/// \return void
-		virtual void Update(float deltaTime);
+		virtual void Update(float deltaTime) = 0;
 		/// \brief Draws our object to the screen. Override this function to specify how your object will be drawn.
 		///
 		/// \return void
-		virtual void Draw();
+		virtual void Draw() = 0;
 		/// \brief Virtual function return a newly constructed (dynamic) copy of this GameObject instance. While useful in a general sense
 		/// this function is also utilised by CEngine's internals for polymorphic copying of GameObjects so this is an important function
 		/// to keep implemented in your child classes!
 		///
 		/// \return A new dynamically constructed GameObject, as a copy of this one.
-		virtual GameObject *Clone() const;
+		virtual GameObject *Clone() const = 0;
 		/// \brief Returns a copy of this object's bounding box.
 		///
 		/// \return A value copy of our bounding box.
@@ -55,19 +55,19 @@ namespace CEngine
 		///
 		/// \param target The Box2D to check against.
 		/// \return True for collision, false if not.
-		virtual bool CheckCollision(const Box2D& target);
+		virtual bool CheckCollision(const Box2D& target) = 0;
 		/// \brief Checks for a collision against a Ray2D. Override this function to specify how your GameObject should collide with rays.
 		/// Default behaviour is to check the ray against our bounding box.
 		///
 		/// \param target The Ray2D to check against.
 		/// \return True for collision, false if not.
-		virtual bool CheckCollision(const Ray2D& target);
+		virtual bool CheckCollision(const Ray2D& target) = 0;
 		/// \brief Checks for a collision against a Circle2D. Override this function to specify how your GameObject should collide with circles.
 		/// Default behaviour is to check the circle against our bounding box.
 		///
 		/// \param target The Circle2D to check against.
 		/// \return True for collision, false if not.
-		virtual bool CheckCollision(const Circle2D& target);
+		virtual bool CheckCollision(const Circle2D& target) = 0;
 
 	protected:
 		//Declare protected functions

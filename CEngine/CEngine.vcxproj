@@ -147,6 +147,7 @@
     <ClCompile Include="Source\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Changelog.txt" />
     <None Include="EngineFeatures.txt" />
     <None Include="Notes.txt" />
   </ItemGroup>

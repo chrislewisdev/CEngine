@@ -17,6 +17,11 @@ public:
 	{
 		cout << "Example Object being updated!" << endl;
 	}
+	void Draw() {}
+	GameObject *Clone() const {return new ExampleObject;}
+	bool CheckCollision(const Box2D& target) {return false;}
+	bool CheckCollision(const Circle2D& target) {return false;}
+	bool CheckCollision(const Ray2D& target) {return false;}
 };
 
 //Define an example Game State

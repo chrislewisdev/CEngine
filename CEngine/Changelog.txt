@@ -1,0 +1,6 @@
+----------
+25/09/2012
+----------
+- Made GameObject class abstract (required miscellaneous changes to other classes to avoid instantiating it)
+- Added Box2D::Center function
+- Drafted GameObjectInstance class

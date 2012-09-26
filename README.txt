@@ -1,6 +1,6 @@
 CEngine is a C++ 2D Game Engine being written by Chris Lewis.
 
-It's in early stages (read: not yet properly usable) and isn't *specifically* designed for anyone in particular apart from myself. I've been making small/basic/unfinished games in C++ for a couple years now and this engine is basically being designed to meet my own needs, so that I'm not stuck rewriting an engine for every game I make and also because I think it's fun.
+It's in early stages, but the core sections of the engine are in place, which makes it suitable for small projects, especially game prototypes. Although I've tried to keep the code as accessible and well-documented as I can, it isn't *specifically* designed for anyone in particular apart from myself. I've been making small/basic/unfinished games in C++ for a couple years now and this engine is basically being designed to meet my own needs, so that I'm not stuck rewriting an engine for every game I make and also because I think it's fun.
 
 The current goals of the engine are outlined in EngineFeatures.txt which is basically a dump for any plans I have so far for the project. It summarises about everything I think is important for the project so far.
 

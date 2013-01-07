@@ -10,13 +10,22 @@
 using namespace CEngine;
 
 //Define our static ProgramControl variables
-Input ProgramControl::InputControl;
-const Input& ProgramControl::ProgramInput = ProgramControl::InputControl;
+ProgramControl *ProgramControl::instance = NULL;
 
 //Constructor creates a new window on creation- nothing else needs to be initialised
 ProgramControl::ProgramControl(const char *title, int width, int height)
-	: exit(false), active(true), pauseWhenInactive(false), inputFocus(true)
+	: exit(false), active(true), pauseWhenInactive(false), inputFocus(true), Input(InputControl), Resources(ResourcesControl)
 {
+	//Enforce that this is a singleton
+	if (instance == NULL)
+	{
+		instance = this;
+	}
+	else
+	{
+		throw SingletonViolationException("You must not instantiate multiple objects of ProgramControl");
+	}
+
 	MainWindow.Open(title, width, height);
 	if (SDL_InitSubSystem(SDL_INIT_TIMER) == -1)
 	{
@@ -27,13 +36,35 @@ ProgramControl::ProgramControl(const char *title, int width, int height)
 
 //Constructor that doesn't open a window
 ProgramControl::ProgramControl()
-	: exit(false)
+	: exit(false), Input(InputControl), Resources(ResourcesControl)
 {
+	//Enforce that this is a singleton
+	if (instance == NULL)
+	{
+		instance = this;
+	}
+	else
+	{
+		throw SingletonViolationException("You must not instantiate multiple objects of ProgramControl");
+	}
+
 	if (SDL_Init(SDL_INIT_TIMER) == -1)
 	{
 		throw Window::InitException("SDL Initialisation failed.");
 	}
 	ticks = SDL_GetTicks();
+}
+
+//Destructor
+ProgramControl::~ProgramControl()
+{
+	instance = NULL;
+}
+
+//This function returns our singleton instance reference
+ProgramControl& ProgramControl::Instance()
+{
+	return *instance;
 }
 
 //This function updates our overall program states
@@ -44,7 +75,7 @@ void ProgramControl::Update(float deltaTime)
 	//Loop as long as we have messages
 	while (SDL_PollEvent(&windowEvent))
 	{
-		//Pass the message through Input first to see if it's an input event
+		//Pass the message through InputManager first to see if it's an input event
 		if (!InputControl.ProcessEvent(windowEvent))
 		{
 			//If it's not input, handle it here

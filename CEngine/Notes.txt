@@ -1,6 +1,7 @@
 - All co-ordinates will refer to the top-left of an object, not the center
 
 - Immediate To-Do list:
+	- Change public member access for ProgramControl now that it's a Singleton
 	- Texture class?
 	- Sprite functionality?
 	- Scripting functionality?

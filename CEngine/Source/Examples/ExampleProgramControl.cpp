@@ -45,7 +45,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	Control.SetPauseOnMinimise(true);
 
 	//The IsExiting() function returns true when a user clicks on the Close button on your window. Naturally this is useful to control your main loop.
-	//As you can see ProgramControl also houses a static instance of the Input class. This is so all code can access the game input regardless
+	//As you can see ProgramControl also houses a static instance of the InputManager class. This is so all code can access the game input regardless
 	//of where from. Here it is used to make the program exit when the Escape key is pressed.
 	while (!Control.IsExiting() && !ProgramControl::ProgramInput.GetKey(VK_ESCAPE))
 	{

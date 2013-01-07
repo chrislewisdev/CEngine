@@ -61,8 +61,8 @@ COMPLETED (OR MOSTLY COMPLETED) SECTION:
 		- Base class for states to inherit off to define their own State functionality
 		- Consists of functions like Enter, Update, Exit
 	- Consider: how does a class contained in a State (e.g. a Menu Button in the Menu State) communicate a state change up the chain?
-- Input
-	- Input class
+- InputManager
+	- InputManager class
 		- Tracks input automatically through each loop
 		- Interface like GetKey('a') and any other relevant input
 - Object storage

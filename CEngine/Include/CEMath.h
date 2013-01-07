@@ -53,7 +53,7 @@ namespace CEngine
 
 		/// \brief Returns a vector pointing in the direction indicated by the specified angle, of the specified length.
 		///
-		/// \param angle The angle at which the vector should point.
+		/// \param angle The angle at which the vector should point, in degrees.
 		/// \param length The desired length of the vector.
 		/// \return The vector pointing in that direction.
 		static Vector2D AngledVector(float angle, float length)

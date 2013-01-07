@@ -29,6 +29,7 @@ namespace CEngine
 	typedef std::list<GameObjectPointer> GameObjectCollection;
 
 	/*
+	Structure: GameObject <- Shared Pointer <- GameObjectInstance <- GameObjectHandle
 	class GameObjectInstance
 	{
 	public:
@@ -164,7 +165,8 @@ namespace CEngine
 		/// have no hanging references afterwards!
 		/// \return void
 		void ClearCurrentContext();
-		/// \brief Same as ClearCurrentContext, but clears out data for ALL Object Contexts. Good for a complete reset of your game data.
+		/// \brief Same as ClearCurrentContext, but clears out data for ALL Object Contexts, and goes back to the default context. 
+		/// Good for a complete reset of your game data.
 		/// \return void
 		void ClearAll();
 		/// \brief Returns the starting iterator for our collection of GameObjects.

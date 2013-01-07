@@ -9,8 +9,11 @@
 using namespace std;
 using namespace CEngine;
 
-//Define our static GameResources storage
-map<string, ResourcePointer> GameResources::Resources;
+//Default Constructor (nothing required currently)
+GameResources::GameResources()
+{
+
+}
 
 //This function adds a new Resource into our storage and loads it
 void GameResources::AddResource(string name, Resource *newResource)

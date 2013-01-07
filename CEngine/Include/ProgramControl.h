@@ -11,19 +11,19 @@
 #include "Input.h"
 #include "StateMachine.h"
 #include "GameData.h"
+#include "GameResources.h"
 
 namespace CEngine
 {
-	/// \brief Manages program flow and key game classes like GameStates and GameData. Used for running the main loop of your game.
+	/// \brief Singleton class to manage program flow and key game classes like GameStates and GameData. Used for running the main loop of your game.
 	///
-	/// The ProgramControl class brings the various key game component classes together to run your game. It acts as they key State Machine
-	/// in your game and owns Game Data, the Game Control State Machine, Input and the Graphics Window. It should make up most of the necessary
+	/// The ProgramControl class is a singleton that brings the various key game component classes together to run your game. It acts as they key State Machine
+	/// in your game and owns Game Data, the Game Control State Machine, InputManager and the Graphics Window. It should make up most of the necessary
 	/// main loop for your game.
 	///
-	/// It's worth noting that although copying/assignment is valid for most of the parts of ProgramControl, copy construction and assignment
-	/// are DISABLED for this class. This is primarily due to various potential complications with StateMachine assignment but it is also
-	/// not considered something that is likely to be needed/important- most likely the only assignment necessary would be of the GameData member,
-	/// which can be done by the user as-is.
+	/// To use it correctly, you should instantiate ProgramControl in exactly one spot in your code to create the beginning instance (preferably at the very start
+	/// of your application). Then use the static function Instance() to retrieve a reference to the Singleton instance, from where you can
+	/// access key classes such as GameData.
 	class ProgramControl : public StateMachine
 	{
 	public:
@@ -37,8 +37,22 @@ namespace CEngine
 		/// \brief Default Constructor. This one does not open a graphics window- ideal if you want to run a game simulation without graphics
 		/// (e.g. tests).
 		ProgramControl();
+		/// \brief Destructor. Cleans up the singleton instance pointer.
+		~ProgramControl();
+
+		//Declare exception classes
+		/// \brief Exception class for when the user tries to violate the singleton nature of ProgramControl.
+		class SingletonViolationException : public std::exception
+		{
+		public:
+			SingletonViolationException(const char *what) : std::exception(what) {}
+		};
 
 		//Declare public functions
+		/// \brief Retrieve the singleton instance of ProgramControl.
+		/// 
+		/// \return A reference to a ProgramControl instance.
+		static ProgramControl& Instance();
 		/// \brief Updates our program State. In addition to updating whatever the current state is, performs other program tasks like updating
 		/// processing event messages for input and so on.
 		///
@@ -68,28 +82,36 @@ namespace CEngine
 		void SetPauseOnMinimise(bool pause);
 
 		//Declare public properties
+		//! Global access to game resources
+		GameResources& Resources;
 		//! Global access to our program's input- can only access const members like GetKey() and so on
-		static const Input& ProgramInput;
+		const InputManager& Input;
 
 	private:
 		//! Declare copy constructor and assignment operator as private. For various reasons these are not feasible just now
 		//! and most likely won't be needed.
-		ProgramControl(const ProgramControl& other) {}
+		ProgramControl(const ProgramControl& other) : Input(InputControl), Resources(ResourcesControl) {}
 		void operator = (const ProgramControl& other) {}
 
 		//Declare private properties
-		//! Input storage for our entire program
-		static Input InputControl;
+		//! InputManager storage for our entire program
+		InputManager InputControl;
 		//! Our program's Window Instance
 		Window MainWindow;
 		//! Instance of our complete game data storage
 		GameData Storage;
+		//! Instance of GameResources
+		GameResources ResourcesControl;
 		//! Ticks counter- set in Update() and used by TimeSinceLastUpdate()
 		unsigned int ticks;
 		//! Exit flag- set to true when we want to exit the game
 		bool exit;
 		//! Flag for when the program is active (i.e. not minimised)
 		bool active, pauseWhenInactive, inputFocus;
+
+		//Declare private properties
+		//! Our private singleton pointer
+		static ProgramControl *instance;
 	};
 
 	/// \example Examples/ExampleProgramControl.cpp

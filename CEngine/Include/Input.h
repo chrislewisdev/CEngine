@@ -1,7 +1,7 @@
 /*************************************************************
 *CEngine
 *Input.h by Chris Lewis
-*Declares the Input class for storing/accessing current user input
+*Declares the InputManager class for storing/accessing current user input
 *************************************************************/
 
 #ifndef CENGINE_INPUT_H
@@ -16,15 +16,15 @@ namespace CEngine
 {
 	/// \brief Designed to handle all necessary input for an application. Covers keyboard input and mouse input.
 	///
-	/// The Input class is designed to be used by the ProgramControl class to process keyboard event messages and
+	/// The InputManager class is designed to be used by the ProgramControl class to process keyboard event messages and
 	/// store input values accordingly. Other classes are to use the Get methods to retrieve whatever information they need.
 	/// Currently only core input features are supported- that is, all ASCII characters, and three mouse buttons.
 	/// More possibilities are certainly possible but will be looked into with further testing.
-	class Input
+	class InputManager
 	{
 	public:
 		//! Default Constructor
-		Input();
+		InputManager();
 
 		//Declare exception classes
 		/// \brief Exception class to indicate that an invalid key index was passed to GetKey.
@@ -77,7 +77,7 @@ namespace CEngine
 
 
 	/// \example Examples/ExampleInput.cpp
-	/// Demonstrates usage of the Input class via the ProgramControl class. Covers all basic types of input (keyboard, mouse).
+	/// Demonstrates usage of the InputManager class via the ProgramControl class. Covers all basic types of input (keyboard, mouse).
 }
 
 #endif

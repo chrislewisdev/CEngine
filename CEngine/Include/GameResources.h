@@ -26,6 +26,9 @@ namespace CEngine
 	class GameResources
 	{
 	public:
+		//Default Constructor
+		GameResources();
+
 		//Declare exception classes
 		/// \brief Exception class for when a non-existent resource name is passed to GetResource.
 		class ResourceNotFoundException : public std::exception
@@ -40,18 +43,18 @@ namespace CEngine
 		/// \param name The name to use for the new resource.
 		/// \param newResource Pointer to a new resource to take into our storage. The class will assume ownership of this pointer.
 		/// \return void
-		static void AddResource(std::string name, Resource *newResource);
+		void AddResource(std::string name, Resource *newResource);
 		/// \brief Gets the specified resource. Throws a ResourceNotFoundException if the resource does not exist.
 		///
 		/// \param name The name of the resource to retrieve.
 		/// \return A pointer to the resource.
-		static Resource *GetResource(std::string name);
+		Resource *GetResource(std::string name);
 		/// \brief Gets the specified resource, cast to the specified Resource subclass. Will result in a std::bad_cast exception if
 		/// the cast is invalid.
 		///
 		/// \param name The name of the resource to retrieve.
 		/// \return A pointer to the resource, in the type specified.
-		template <class T> static T *GetResource(std::string name)
+		template <class T> T *GetResource(std::string name)
 		{
 			return dynamic_cast<T*>(GetResource(name));
 		}
@@ -59,7 +62,7 @@ namespace CEngine
 		///
 		/// \param name The name of the resource to delete.
 		/// \return void
-		static void DeleteResource(std::string name);
+		void DeleteResource(std::string name);
 
 	private:
 		//Typedef for our Resources storage
@@ -67,7 +70,7 @@ namespace CEngine
 
 		//Declare private properties
 		//! Map storage for all our game resources
-		static ResourceCollection Resources;
+		ResourceCollection Resources;
 	};
 }
 

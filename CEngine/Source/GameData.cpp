@@ -162,7 +162,7 @@ void GameData::ClearCurrentContext()
 	RemoveList.clear();
 }
 
-//This function clears all data from ALL contexts
+//This function clears all data from ALL contexts, and resets to the blank context
 void GameData::ClearAll()
 {
 	AddList.clear();

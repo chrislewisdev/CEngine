@@ -63,14 +63,6 @@ namespace CEngine
 		///
 		/// \return Time in seconds as a float value.
 		float TimeSinceLastUpdate() const;
-		/// \brief Returns a pointer to our GameData storage instance.
-		///
-		/// \return A non-const pointer our Game Data. Use responsibly!
-		GameData *GetGameData();
-		/// \brief Returns a pointer to our Window instance.
-		///
-		/// \return A non-const pointer to our Window.
-		Window *GetWindow();
 		//// \brief Checks whether or not our application is trying to exit.
 		///
 		/// \return True if the program is trying to exit and should be terminated. False if not.
@@ -82,15 +74,19 @@ namespace CEngine
 		void SetPauseOnMinimise(bool pause);
 
 		//Declare public properties
-		//! Global access to game resources
-		GameResources& Resources;
-		//! Global access to our program's input- can only access const members like GetKey() and so on
+		//! Public access to our GameObject storage
+		GameData& Objects;
+		//! Public access to our window control
+		Window& Display;
+		//! Public access to our program's input- can only access const members like GetKey() and so on
 		const InputManager& Input;
+		//! Public access to game resources
+		GameResources& Resources;
 
 	private:
 		//! Declare copy constructor and assignment operator as private. For various reasons these are not feasible just now
 		//! and most likely won't be needed.
-		ProgramControl(const ProgramControl& other) : Input(InputControl), Resources(ResourcesControl) {}
+		ProgramControl(const ProgramControl& other) : Input(InputControl), Resources(ResourcesControl), Display(MainWindow), Objects(Storage) {}
 		void operator = (const ProgramControl& other) {}
 
 		//Declare private properties
@@ -107,7 +103,7 @@ namespace CEngine
 		//! Exit flag- set to true when we want to exit the game
 		bool exit;
 		//! Flag for when the program is active (i.e. not minimised)
-		bool active, pauseWhenInactive, inputFocus;
+		bool windowActive, pauseWhenInactive, haveInputFocus;
 
 		//Declare private properties
 		//! Our private singleton pointer

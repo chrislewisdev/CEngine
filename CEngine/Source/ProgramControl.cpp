@@ -14,7 +14,8 @@ ProgramControl *ProgramControl::instance = NULL;
 
 //Constructor creates a new window on creation- nothing else needs to be initialised
 ProgramControl::ProgramControl(const char *title, int width, int height)
-	: exit(false), active(true), pauseWhenInactive(false), inputFocus(true), Input(InputControl), Resources(ResourcesControl)
+	: exit(false), windowActive(true), pauseWhenInactive(false), haveInputFocus(true), Input(InputControl) 
+	, Resources(ResourcesControl), Display(MainWindow), Objects(Storage)
 {
 	//Enforce that this is a singleton
 	if (instance == NULL)
@@ -36,7 +37,7 @@ ProgramControl::ProgramControl(const char *title, int width, int height)
 
 //Constructor that doesn't open a window
 ProgramControl::ProgramControl()
-	: exit(false), Input(InputControl), Resources(ResourcesControl)
+	: exit(false), Input(InputControl), Resources(ResourcesControl), Display(MainWindow), Objects(Storage)
 {
 	//Enforce that this is a singleton
 	if (instance == NULL)
@@ -91,8 +92,8 @@ void ProgramControl::Update(float deltaTime)
 			else if (windowEvent.type == SDL_ACTIVEEVENT)
 			{
 				//Minimise/restore or input loss events
-				if (windowEvent.active.state & SDL_APPACTIVE) active = (windowEvent.active.gain == 1);
-				if (windowEvent.active.state & SDL_APPINPUTFOCUS) inputFocus = (windowEvent.active.gain == 1);
+				if (windowEvent.active.state & SDL_APPACTIVE) windowActive = (windowEvent.active.gain == 1);
+				if (windowEvent.active.state & SDL_APPINPUTFOCUS) haveInputFocus = (windowEvent.active.gain == 1);
 			}
 		}
 	}
@@ -101,7 +102,7 @@ void ProgramControl::Update(float deltaTime)
 	ticks = SDL_GetTicks();
 
 	//Don't run the game if we're minimised and set to pause on minimisation
-	if ((active && inputFocus) || !pauseWhenInactive)
+	if ((windowActive && haveInputFocus) || !pauseWhenInactive)
 	{
 		//Do a Batch Add on our Game Data
 		Storage.PerformBatchAdd();
@@ -117,18 +118,6 @@ void ProgramControl::Update(float deltaTime)
 float ProgramControl::TimeSinceLastUpdate() const
 {
 	return (SDL_GetTicks() - ticks) / 1000.0f;
-}
-
-//This function returns a pointer to our Game Data instance
-GameData *ProgramControl::GetGameData()
-{
-	return &Storage;
-}
-
-//This function returns a pointer to our Window instance
-Window *ProgramControl::GetWindow()
-{
-	return &MainWindow;
 }
 
 //This function checks if we're trying to close or not

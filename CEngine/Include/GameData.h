@@ -10,49 +10,22 @@
 #include <list>
 #include <vector>
 #include <map>
+#include <set>
 #include <boost/shared_ptr.hpp>
 #include <boost/weak_ptr.hpp>
 #include "GameObject.h"
+#include "GameObjectInstance.h"
 #include <string>
 
 namespace CEngine
 {
-	/// \class CEngine::GameObjectPointer
-	/// \brief Alias for boost::shared_ptr<GameObject>, used by GameData class for GameObject pointers
-	typedef boost::shared_ptr<GameObject> GameObjectPointer;
 	/// \class CEngine::GameObjectHandle
 	/// \brief Alias for boost::weak_ptr<GameObject>- use this to reference GameObjects held by GameData from other classes in a 
 	/// more persistent manner. Be very careful though not to keep any new shared locks on the object.
 	typedef boost::weak_ptr<GameObject> GameObjectHandle;
 	/// \class CEngine::GameObjectCollection
 	/// \brief Alias for the internal collection used to store GameObjects. Can be used to get the right iterator type for GameObjects.
-	typedef std::list<GameObjectPointer> GameObjectCollection;
-
-	/*
-	Structure: GameObject <- Shared Pointer <- GameObjectInstance <- GameObjectHandle
-	class GameObjectInstance
-	{
-	public:
-		GameObjectInstance(GameObject *o, unsigned int pid)
-			: instance(o), id(pid)
-		{
-
-		}
-
-		GameObject operator -> ()
-		{
-			return *instance.get();
-		}
-		bool operator < (const GameObjectInstance& other)
-		{
-			return (id < other.id);
-		}
-
-	private:
-		GameObjectPointer instance;
-		unsigned int id;
-	};
-	*/
+	typedef std::set<GameObjectInstance> GameObjectCollection;
 
 	//This function checks that the provided GameObject is a valid instance of subclass T
 	template <class T> static bool TestSubclass(GameObject *o)

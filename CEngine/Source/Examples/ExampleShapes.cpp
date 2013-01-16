@@ -154,16 +154,16 @@ int main()
 	//Set up our graphics window and basic state (see ProgramControl documentation)
 	ProgramControl Control("Shapes Example", 800, 600);
 
-	Control.AddState(1, new MainState(&Control, Control.GetGameData()));
+	Control.AddState(1, new MainState(&Control, &Control.Objects));
 	Control.ChangeState(1);
 
 	while (!Control.IsExiting())
 	{
-		Control.GetWindow()->ClearScreen();
+		Control.Display.ClearScreen();
 
 		Control.Update(Control.TimeSinceLastUpdate());
 
-		Control.GetWindow()->UpdateScreen();
+		Control.Display.UpdateScreen();
 	}
 
 	return 0;

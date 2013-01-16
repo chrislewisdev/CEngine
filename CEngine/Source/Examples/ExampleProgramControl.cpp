@@ -37,8 +37,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	Control.ChangeState(1);
 
 	//The ProgramControl class houses key game classes like Window and GameData. These can each be accessed with the matching Get function.
-	Control.GetWindow()->SetResizable(true);
-	Control.GetGameData()->ObjectCount();
+	Control.Display.SetResizable(true);
+	Control.Objects.ObjectCount();
 
 	//You can set whether or not your program should keep running while minimised. If you set PauseOnMinimise to true, everything will
 	//keep running but your State Update or GameData updates will NOT be called.
@@ -47,9 +47,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	//The IsExiting() function returns true when a user clicks on the Close button on your window. Naturally this is useful to control your main loop.
 	//As you can see ProgramControl also houses a static instance of the InputManager class. This is so all code can access the game input regardless
 	//of where from. Here it is used to make the program exit when the Escape key is pressed.
-	while (!Control.IsExiting() && !ProgramControl::ProgramInput.GetKey(VK_ESCAPE))
+	while (!Control.IsExiting() && !Control.Input.GetKey(VK_ESCAPE))
 	{
-		Control.GetWindow()->ClearScreen();
+		Control.Display.ClearScreen();
 
 		//The TimeSinceLastUpdate function does what it says- returns how long has passed (in seconds) since the last Update call.
 		//This is crucial for use as the deltaTime parameter to Update should you be planning on using deltaTime in your code.
@@ -57,7 +57,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		//See StateMachine for the Update function.
 		Control.Update(Control.TimeSinceLastUpdate());
 
-		Control.GetWindow()->UpdateScreen();
+		Control.Display.UpdateScreen();
 	}
 
 	return 0;

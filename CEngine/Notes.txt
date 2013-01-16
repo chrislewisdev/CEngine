@@ -1,7 +1,8 @@
 - All co-ordinates will refer to the top-left of an object, not the center
 
 - Immediate To-Do list:
-	- Change public member access for ProgramControl now that it's a Singleton
+	- Privatise copy construction and assignment in GameObjectInstance
+	- Create GameObjectHandle class, core intent being to allow full synonymity with GameObjectInstance (e.g. when removing) without ownership
 	- Texture class?
 	- Sprite functionality?
 	- Scripting functionality?
@@ -16,7 +17,3 @@
 - CONSIDER: GAMEDATA COPYING SUBCLASS ENFORCEMENT??
 
 - CONSIDER: GRAPHICS FUNCTION NAMESPACE
-
-- CONSIDER: PROGRAMCONTROL STATIC WINDOW INSTANCE?
-- CONSIDER: MAKE PROGRAMCONTROL A SINGLETON?
-	- If ProgramControl were a Singleton, GameResources could be included in it also

@@ -92,6 +92,7 @@
     <ClInclude Include="Include\Doxy.h" />
     <ClInclude Include="Include\GameData.h" />
     <ClInclude Include="Include\GameObject.h" />
+    <ClInclude Include="Include\GameObjectInstance.h" />
     <ClInclude Include="Include\GameResources.h" />
     <ClInclude Include="Include\GameState.h" />
     <ClInclude Include="Include\CEMath.h" />

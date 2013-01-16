@@ -59,11 +59,11 @@ int main()
 	ProgramControl Control;
 
 	//Add our example game state into the program
-	Control.AddState(1, new ExampleState(&Control, Control.GetGameData()));
+	Control.AddState(1, new ExampleState(&Control, &Control.Objects));
 	Control.ChangeState(1);
 
 	//Retrieve our GameData handle
-	GameData *Storage = Control.GetGameData();
+	GameData *Storage = &Control.Objects;
 
 	//The GameData class is designed to help protect against various accidents that can happen when adding/removing objects.
 	//However, it doesn't protect against everything. If you pass an invalid iterator to RemoveObject, it will most likely crash.

@@ -25,6 +25,7 @@ public:
 	void Update(float deltaTime) {cout << "Updating state: " << message << endl;}
 	//The Exit function is called before transitioning into a new state
 	void Exit() {cout << "Exiting state: " << message << endl;}
+	State *Clone(StateMachine *NewOwner) const {return new ExampleState(NewOwner, message); }
 
 private:
 	string message;
@@ -36,9 +37,9 @@ int main()
 	StateMachine Game;
 
 	//Add new State pointers with a newly constructed State instance- the StateMachine will take ownership of the State and automatically delete it
-	Game.AddState(GameState, StatePointer(new ExampleState(&Game, "Playing the game.")));
-	Game.AddState(MenuState, StatePointer(new ExampleState(&Game, "Viewing the menu.")));
-	Game.AddState(WhateverState, StatePointer(new ExampleState(&Game, "Doing whatever.")));
+	Game.AddState(GameState, new ExampleState(&Game, "Playing the game."));
+	Game.AddState(MenuState, new ExampleState(&Game, "Viewing the menu."));
+	Game.AddState(WhateverState, new ExampleState(&Game, "Doing whatever."));
 
 	//Changing to a new state will trigger its Enter method and then we can update it
 	Game.ChangeState(GameState);

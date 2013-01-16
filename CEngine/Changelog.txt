@@ -1,6 +1,23 @@
-----------
-25/09/2012
-----------
+------------------------------------------
+16/01/2013: Chris Lewis
+------------------------------------------
+- Deleted GetGameData/Window functions from ProgramControl, replaced with public reference attributes
+- Updated all Example code files to be up to date with current version
+- Added and slightly fleshed out GameObjectInstance class
+- Changed GameObjectCollection to be a std::set, using the new GameObjectInstance class
+
+------------------------------------------
+07/01/2013: Chris Lewis
+------------------------------------------
+- Changed ProgramControl to a Singleton
+- Added SingletonViolationException to ProgramControl
+- Changed GameResources to be non-static and made it a member of ProgramControl
+- Renamed Input class to InputManager
+- Updated some Test/Example files to match other changes (some updating might still be required)
+
+-----------------------------------------
+25/09/2012: Chris Lewis
+-----------------------------------------
 - Made GameObject class abstract (required miscellaneous changes to other classes to avoid instantiating it)
 - Added Box2D::Center function
 - Drafted GameObjectInstance class

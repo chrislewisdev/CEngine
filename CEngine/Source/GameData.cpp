@@ -9,6 +9,9 @@
 using namespace CEngine;
 using namespace std;
 
+//Define the static counter member of GameObjectInstance
+unsigned int GameObjectInstance::creationCounter = 0;
+
 //Define our constructor- currently no initialisation necessary
 GameData::GameData()
 	: SubclassEnforcer(NULL)
@@ -78,7 +81,7 @@ void GameData::PerformBatchAdd()
 {
 	for (vector<GameObjectPointer>::iterator cdtr = AddList.begin(); cdtr != AddList.end(); cdtr++)
 	{
-		Objects->push_back(*cdtr);
+		Objects->insert(*cdtr);
 	}
 	AddList.clear();
 }
@@ -146,7 +149,7 @@ void GameData::Copy(const GameData& target)
 		SetContext(context->first);
 		for (GameObjectCollection::const_iterator cdtr = context->second.begin(); cdtr != context->second.end(); cdtr++)
 		{
-			Objects->push_back(GameObjectPointer((*cdtr)->Clone()));
+			Objects->insert(GameObjectPointer((*cdtr)->Clone()));
 		}
 	}
 

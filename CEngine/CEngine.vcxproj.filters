@@ -72,6 +72,9 @@
     <ClInclude Include="Include\GameObjectInstance.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Include\GameObjectHandle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Window.cpp">
@@ -133,6 +136,12 @@
     </ClCompile>
     <ClCompile Include="Source\Examples\ExampleProgramControl.cpp">
       <Filter>Source Files\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameObjectInstance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameObjectHandle.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

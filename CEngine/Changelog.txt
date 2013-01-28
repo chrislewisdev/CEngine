@@ -1,4 +1,10 @@
 ------------------------------------------
+28/01/2013: Chris Lewis
+-----------------------------------------
+- Added GameObjectHandle class- currently links to GameObjectInstance with a weak_ptr, accesses via a lock which is purely temporary
+- Made some small fixes in GameData to suit new use of GameObjectInstance
+
+------------------------------------------
 16/01/2013: Chris Lewis
 ------------------------------------------
 - Deleted GetGameData/Window functions from ProgramControl, replaced with public reference attributes

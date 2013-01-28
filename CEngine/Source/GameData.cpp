@@ -63,14 +63,14 @@ void GameData::SetContext(const string& id)
 void GameData::AddObject(GameObject *object)
 {
 	CheckSubclass(object);
-	AddList.push_back(GameObjectPointer(object));
+	AddList.push_back(GameObjectInstance(object));
 }
 
 //This function adds a new GameObject and returns a Handle referencing it
 GameObjectHandle GameData::AddObjectWithHandle(GameObject *object)
 {
 	CheckSubclass(object);
-	GameObjectPointer add(object);
+	GameObjectInstance add(object);
 	GameObjectHandle handle(add);
 	AddList.push_back(add);
 	return handle;
@@ -79,9 +79,9 @@ GameObjectHandle GameData::AddObjectWithHandle(GameObject *object)
 //This function adds all currently waiting objects into the game
 void GameData::PerformBatchAdd()
 {
-	for (vector<GameObjectPointer>::iterator cdtr = AddList.begin(); cdtr != AddList.end(); cdtr++)
+	for (vector<GameObjectInstance>::iterator cdtr = AddList.begin(); cdtr != AddList.end(); cdtr++)
 	{
-		Objects->insert(*cdtr);
+		Objects->insert(GameObjectInstance(*cdtr));
 	}
 	AddList.clear();
 }
@@ -111,7 +111,7 @@ void GameData::PerformBatchRemove()
 {
 	for (vector<GameObjectCollection::iterator>::iterator cdtr = RemoveList.begin(); cdtr != RemoveList.end(); cdtr++)
 	{
-		if (!(*cdtr)->unique()) throw DanglingPointerException("Attempted to delete GameObject with other existing shared_ptr references");
+		//if (!(*cdtr)->unique()) throw DanglingPointerException("Attempted to delete GameObject with other existing shared_ptr references");
 		Objects->erase(*cdtr);
 	}
 	RemoveList.clear();
@@ -139,7 +139,7 @@ int GameData::ObjectCount() const
 void GameData::Copy(const GameData& target)
 {
 	//Copy the Add List from the target
-	for (vector<GameObjectPointer>::const_iterator cdtr = target.AddList.begin(); cdtr != target.AddList.end(); cdtr++)
+	for (vector<GameObjectInstance>::const_iterator cdtr = target.AddList.begin(); cdtr != target.AddList.end(); cdtr++)
 	{
 		AddObject((*cdtr)->Clone());
 	}
@@ -149,7 +149,7 @@ void GameData::Copy(const GameData& target)
 		SetContext(context->first);
 		for (GameObjectCollection::const_iterator cdtr = context->second.begin(); cdtr != context->second.end(); cdtr++)
 		{
-			Objects->insert(GameObjectPointer((*cdtr)->Clone()));
+			Objects->insert(GameObjectInstance((*cdtr)->Clone()));
 		}
 	}
 

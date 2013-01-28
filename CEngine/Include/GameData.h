@@ -15,6 +15,7 @@
 #include <boost/weak_ptr.hpp>
 #include "GameObject.h"
 #include "GameObjectInstance.h"
+#include "GameObjectHandle.h"
 #include <string>
 
 namespace CEngine
@@ -22,7 +23,7 @@ namespace CEngine
 	/// \class CEngine::GameObjectHandle
 	/// \brief Alias for boost::weak_ptr<GameObject>- use this to reference GameObjects held by GameData from other classes in a 
 	/// more persistent manner. Be very careful though not to keep any new shared locks on the object.
-	typedef boost::weak_ptr<GameObject> GameObjectHandle;
+	//typedef boost::weak_ptr<GameObject> GameObjectHandle;
 	/// \class CEngine::GameObjectCollection
 	/// \brief Alias for the internal collection used to store GameObjects. Can be used to get the right iterator type for GameObjects.
 	typedef std::set<GameObjectInstance> GameObjectCollection;
@@ -173,7 +174,7 @@ namespace CEngine
 
 		//Declare private properties
 		//Collection of GameObjectPointers to add into our collection on the next batch add
-		std::vector<GameObjectPointer> AddList;
+		std::vector<GameObjectInstance> AddList;
 		//Map of all our different Object Contexts
 		std::map< std::string, GameObjectCollection > ObjectContexts;
 		//Collection of all game objects currently in our game state

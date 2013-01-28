@@ -1,6 +1,8 @@
 - All co-ordinates will refer to the top-left of an object, not the center
 
 - Immediate To-Do list:
+	- ENSURE SHARED POINTER IS COPIED BETWEEN COPY-CONSTRUCTED INSTANCE OF GAMEOBJECTINSTANCE
+	- Test GameObjectHandle validity after Batch Add
 	- Privatise copy construction and assignment in GameObjectInstance
 	- Create GameObjectHandle class, core intent being to allow full synonymity with GameObjectInstance (e.g. when removing) without ownership
 	- Texture class?

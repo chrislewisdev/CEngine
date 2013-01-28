@@ -92,6 +92,7 @@
     <ClInclude Include="Include\Doxy.h" />
     <ClInclude Include="Include\GameData.h" />
     <ClInclude Include="Include\GameObject.h" />
+    <ClInclude Include="Include\GameObjectHandle.h" />
     <ClInclude Include="Include\GameObjectInstance.h" />
     <ClInclude Include="Include\GameResources.h" />
     <ClInclude Include="Include\GameState.h" />
@@ -139,6 +140,8 @@
     </ClCompile>
     <ClCompile Include="Source\GameData.cpp" />
     <ClCompile Include="Source\GameObject.cpp" />
+    <ClCompile Include="Source\GameObjectHandle.cpp" />
+    <ClCompile Include="Source\GameObjectInstance.cpp" />
     <ClCompile Include="Source\GameResources.cpp" />
     <ClCompile Include="Source\Input.cpp" />
     <ClCompile Include="Source\ProgramControl.cpp" />

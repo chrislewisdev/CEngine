@@ -21,13 +21,7 @@ GameObjectHandle::operator bool()
 }
 
 //Declare normal pointer operator
-GameObject *GameObjectHandle::operator -> ()
-{
-	return reference.lock().get();
-}
-
-//Declare const pointer operator
-const GameObject *GameObjectHandle::operator -> () const
+GameObject *GameObjectHandle::operator -> () const
 {
 	return reference.lock().get();
 }

@@ -21,13 +21,7 @@ GameObjectInstance::GameObjectInstance(const GameObjectInstance& other)
 }
 
 //-> operator for pointer-like behaviour
-GameObject *GameObjectInstance::operator -> ()
-{
-	return instance.get();
-}
-
-//Const version of ->
-const GameObject *GameObjectInstance::operator -> () const
+GameObject *GameObjectInstance::operator -> () const
 {
 	return instance.get();
 }

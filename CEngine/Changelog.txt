@@ -1,4 +1,10 @@
 ------------------------------------------
+04/06/2013: Chris Lewis
+------------------------------------------
+- Changed GameObjectHandle/Instance -> operators to be const (improves compatibility with std::set)
+- Made a small change to boost's visualc.hpp to fix compatibility with VS2012
+
+------------------------------------------
 28/01/2013: Chris Lewis
 -----------------------------------------
 - Added GameObjectHandle class- currently links to GameObjectInstance with a weak_ptr, accesses via a lock which is purely temporary

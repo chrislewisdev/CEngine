@@ -29,9 +29,7 @@ namespace CEngine
 		GameObjectInstance(const GameObjectInstance& other);
 
 		//! -> operator to retrieve our GameObject like with any regular pointer
-		GameObject *operator -> ();
-		//! Const version of the -> operator for read-only usage of GameObjectInstance
-		const GameObject *operator -> () const;
+		GameObject *operator -> () const;
 		//! Give < operator friend access for comparisons
 		friend bool operator < (const GameObjectInstance& left, const GameObjectInstance& right)
 		{
@@ -45,7 +43,7 @@ namespace CEngine
 		//! Shared Pointer to our particular GameObject instance
 		GameObjectPointer instance;
 		//! Our numeric ID for sorting
-		unsigned int id;
+		const unsigned int id;
 		//! Static counter for creation of new IDs for each instance
 		static unsigned int creationCounter;
 

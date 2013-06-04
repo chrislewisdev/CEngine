@@ -23,8 +23,7 @@ namespace CEngine
 		//Declare a cast-to-bool operator
 		operator bool ();
 		//Declare pointer-like operators to access our actual GameObject instance
-		GameObject *operator -> ();
-		const GameObject *operator -> () const;
+		GameObject *operator -> () const;
 
 	private:
 		//Declare private properties

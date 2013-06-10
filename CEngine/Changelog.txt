@@ -1,4 +1,11 @@
 ------------------------------------------
+10/06/2013: Chris Lewis
+------------------------------------------
+- Implemented proper GameObjectHandle default constructor and assignment operators
+- Added ToSubclass<>() method to GameObject
+- Added * operator to GameObjectInstance (may not even be necessary now due to ToSubclass method)
+
+------------------------------------------
 04/06/2013: Chris Lewis
 ------------------------------------------
 - Changed GameObjectHandle/Instance -> operators to be const (improves compatibility with std::set)

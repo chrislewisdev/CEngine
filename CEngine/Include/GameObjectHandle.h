@@ -18,12 +18,24 @@ namespace CEngine
 	class GameObjectHandle
 	{
 	public:
+		GameObjectHandle();
 		GameObjectHandle(GameObjectInstance &inst);
 
 		//Declare a cast-to-bool operator
 		operator bool ();
 		//Declare pointer-like operators to access our actual GameObject instance
 		GameObject *operator -> () const;
+		//Declare assignment operator such that handles can be assigned to each other and from instances
+		const GameObjectHandle& operator = (const GameObjectHandle& rhs)
+		{
+			reference = rhs.reference;
+			return *this;
+		}
+		const GameObjectHandle& operator = (const GameObjectInstance& rhs)
+		{
+			reference = rhs.instance;
+			return *this;
+		}
 
 	private:
 		//Declare private properties

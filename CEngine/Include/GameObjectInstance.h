@@ -30,6 +30,8 @@ namespace CEngine
 
 		//! -> operator to retrieve our GameObject like with any regular pointer
 		GameObject *operator -> () const;
+		//! * operator to retrieve the raw GameObject pointer (not be used lightly!)
+		GameObject *operator * () const;
 		//! Give < operator friend access for comparisons
 		friend bool operator < (const GameObjectInstance& left, const GameObjectInstance& right)
 		{

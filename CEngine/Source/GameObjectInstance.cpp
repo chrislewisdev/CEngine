@@ -25,3 +25,9 @@ GameObject *GameObjectInstance::operator -> () const
 {
 	return instance.get();
 }
+
+//* operator for pointer-like behaviour
+GameObject *GameObjectInstance::operator * () const
+{
+	return instance.get();
+}

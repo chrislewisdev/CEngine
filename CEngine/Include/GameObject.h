@@ -68,6 +68,11 @@ namespace CEngine
 		/// \param target The Circle2D to check against.
 		/// \return True for collision, false if not.
 		virtual bool CheckCollision(const Circle2D& target) = 0;
+		/// \brief Returns a pointer to this GameObject cast to a subclass.
+		template <class T> T *ToSubclass()
+		{
+			return dynamic_cast<T*>(this);
+		}
 
 	protected:
 		//Declare protected functions

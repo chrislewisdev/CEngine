@@ -7,6 +7,12 @@
 
 using namespace CEngine;
 
+//Default Constructor
+GameObjectHandle::GameObjectHandle()
+{
+
+}
+
 //Constructor
 GameObjectHandle::GameObjectHandle(GameObjectInstance &inst)
 	: reference(inst.instance)
